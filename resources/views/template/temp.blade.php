@@ -42,10 +42,8 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row baris-temp">
-            @yield('content')
-        </div>
+    <div class="container baris-temp">
+        @yield('content')
     </div>
     <footer class="footer-edit">
         <div class="container">

@@ -9,6 +9,8 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('image/icon.png') }}" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 
 <body>
@@ -79,21 +81,90 @@
             </div>
         </div>
         <div class="row">
-            <br>
-            <br>
-            <br>
-            <br>
-            <h1>Search</h1>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <form>
+                <div class="d-flex justify-content-center pencarian">
+                    <input type="text" class="form-control datepicker" id="cari" name="cari">
+                    <button type="submit" class="btn btn-success"><img src="{{ asset('image/cari.png') }}"
+                            width="30px"></button>
+                </div>
+            </form>
         </div>
         <hr>
+        <div class="row headrekom mt-4 mb-3">
+            <div class="col-8">
+                <h3>Rekomendasi <span>Lapangan</span></h3>
+            </div>
+            <div class="col-4">
+                <a class="mt-1" href="#">Selengkapnya..</a>
+            </div>
+        </div>
+        <div class="row rekomendasi">
+            <div class="col-3">
+                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
+                        height="380px"></a>
+                <a href="#">
+                    <h5>Lapangan 1</h5>
+                </a>
+                <h6>Makassar - <span>1 Lapangan</span></h6>
+                <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+            </div>
+            <div class="col-3">
+                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
+                        height="380px"></a>
+                <a href="#">
+                    <h5>Lapangan 2</h5>
+                </a>
+                <h6>Makassar - <span>1 Lapangan</span></h6>
+                <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+            </div>
+            <div class="col-3">
+                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
+                        height="380px"></a>
+                <a href="#">
+                    <h5>Lapangan 3</h5>
+                </a>
+                <h6>Makassar - <span>1 Lapangan</span></h6>
+                <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+            </div>
+            <div class="col-3">
+                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
+                        height="380px"></a>
+                <a href="#">
+                    <h5>Lapangan 4</h5>
+                </a>
+                <h6>Makassar - <span>1 Lapangan</span></h6>
+                <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-2">
+                <h4>Promo <span>Lapangan</span></h4>
+                <p>Booking sekarang, dapatkan penawaran terbaik.</p>
+                <a href="#">Lihat Lebih banyak</a>
+            </div>
+            <div class="col-10">
+                <div class="carousel"
+                    data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
+                    <div class="carousel-cell"></div>
+                    <div class="carousel-cell"></div>
+                    <div class="carousel-cell"></div>
+                    <div class="carousel-cell"></div>
+                    <div class="carousel-cell"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-4 mb-4">
+            <h3>Jenis <span>Olahraga</span></h3>
+            <div class="carousel2"
+                    data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
+                    <div class="carousel-cell2"></div>
+                    <div class="carousel-cell2"></div>
+                    <div class="carousel-cell2"></div>
+                    <div class="carousel-cell2"></div>
+                    <div class="carousel-cell2"></div>
+                </div>
+        </div>
     </div>
     <footer class="footer-edit">
         <div class="container">
@@ -123,6 +194,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+        $('.datepicker').datepicker();
+    </script>
+
 </body>
 
 </html>

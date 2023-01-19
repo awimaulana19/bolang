@@ -17,6 +17,27 @@ Route::get('/', function () {
     return view('pengguna.home');
 });
 
+Route::get('/registrasi', function () {
+    return view('pengguna.regist');
+});
+
 Route::get('/login', function () {
     return view('pengguna.login');
 });
+
+Route::get('/akun', function () {
+    return view('pengguna.akun');
+});
+
+Route::get('/etiket', function () {
+    return view('pengguna.etiket');
+});
+
+Route::get('/transaksi', function () {
+    return view('pengguna.transaksi');
+});
+
+Route::get('/lapangan', function () {
+    return view('pengguna.lapangan');
+});
+

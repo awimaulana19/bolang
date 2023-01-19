@@ -71,6 +71,10 @@
     margin-left: 15%;
 }
 
+.semuakotak hr {
+    border: 1px solid #a5a5a5;
+}
+
 .kotak {
     width: 80px;
     height: 100px;
@@ -92,11 +96,107 @@
 }
 
 .kotak a:hover {
+    transition: all ease-in-out 0.4s;
     text-decoration: none;
     font-weight: 700;
     font-size: 15px;
     color: #565656;
 }
+
+.pencarian {
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.pencarian .btn-success {
+    background: #0fa958;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+}
+
+.pencarian .btn-success:hover {
+    transition: all ease-in-out 0.4s;
+    background: #0dba5e;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+}
+
+#cari {
+    width: 300px;
+    height: 50px;
+    border: 1px solid #747474;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.headrekom h3 {
+    font-weight: 600;
+    font-size: 29px;
+    color: #000000;
+}
+
+.headrekom h3 span {
+    font-weight: 700;
+    font-size: 29px;
+    color: #0fa958;
+}
+
+.headrekom .col-4 a {
+    font-weight: 600;
+    font-size: 20px;
+    color: #6b6b6b;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.headrekom .col-4 a:hover {
+    transition: all ease-in-out 0.4s;
+    color: #000000;
+}
+
+.headrekom .col-4 a {
+    font-weight: 600;
+    font-size: 20px;
+    color: #6b6b6b;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.rekomendasi a {
+    text-decoration: none;
+}
+
+.rekomendasi a h5:hover {
+    transition: all ease-in-out 0.4s;
+    color: #565656;
+}
+
+.rekomendasi a h5 {
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+}
+
+.rekomendasi h6 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+}
+
+.rekomendasi h6 span {
+    font-weight: 400;
+    font-size: 14px;
+    color: #0fa958;
+}
+
+.rekomendasi h6 .harga {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0fa958;
+}
+
 
 /* footer */
 .footer-edit {
@@ -121,4 +221,55 @@
     font-size: 20px;
     color: #000000;
     text-decoration: none;
+}
+
+
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+.carousel {
+  background: #ffffff;
+}
+
+.carousel-cell {
+  width: 28%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.carousel2 {
+  background: #ffffff;
+}
+
+.carousel-cell2 {
+  width: 100%;
+  height: 400px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+/* cell number */
+.carousel-cell2:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
 }
