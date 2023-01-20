@@ -25,20 +25,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Promo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Lapangan</a>
+                        <a class="nav-link" href="/lapangan">Lapangan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">E-Ticket</a>
+                        <a class="nav-link" href="/etiket">E-Ticket</a>
                     </li>
                 </ul>
-                <a href="#" class="btn-temp">REGISTER</a>
-                <a href="#" class="btn-temp">LOGIN</a>
+                <a href="/registrasi" class="btn-temp">REGISTER</a>
+                <a href="/login" class="btn-temp">LOGIN</a>
             </div>
         </div>
     </nav>
@@ -50,13 +50,13 @@
             <div class="row m-auto">
                 <div class="col-3">
                     <p class="pilihan">Menu</p>
-                    <p><a href="#">Home</a></p>
-                    <p><a href="#">E-Ticket</a></p>
+                    <p><a href="/">Home</a></p>
+                    <p><a href="/etiket">E-Ticket</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Produk</p>
                     <p><a href="#">Promo</a></p>
-                    <p><a href="#">Lapangan</a></p>
+                    <p><a href="/lapangan">Lapangan</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Bantuan</p>
