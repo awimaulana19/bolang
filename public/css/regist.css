@@ -1,0 +1,25 @@
+* {
+    font-family: "Poppins";
+}
+.regist .button-primary{
+    background-color: #B6E388;
+    border: none;
+    color: #fff;
+    height: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+.regist .form{
+    background-color: #D9D9D9;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border: none;
+    color: #fff;
+    height: 40px;
+    border-radius: 12px;
+}
+.regist input::placeholder{
+    padding-left: 24px;
+}
+.regist p a{
+    color: #B6E388;
+}
