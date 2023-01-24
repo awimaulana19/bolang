@@ -100,7 +100,7 @@
         </div>
         <div class="row rekomendasi">
             <div class="col-3">
-                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
+                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
                     <h5>Lapangan 1</h5>
@@ -109,7 +109,7 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-3">
-                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
+                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
                     <h5>Lapangan 2</h5>
@@ -118,7 +118,7 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-3">
-                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
+                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
                     <h5>Lapangan 3</h5>
@@ -127,7 +127,7 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-3">
-                <a href="#"><img class="rounded mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
+                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
                     <h5>Lapangan 4</h5>
@@ -136,8 +136,8 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
         </div>
-        <div class="row mt-5 mb-5">
-            <div class="col-2">
+        <div class="row mb-4 promo">
+            <div class="col-2 mt-5">
                 <h4>Promo <span>Lapangan</span></h4>
                 <p>Booking sekarang, dapatkan penawaran terbaik.</p>
                 <a href="#">Lihat Lebih banyak</a>
@@ -145,25 +145,108 @@
             <div class="col-10">
                 <div class="carousel"
                     data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
-                    <div class="carousel-cell"></div>
-                    <div class="carousel-cell"></div>
-                    <div class="carousel-cell"></div>
-                    <div class="carousel-cell"></div>
-                    <div class="carousel-cell"></div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 1</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 2</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 3</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan4.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 4</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 5</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 6</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
+                    <div class="carousel-cell">
+                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
+                                width="100%" height="70%"></a>
+                        <a href="#">
+                            <h5>Lapangan 7</h5>
+                        </a>
+                        <h6>Makassar - <span>1 Lapangan</span></h6>
+                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                    </div>
                 </div>
             </div>
         </div>
         <hr>
-        <div class="row mt-4 mb-4">
-            <h3>Jenis <span>Olahraga</span></h3>
-            <div class="carousel2"
-                    data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
-                    <div class="carousel-cell2"></div>
-                    <div class="carousel-cell2"></div>
-                    <div class="carousel-cell2"></div>
-                    <div class="carousel-cell2"></div>
-                    <div class="carousel-cell2"></div>
-                </div>
+        <div class="row mt-4 mb-4 jenis">
+            <h3 class="mb-3">Jenis <span>Olahraga</span></h3>
+            <div class="carousel2 mb-5"
+                data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
+                <a href="#" class="carousel-cell2">
+                    <div class="namaolahraga"><span>GYM</span></div>
+                    <img src="{{ asset('image/gym.png') }}" width="100%"
+                        height="100%">
+                </a>
+                <a href="#" class="carousel-cell2">
+                    <div class="namaolahraga"><span>Futsal</span></div>
+                    <img src="{{ asset('image/futsal.png') }}" width="100%"
+                        height="100%">
+                </a>
+                <a href="#" class="carousel-cell2">
+                    <div class="namaolahraga"><span>Mini Soccer</span></div>
+                    <img src="{{ asset('image/minisoccer.png') }}" width="100%"
+                        height="100%">
+                </a>
+                <a href="#" class="carousel-cell2">
+                    <div class="namaolahraga"><span>Basket</span></div>
+                    <img src="{{ asset('image/basket.png') }}" width="100%"
+                        height="100%">
+                </a>
+                <a href="#" class="carousel-cell2">
+                    <div class="namaolahraga"><span>Tenis</span></div>
+                    <img src="{{ asset('image/tenis.png') }}" width="100%"
+                        height="100%">
+                </a>
+                <a href="#" class="carousel-cell2">
+                    <div class="namaolahraga"><span>Tenis Meja</span></div>
+                    <img src="{{ asset('image/tenismeja.png') }}" width="100%"
+                        height="100%">
+                </a>
+            </div>
         </div>
     </div>
     <footer class="footer-edit">
