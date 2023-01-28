@@ -55,7 +55,7 @@
                         nulla
                         libero adipisci minima Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
                         dolorum neque, quisquam aliquid magnam amet dignissimos eos itaque. Quidem, fuga incidunt.
-                        Incidunt, itaque a. Eveniet excepturi facilis asperiores blanditiis accusantium?</p>
+                        Incidunt, itaque a. Eveniet excepturi facilis asperiores blanditiis accusantium</p>
                 </div>
                 <div class="col-lg-7 col-md-12">
                     <div class="gambarhero">
@@ -95,7 +95,7 @@
                 <h3>Rekomendasi <span>Lapangan</span></h3>
             </div>
             <div class="col-4">
-                <a class="mt-1" href="#">Selengkapnya..</a>
+                <a class="mt-1" href="/lapangan">Selengkapnya..</a>
             </div>
         </div>
         <div class="row rekomendasi">
