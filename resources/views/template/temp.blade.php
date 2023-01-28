@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('image/logo.png') }}" alt="" width="120px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -28,10 +28,10 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Promo</a>
+                        <a class="nav-link" href="/lapangan">Lapangan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lapangan">Lapangan</a>
+                        <a class="nav-link" href="/promo">Promo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/etiket">E-Ticket</a>
@@ -55,13 +55,13 @@
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Produk</p>
-                    <p><a href="#">Promo</a></p>
                     <p><a href="/lapangan">Lapangan</a></p>
+                    <p><a href="/promo">Promo</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Bantuan</p>
-                    <p><a href="#">Help Center</a></p>
-                    <p><a href="#">Live Chat</a></p>
+                    <p><a href="https://wa.me/6282397032649?text=Hi+Admin.+Saya+ingin+bertanya+mengenai+Bolang">Live Chat</a></p>
+                    <p><a href="https://www.instagram.com/awimaulana19/">Sosmed</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Pembayaran</p>

@@ -29,6 +29,10 @@ Route::get('/akun', function () {
     return view('pengguna.akun');
 });
 
+Route::get('/promo', function () {
+    return view('pengguna.promo');
+});
+
 Route::get('/etiket', function () {
     return view('pengguna.etiket');
 });
@@ -39,5 +43,9 @@ Route::get('/transaksi', function () {
 
 Route::get('/lapangan', function () {
     return view('pengguna.lapangan');
+});
+
+Route::get('/olahraga', function () {
+    return view('pengguna.olahraga');
 });
 
