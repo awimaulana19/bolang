@@ -47,7 +47,7 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row baris-temp">
-                <div class="col-5 kata">
+                <div class="col-lg-5 col-md-12 kata">
                     <h1>Selamat Beraktivitas</h1>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi suscipit non quisquam eaque
                         eligendi,
@@ -57,8 +57,8 @@
                         dolorum neque, quisquam aliquid magnam amet dignissimos eos itaque. Quidem, fuga incidunt.
                         Incidunt, itaque a. Eveniet excepturi facilis asperiores blanditiis accusantium?</p>
                 </div>
-                <div class="col-7">
-                    <div class="d-flex justify-content-end">
+                <div class="col-lg-7 col-md-12">
+                    <div class="gambarhero">
                         <img src="{{ asset('image/hero.png') }}" alt="Hero" width="400px">
                     </div>
                 </div>
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="row rekomendasi">
-            <div class="col-3">
+            <div class="col-xl-3 col-lg-4 col-6">
                 <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
@@ -108,7 +108,7 @@
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
-            <div class="col-3">
+            <div class="col-xl-3 col-lg-4 col-6">
                 <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
@@ -117,7 +117,7 @@
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
-            <div class="col-3">
+            <div class="col-xl-3 col-lg-4 col-6">
                 <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
@@ -126,7 +126,7 @@
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
-            <div class="col-3">
+            <div class="col-xl-3 col-lg-4 col-6">
                 <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
                         height="380px"></a>
                 <a href="#">
@@ -137,12 +137,12 @@
             </div>
         </div>
         <div class="row mb-4 promo">
-            <div class="col-2 mt-5">
+            <div class="col-lg-2 col-3 desk">
                 <h4>Promo <span>Lapangan</span></h4>
                 <p>Booking sekarang, dapatkan penawaran terbaik.</p>
                 <a href="#">Lihat Lebih banyak</a>
             </div>
-            <div class="col-10">
+            <div class="col-lg-10 col-9">
                 <div class="carousel"
                     data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
                     <div class="carousel-cell">
@@ -269,7 +269,7 @@
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Pembayaran</p>
-                    <img src="{{ asset('image/pembayaran.png') }}" alt="Pembayaran" width="200px">
+                    <img src="{{ asset('image/pembayaran.png') }}" alt="Pembayaran" width="100%">
                 </div>
             </div>
         </div>

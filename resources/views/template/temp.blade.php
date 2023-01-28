@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Pembayaran</p>
-                    <img src="{{ asset('image/pembayaran.png') }}" alt="Pembayaran" width="200px">
+                    <img src="{{ asset('image/pembayaran.png') }}" alt="Pembayaran" width="100%">
                 </div>
             </div>
         </div>

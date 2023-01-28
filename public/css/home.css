@@ -97,9 +97,6 @@
 
 .kotak a:hover {
     transition: all ease-in-out 0.4s;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
     color: #565656;
 }
 
@@ -226,24 +223,34 @@
     margin-top: 100px;
 }
 
-.promo .col-2 h4 {
+.promo .desk {
+    margin-top: 50px;
+}
+
+.promo .desk h4 {
     font-weight: 700;
     font-size: 20px;
     color: #000000;
 }
 
-.promo .col-2 h4 span {
+.promo .desk h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+}
+
+.promo .desk h4 span {
     color: #0fa958;
 }
 
-.promo .col-2 p {
+.promo .desk p {
     font-weight: 500;
     font-size: 15px;
     line-height: 25px;
     color: #000000;
 }
 
-.promo .col-2 a {
+.promo .desk a {
     font-weight: 600;
     font-size: 15px;
     color: #000000;
@@ -360,7 +367,7 @@
 .carousel-cell2 .namaolahraga {
     position: absolute;
     left: 55px;
-    top: 81%;
+    top: 82%;
     width: 480px;
     height: 70px;
     background: #b6e388;
@@ -374,4 +381,159 @@
     font-weight: 600;
     font-size: 40px;
     color: #000000;
+}
+
+
+.baris-temp .gambarhero {
+    display: flex;
+    justify-content: end;
+}
+
+
+@media (max-width: 770px) {
+    .baris-temp .kata {
+        margin-top: -30px;
+    }
+
+    .baris-temp .gambarhero {
+        margin-top: 20px;
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .baris-temp .gambarhero img {
+        width: 300px;
+    }
+
+    .kotak a {
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 13px;
+        color: #000000;
+    }
+
+    .semuakotak .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .semuakotak .kotak1 {
+        margin-left: 0;
+    }
+
+    .semuakotak .kotak{
+        margin-right: 20px;
+    }
+
+    .rekomendasi .col-6{
+        margin-top: 5px;
+    }
+
+    .rekomendasi a img{
+        width: 100%;
+        height: 70%;
+    }
+
+    .carousel-cell {
+        width: 40%;
+        height: 250px;
+        margin-right: 20px;
+    }
+
+
+    .promo{
+        margin-top: 30px;
+    }
+    
+    .carousel-cell a img {
+        height: 50%;
+    }
+
+    .promo .desk {
+        margin-top: 10px;
+    }
+
+    .promo .desk h4 {
+        font-size: 15px;
+    }
+    
+    .promo .desk p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    
+    .promo .desk a {
+        font-size: 13px;
+    }
+
+    .carousel-cell a .tanda {
+        display: none;
+    }
+    
+    .carousel-cell a h5 {
+        font-size: 16px;
+    }
+    
+    .carousel-cell h6 {
+        font-size: 10px;
+    }
+    
+    .carousel-cell h6 span {
+        font-size: 10px;
+    }
+    
+    .carousel-cell h6 .harga {
+        font-size: 10px;
+    }
+
+    .carousel-cell2 {
+        width: 100%;
+        height: 270px;
+        margin-right: 10px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    
+    .carousel-cell2 .namaolahraga {
+        position: absolute;
+        left: 0px;
+        top: 82%;
+        width: 100%;
+        height: 60px;
+        border-radius: 0px 0px;
+    }
+    
+    .carousel-cell2 .namaolahraga span {
+        font-size: 30px;
+    }
+
+    .footer-edit {
+        padding-top: 35px;
+        border-top: 0px solid #b6e388;
+        clip-path: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    
+    .footer-edit .pilihan {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    
+    .footer-edit p a {
+        font-size: 13px;
+    }
+
+    .footer-edit img {
+        height: 50%;
+    }
+
+    .navbar #navbarSupportedContent .btn-temp{
+        display: flex;
+        margin-left: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
 }

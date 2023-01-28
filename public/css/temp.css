@@ -63,3 +63,42 @@
     color: #000000;
     text-decoration: none;
 }
+
+@media (max-width: 770px) {
+    .footer-edit {
+        padding-top: 35px;
+        border-top: 0px solid #b6e388;
+        clip-path: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    
+    .footer-edit .pilihan {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    
+    .footer-edit p a {
+        font-size: 13px;
+    }
+
+    .footer-edit img {
+        height: 50%;
+    }
+
+    .navbar {
+        padding-bottom: 5px;
+        border-bottom: none;
+        clip-path: none;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .navbar #navbarSupportedContent .btn-temp{
+        display: flex;
+        margin-left: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+}
