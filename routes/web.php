@@ -49,3 +49,11 @@ Route::get('/olahraga', function () {
     return view('pengguna.olahraga');
 });
 
+Route::get('/pilih', function () {
+    return view('pengguna.pilihlapangan');
+});
+
+Route::get('/booking', function () {
+    return view('pengguna.booking');
+});
+

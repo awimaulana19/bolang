@@ -100,36 +100,36 @@
         </div>
         <div class="row rekomendasi">
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
                         height="380px"></a>
-                <a href="#">
+                <a href="/pilih">
                     <h5>Lapangan 1</h5>
                 </a>
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
                         height="380px"></a>
-                <a href="#">
+                <a href="/pilih">
                     <h5>Lapangan 2</h5>
                 </a>
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
                         height="380px"></a>
-                <a href="#">
+                <a href="/pilih">
                     <h5>Lapangan 3</h5>
                 </a>
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="#"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
                         height="380px"></a>
-                <a href="#">
+                <a href="/pilih">
                     <h5>Lapangan 4</h5>
                 </a>
                 <h6>Makassar - <span>1 Lapangan</span></h6>
@@ -146,67 +146,67 @@
                 <div class="carousel"
                     data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 1</h5>
+                        <a href="/pilih">
+                            <h5>Kakanta Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Futsal</span></h6>
+                        <h6>Lapangan 1</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 2</h5>
+                        <a href="/pilih">
+                            <h5>Kakanta Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Bulu Tangkis</span></h6>
+                        <h6>Lapangan 1</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 3</h5>
+                        <a href="/pilih">
+                            <h5>Kakanta Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Futsal</span></h6>
+                        <h6>Lapangan 2</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan4.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan4.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 4</h5>
+                        <a href="/pilih">
+                            <h5>Aeropala Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Futsal</span></h6>
+                        <h6>Lapangan 2</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 5</h5>
+                        <a href="/pilih">
+                            <h5>Aeropala Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Futsal</span></h6>
+                        <h6>Lapangan 1</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 6</h5>
+                        <a href="/pilih">
+                            <h5>Aeropala Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Bulu Tangkis</span></h6>
+                        <h6>Lapangan 2</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="#"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
+                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
                                 width="100%" height="70%"></a>
-                        <a href="#">
-                            <h5>Lapangan 7</h5>
+                        <a href="/pilih">
+                            <h5>Aeropala Sport Center</h5>
                         </a>
-                        <h6>Makassar - <span>1 Lapangan</span></h6>
-                        <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
+                        <h6><span>Basket</span></h6>
+                        <h6>Lapangan 1</h6>
                     </div>
                 </div>
             </div>

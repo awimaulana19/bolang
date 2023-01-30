@@ -1,0 +1,329 @@
+.hero .imghero {
+    width: 100%;
+    height: 420px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0hero 0.25));
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hero .head {
+    font-weight: 600;
+    font-size: 45px;
+    color: #000000;
+}
+
+.hero .desk {
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+}
+
+.hero .bulat {
+    width: 60px;
+    height: 60px;
+    background: #fcffb2;
+    border-radius: 30px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .bulat img {
+    width: 60%;
+}
+
+hr {
+    border: 1px solid #a5a5a5;
+}
+
+.daftar .all {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.daftar .kartu {
+    width: 33%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.daftar .all .kartu img {
+    width: 290px;
+    height: 270px;
+    border-radius: 30px;
+}
+
+.daftar .all .kartu h1 {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000;
+}
+
+.daftar .all .kartu p {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.btn-success {
+    margin-top: 5px;
+    margin-bottom: 50px;
+    width: 310px;
+    height: 45px;
+    background: #0fa958;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 19px;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-success:hover {
+    background: #0dc060;
+    color: #ffffff;
+}
+
+.deskripsi h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 35px;
+    color: #0fa958;
+}
+
+.deskripsi p {
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+
+.deskripsi ul li {
+    margin-left: 1em;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+
+.deskripsi .operasional {
+    justify-content: center;
+}
+
+.deskripsi .operasional .waktu {
+    margin-right: 40px;
+}
+
+.deskripsi .operasional .waktu h4 {
+    font-weight: 500;
+    font-size: 25px;
+    color: #000000;
+}
+
+.deskripsi .operasional .waktu h6 {
+    font-weight: 300;
+    font-size: 15px;
+    color: #000000;
+}
+
+.fasilitas .isi {
+    width: 70%;
+    padding-bottom: 30px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.fasilitas h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 55px;
+    color: #0fa958;
+}
+
+.fasilitas .isi .semuaitem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fasilitas .isi .item {
+    width: 35%;
+    display: flex;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.fasilitas .isi .item img {
+    margin-right: 30px;
+}
+
+.fasilitas .isi .item h2 {
+    font-weight: 600;
+    font-size: 25px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.fasilitas hr {
+    width: 90%;
+    height: 1px;
+    margin: 20px auto;
+    background-color: #a5a5a5;
+    border: none;
+}
+
+.lokasi h5 {
+    width: 70%;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+}
+
+.lokasi .maps iframe {
+    width: 85%;
+    height: 420px;
+    background: linear-gradient(
+        0deg,
+        rgba(15, 169, 88, 0.5),
+        rgba(15, 169, 88, 0.5)
+    );
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+@media (max-width: 991px) {
+    .hero .imghero {
+        height: 260px;
+    }
+    
+    .hero .head {
+        font-size: 32px;
+    }
+    
+    .hero .desk {
+        font-size: 17px;
+    }
+    
+    .hero .bulat {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .hero .bulat img {
+        width: 60%;
+    }
+    
+    .daftar .kartu {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+    
+    .daftar .all .kartu img {
+        width: 90%;
+        height: 220px;
+    }
+    
+    .daftar .all .kartu h1 {
+        font-size: 25px;
+    }
+    
+    .daftar .all .kartu p {
+        margin-top: 5px;
+        font-size: 16px;
+    }
+    
+    .btn-success {
+        margin-top: 0px;
+        width: 90%;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .deskripsi h1 {
+        font-size: 30px;
+        color: #0fa958;
+    }
+    
+    .deskripsi p {
+        font-size: 16px;
+    }
+    
+    .deskripsi ul li {
+        font-size: 16px;
+    }
+    
+    .deskripsi .operasional {
+        flex-wrap: wrap;
+    }
+
+    .deskripsi .operasional .waktu {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-right: 23px;
+        margin-bottom: 10px;
+    }
+    
+    .deskripsi .operasional .waktu h4 {
+        font-size: 17px;
+    }
+    
+    .deskripsi .operasional .waktu h6 {
+        font-size: 11px;
+    }
+
+    .fasilitas .isi {
+        width: 90%;
+    }
+    
+    .fasilitas h1 {
+        font-size: 35px;
+    }
+    
+    .fasilitas .isi .semuaitem {
+        justify-content: flex-start;
+    }
+    
+    .fasilitas .isi .item {
+        width: 15%;
+        margin-left: 40px;
+        margin-right: 20%;
+    }
+    
+    .fasilitas .isi .item img {
+        width: 90%;
+        margin-right: 15px;
+    }
+    
+    .fasilitas .isi .item h2 {
+        font-size: 14px;
+    }
+
+    .lokasi h5 {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    
+    .lokasi .maps iframe {
+        margin-top: 10px;
+        width: 85%;
+        height: 260px;
+        background: linear-gradient(
+            0deg,
+            rgba(15, 169, 88, 0.5),
+            rgba(15, 169, 88, 0.5)
+        );
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+    }
+}
