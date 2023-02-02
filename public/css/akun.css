@@ -1,0 +1,64 @@
+.garis{
+    border: 0.5px solid rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+}
+.profile{
+    text-align: center;
+}
+img{
+    padding-top: 20px;
+}
+.profile p{
+    padding-top: 15px;
+}
+.profile .update{
+    padding-right: 180px;
+    font-weight: bolder;
+}
+.dropzone {
+    border: 2px dashed #ddd;
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.dropzone p {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.garis1{
+    border: 0.5px solid rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    width: 700px;
+    margin-left: 40px;
+    padding: 20px;
+}
+.kolom{
+    width: 280px;
+}
+.pilih{
+    height: 30px;
+    width: 280px;
+}
+.form-2{
+    margin-left: 300px;
+    margin-top: -211px;
+}
+.thn{
+    width: 137px;
+    margin-left: 20px;
+}
+.thn2{
+    width: 120px;
+}
+span{
+    margin-left: 55px;
+}
+
+.favorite{
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.gambar{
+    margin-right: 15px;
+}
