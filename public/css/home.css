@@ -384,6 +384,16 @@
         margin-top: -30px;
     }
 
+    .kata h1 {
+        font-size: 55px;
+        line-height: 70px;
+    }
+    
+    .kata p {
+        font-size: 19px;
+        line-height: 21px;
+    }
+
     .baris-temp .gambarhero {
         margin-top: 20px;
         margin-bottom: 100px;
@@ -524,5 +534,11 @@
         margin-top: 20px;
         margin-bottom: 20px;
         justify-content: center;
+        font-size: 16px;
+    }
+
+    .navbar ul li a {
+        font-size: 18px;
+        line-height: 20px;
     }
 }

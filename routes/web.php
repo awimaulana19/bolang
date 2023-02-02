@@ -57,3 +57,11 @@ Route::get('/booking', function () {
     return view('pengguna.booking');
 });
 
+Route::get('/pesan', function () {
+    return view('pengguna.pemesanan');
+});
+
+Route::get('/bayar', function () {
+    return view('pengguna.pembayaran');
+});
+

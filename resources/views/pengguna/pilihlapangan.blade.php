@@ -24,31 +24,31 @@
                 <img src="{{ asset('image/lapangan2.png') }}" alt="lapangan">
                 <h1>Lapangan 1</h1>
                 <p>Rp. 135.000</p>
-                <a class="btn btn-success" href="#">Lihat Jadwal</a>
+                <a class="btn btn-success" href="/booking">Lihat Jadwal</a>
             </div>
             <div class="kartu">
                 <img src="{{ asset('image/lapangan2.png') }}" alt="lapangan">
                 <h1>Lapangan 2</h1>
                 <p>Rp. 135.000</p>
-                <a class="btn btn-success" href="#">Lihat Jadwal</a>
+                <a class="btn btn-success" href="/booking">Lihat Jadwal</a>
             </div>
             <div class="kartu">
                 <img src="{{ asset('image/lapangan2.png') }}" alt="lapangan">
                 <h1>Lapangan 3</h1>
                 <p>Rp. 135.000</p>
-                <a class="btn btn-success" href="#">Lihat Jadwal</a>
+                <a class="btn btn-success" href="/booking">Lihat Jadwal</a>
             </div>
             {{-- <div class="kartu">
                 <img src="{{ asset('image/lapangan2.png') }}" alt="lapangan">
                 <h1>Lapangan 3</h1>
                 <p>Rp. 135.000</p>
-                <a class="btn btn-success" href="#">Lihat Jadwal</a>
+                <a class="btn btn-success" href="/booking">Lihat Jadwal</a>
             </div> --}}
             {{-- <div class="kartu">
                 <img src="{{ asset('image/lapangan2.png') }}" alt="lapangan">
                 <h1>Lapangan 3</h1>
                 <p>Rp. 135.000</p>
-                <a class="btn btn-success" href="#">Lihat Jadwal</a>
+                <a class="btn btn-success" href="/booking">Lihat Jadwal</a>
             </div> --}}
         </div>
     </div>
