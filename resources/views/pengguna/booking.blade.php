@@ -1,6 +1,6 @@
 @extends('template.temp')
 
-@section('title', 'Bolang | Booking')
+@section('title', 'Booking - Bolang')
 
 @section('content')
     <a href="/pesan">Pesan</a>

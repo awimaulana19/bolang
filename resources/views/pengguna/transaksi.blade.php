@@ -1,6 +1,6 @@
 @extends('template.temp')
 
-@section('title', 'Bolang | Transaksi')
+@section('title', 'Transaksi - Bolang')
 
 @section('content')
     

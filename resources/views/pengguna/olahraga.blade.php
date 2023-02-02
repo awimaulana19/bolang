@@ -1,6 +1,6 @@
 @extends('template.temp')
 
-@section('title', 'Bolang | Olahraga - ')
+@section('title', 'Futsal - Bolang')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/lapangan.css') }}">

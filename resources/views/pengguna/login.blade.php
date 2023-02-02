@@ -1,6 +1,6 @@
 @extends('template.temp')
 
-@section('title', 'Bolang | Login')
+@section('title', 'Login - Bolang')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/regist.css') }}">

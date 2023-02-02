@@ -1,6 +1,6 @@
 @extends('template.temp')
 
-@section('title', 'Bolang | Lapangan')
+@section('title', 'Lapangan - Bolang')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/lapangan.css') }}">

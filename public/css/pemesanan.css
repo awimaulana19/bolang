@@ -128,6 +128,9 @@
     font-size: 20px;
     color: #ffffff;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pelanggan .btn-success:hover {
@@ -135,79 +138,156 @@
     color: #ffffff;
 }
 
+/* CSS PEMBAYARAN */
+
+.pelanggan .pembayaran {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pelanggan .pembayaran .dat {
+    margin-bottom: 40px;
+}
+
+.pelanggan .pembayaran .dat h4 {
+    font-weight: 400;
+    font-size: 21px;
+    color: #000000;
+}
+
+.pelanggan .pembayaran .dat h5 {
+    font-weight: 600;
+    font-size: 19px;
+    color: #000000;
+}
+
+.pelanggan .pembayaran .dat .status {
+    width: 110px;
+    background: #0fa958;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pelanggan .pembayaran .dat .status span {
+    font-weight: 600;
+    font-size: 19px;
+    color: #ffffff;
+}
+
+.pelanggan .pembayaran .data {
+    width: 70%;
+}
+
+.pelanggan .pembayaran .datakanan {
+    width: 30%;
+}
+
+.pelanggan .pembayaran hr {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+}
+
+.pelanggan .rincibayar {
+    margin-top: 40px;
+}
+
+.pelanggan .btn-bayar {
+    width: 100%;
+    height: 40px;
+    background: #0fa958;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -15px;
+}
+
+.pelanggan .btn-bayar:hover {
+    background: #0dc060;
+    color: #ffffff;
+}
+
+/* Akhir CSS PEMBAYARAN */
+
 @media (max-width: 991px) {
     .pelanggan h1 {
         font-size: 40px;
     }
-    
+
     .pelanggan .tabel {
         padding: 40px;
         padding-bottom: 30px;
     }
-    
+
     .pelanggan .tabel h3 {
         font-size: 20px;
     }
-    
+
     .pelanggan .tabel .row .form-label {
         font-size: 15px;
     }
-    
+
     .pelanggan .tabel .baris1 {
         display: block;
     }
-    
+
     .pelanggan .tabel .baris1 .col-6 {
         width: 100%;
     }
-    
+
     .pelanggan .tabel .row .form-control {
         border: 1px solid #8d8d8d;
     }
-    
+
     .pelanggan .pilih .form-select {
         font-size: 16px;
     }
-    
+
     .pelanggan .pilih .pembayaran {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
         margin-bottom: -20px;
     }
-    
+
     .pelanggan .pilih .gambar {
         width: 30%;
         margin-right: 0;
     }
-    
+
     .pelanggan .pilih .pembayaran .gambar img {
         width: 90%;
         height: 35px;
     }
-    
+
     .pelanggan .pilih .pembayaran .gambar .linkaja {
         width: 50%;
         height: 50px;
     }
-    
+
     .pelanggan .rincian h4 {
         font-size: 19px;
     }
-    
+
     .pelanggan .rincian h6 {
         font-size: 16px;
     }
-    
+
     .pelanggan .rincian h6 .bi-circle-fill {
         font-size: 13px;
         color: #0fa958;
     }
-    
+
     .pelanggan .rincian .harga span {
         font-size: 14px;
     }
-    
+
     .pelanggan .btn-success {
         margin-top: -20px;
         width: 80%;
@@ -216,4 +296,46 @@
         font-size: 17px;
         border: none;
     }
+
+    /* CSS PEMBAYARAN */
+
+    .pelanggan .pembayaran .dat {
+        margin-bottom: 40px;
+    }
+
+    .pelanggan .pembayaran .dat h4 {
+        font-size: 15px;
+    }
+
+    .pelanggan .pembayaran .dat h5 {
+        font-size: 14px;
+    }
+
+    .pelanggan .pembayaran .dat .status {
+        width: 80px;
+    }
+
+    .pelanggan .pembayaran .dat .status span {
+        font-size: 13px;
+    }
+
+    .pelanggan .pembayaran .data {
+        width: 50%;
+        margin-right: 20px;
+    }
+
+    .pelanggan .pembayaran .datakanan {
+        width: 40%;
+    }
+
+    .pelanggan .btn-bayar {
+        width: 100%;
+        height: 35px;
+        font-weight: 600;
+        font-size: 16px;
+        margin-top: -10px;
+        margin-bottom: -5px;
+    }
+
+    /* Akhir CSS PEMBAYARAN */
 }
