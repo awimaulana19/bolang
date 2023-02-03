@@ -1,19 +1,28 @@
+/* HALAMAN UPDATE PHOTO */
 .garis{
     border: 0.5px solid rgba(0, 0, 0, 0.75);
     border-radius: 10px;
-}
-.profile{
-    text-align: center;
 }
 img{
     padding-top: 20px;
 }
 .profile p{
     padding-top: 15px;
+    font-weight: 400;
+    font-size: 17px;
+}
+.profile span{
+    font-size: 14px;
+    text-align: center;
+}
+.profile{
+    text-align: center;
 }
 .profile .update{
-    padding-right: 180px;
-    font-weight: bolder;
+    font-weight: 700;
+    font-size: 17px;
+    margin-right: 120px;
+    margin-top: 60px;
 }
 .dropzone {
     border: 2px dashed #ddd;
@@ -26,6 +35,40 @@ img{
     margin-bottom: 0;
 }
 
+/* HALAMAN UPDATE PROFILE */
+.list p{
+    font-size: 16px;
+    font-weight: 400;
+}
+.list h3{
+    font-weight: 400;
+    font-size: 26px;
+}
+.list .row .form-control{
+    border: 0.2px solid #000000;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+    width: 307px;
+    height: 44px;
+}
+.list .row .form-select{
+    border: 0.2px solid #000000;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+    width: 307px;
+    height: 44px;
+}
+.list .row .form-label{
+    font-weight: 400;
+    font-size: 14px;
+}
+.list .row .tahun{
+    width: 135px;
+}
+.list h6{
+    font-weight: 400;
+    font-size: 14px;
+}
 .garis1{
     border: 0.5px solid rgba(0, 0, 0, 0.75);
     border-radius: 10px;
@@ -51,14 +94,22 @@ img{
 .thn2{
     width: 120px;
 }
-span{
-    margin-left: 55px;
-}
-
 .favorite{
     margin-left: 40px;
     margin-right: 10px;
 }
 .gambar{
     margin-right: 15px;
+}
+.btn-primary{
+    background-color: #0FA958;
+    font-weight: 600;
+    font-size: 15px;
+    width: 149px;
+    border-radius: 10px;
+}
+.list .row .icon{
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
 }
