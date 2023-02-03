@@ -21,7 +21,6 @@ img{
 .profile .update{
     font-weight: 700;
     font-size: 17px;
-    margin-right: 120px;
     margin-top: 60px;
 }
 .dropzone {
@@ -49,14 +48,12 @@ img{
     border-radius: 5px;
     background-color: #F6F6F6;
     width: 307px;
-    height: 44px;
 }
 .list .row .form-select{
     border: 0.2px solid #000000;
     border-radius: 5px;
     background-color: #F6F6F6;
     width: 307px;
-    height: 44px;
 }
 .list .row .form-label{
     font-weight: 400;
@@ -103,6 +100,14 @@ img{
 }
 .btn-primary{
     background-color: #0FA958;
+    font-weight: 600;
+    font-size: 15px;
+    width: 149px;
+    border-radius: 10px;
+    border: none;
+}
+.btn-primary:hover{
+    background: #0dc060;
     font-weight: 600;
     font-size: 15px;
     width: 149px;
