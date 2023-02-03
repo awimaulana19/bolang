@@ -10,10 +10,8 @@
                 <img src="{{ asset('image/user1.png') }}" alt="regis1" width="120px">
                 <p>Amel Krisandaresta <br> <span>@krisandaresta</span></p>
                 <p class="update">Update Photo Profile</p>
-                <div class="dropzone" draggable="true">
-                    <p>Drop files here to upload <br> or</p>
-                    <input type="file" multiple>
-                </div>
+                <input type="file" id="fileInput" style="display:none" />
+                <label class="dropzone" id="dropArea" for="fileInput">Drop files here to upload</label>
             </div>
         </div>
         <div class="garis1 col-4 my-5">
@@ -121,4 +119,27 @@
             </div>
         </div>
     </div>
+    <script>
+        const dropArea = document.getElementById("dropArea");
+        const fileInput = document.getElementById("fileInput");
+      
+        dropArea.addEventListener("dragover", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropArea.style.backgroundColor = "#eee";
+        });
+      
+        dropArea.addEventListener("dragleave", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropArea.style.backgroundColor = "";
+        });
+      
+        dropArea.addEventListener("drop", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          fileInput.files = e.dataTransfer.files;
+          dropArea.style.backgroundColor = "";
+        });
+      </script>
 @endsection

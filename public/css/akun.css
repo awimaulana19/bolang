@@ -1,119 +1,119 @@
 /* HALAMAN UPDATE PHOTO */
-.garis{
+.garis {
     border: 0.5px solid rgba(0, 0, 0, 0.75);
     border-radius: 10px;
 }
-img{
+img {
     padding-top: 20px;
 }
-.profile p{
+.profile p {
     padding-top: 15px;
     font-weight: 400;
     font-size: 17px;
 }
-.profile span{
+.profile span {
     font-size: 14px;
     text-align: center;
 }
-.profile{
+.profile {
     text-align: center;
 }
-.profile .update{
+.profile .update {
     font-weight: 700;
     font-size: 17px;
     margin-top: 60px;
 }
 .dropzone {
     border: 2px dashed #ddd;
-    padding: 50px;
+    padding: 80px;
     text-align: center;
     margin-bottom: 20px;
-}
-.dropzone p {
-    font-size: 18px;
-    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    opacity: 0.5;
 }
 
 /* HALAMAN UPDATE PROFILE */
-.list p{
+.list p {
     font-size: 16px;
     font-weight: 400;
 }
-.list h3{
+.list h3 {
     font-weight: 400;
     font-size: 26px;
 }
-.list .row .form-control{
+.list .row .form-control {
     border: 0.2px solid #000000;
     border-radius: 5px;
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
     width: 307px;
 }
-.list .row .form-select{
+.list .row .form-select {
     border: 0.2px solid #000000;
     border-radius: 5px;
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
     width: 307px;
 }
-.list .row .form-label{
+.list .row .form-label {
     font-weight: 400;
     font-size: 14px;
 }
-.list .row .tahun{
+.list .row .tahun {
     width: 135px;
 }
-.list h6{
+.list h6 {
     font-weight: 400;
     font-size: 14px;
 }
-.garis1{
+.garis1 {
     border: 0.5px solid rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     width: 700px;
     margin-left: 40px;
     padding: 20px;
 }
-.kolom{
+.kolom {
     width: 280px;
 }
-.pilih{
+.pilih {
     height: 30px;
     width: 280px;
 }
-.form-2{
+.form-2 {
     margin-left: 300px;
     margin-top: -211px;
 }
-.thn{
+.thn {
     width: 137px;
     margin-left: 20px;
 }
-.thn2{
+.thn2 {
     width: 120px;
 }
-.favorite{
+.favorite {
     margin-left: 40px;
     margin-right: 10px;
 }
-.gambar{
+.gambar {
     margin-right: 15px;
 }
-.btn-primary{
-    background-color: #0FA958;
+.btn-primary {
+    background-color: #0fa958;
     font-weight: 600;
     font-size: 15px;
     width: 149px;
     border-radius: 10px;
     border: none;
 }
-.btn-primary:hover{
+.btn-primary:hover {
     background: #0dc060;
     font-weight: 600;
     font-size: 15px;
     width: 149px;
     border-radius: 10px;
 }
-.list .row .icon{
+.list .row .icon {
     font-weight: 400;
     font-size: 14px;
     text-align: center;
