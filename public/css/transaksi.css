@@ -1,0 +1,83 @@
+.tabel {
+    width: 90%;
+    margin: 50px auto;
+    margin-top: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.tabel h3 {
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000;
+}
+
+.tabel .row .form-label {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.tabel .tombol {
+    background: #DCDCDC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 310px;
+    height: 55px;
+}
+
+.tabel .tombol label{
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 70px;
+    margin-top: 12px;
+}
+
+.tabel .riwayat{
+    width: 40%;
+    height: 181px;
+    margin: 50px auto;
+    margin-top: 40px;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.tabel .riwayat p{
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.tabel .riwayat span{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+hr {
+    border: none;
+    border-top:2px dotted #000000;
+    margin-top: 20px;
+}
+
+.tabel .riwayat .tanda{
+    background: #0FA958;
+    border-radius: 35px;
+    width: 164px;
+    height: 30px;
+}
+
+.tabel .riwayat .tanda .selesai{
+    margin-left: 60px;
+}
+
+.tabel .riwayat .tanda label{
+    color: #FFFFFF;
+    margin-left: 14px;
+    font-weight: 400;
+    font-size: 11px;
+}
