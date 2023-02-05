@@ -1,0 +1,258 @@
+.booking .herobooking{
+    width: 100%;
+}
+
+.booking .lokasi {
+    width: 80%;
+    display: flex;
+    background: #b6e388;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 10px 0px;
+    margin: auto;
+    margin-top: -60px;
+    align-items: center;
+    position: relative;
+}
+
+.booking .lokasi .icon {
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 5%;
+}
+
+.booking .lokasi .icon img {
+    width: 80%;
+    height: 80%;
+}
+
+.booking .lokasi .info {
+    width: 90%;
+}
+
+.booking .lokasi .info h1 {
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.booking .lokasi .info h5 {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.booking .isi {
+    width: 80%;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    padding: 40px;
+    margin: auto;
+}
+
+.booking .isi .bayar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking .isi h1 {
+    font-weight: 600;
+    font-size: 50px;
+    color: #0fa958;
+    margin-bottom: 30px;
+}
+
+.booking .isi .bayar .tempat h3 {
+    font-weight: 400;
+    font-size: 35px;
+}
+
+.booking .isi .bayar .tempat h6 {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.booking .isi .bayar .tempat h5 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.booking .isi .bayar .harga h2 {
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.booking .isi .bayar .tempat h5 .bi-circle-fill {
+    font-size: 14px;
+    color: #0fa958;
+}
+
+.booking .isi .btn-success {
+    width: 100%;
+    height: 45px;
+    background: #0fa958;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 25px;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: -40px;
+}
+
+.booking .isi .btn-success:hover {
+    background: #0dc060;
+    color: #ffffff;
+}
+
+.booking .jadwal .bulan {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.booking .jadwal .daftar {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.booking .jadwal .daftar a {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.booking .jadwal .daftar img {
+    width: 50%;
+}
+
+.booking .jadwal .daftar h3 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #0fa958;
+}
+
+.booking .jadwal .tanggal {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.booking .jadwal .hari {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.booking .jadwal .hari h5 {
+    font-weight: 400;
+    font-size: 25px;
+    color: #656565;
+}
+
+.booking .jadwal .hari .nomor {
+    margin-top: -5px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #656565;
+}
+
+.booking .jadwal .hari .nomor h4 {
+    margin: 0;
+}
+
+.booking .jadwal .hari .activehari {
+    color: #0fa958;
+}
+
+.booking .jadwal .hari .activetanggal {
+    background: #0fa958;
+    color: #ffffff;
+}
+
+.booking .jadwal hr {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid #d9d9d9;
+}
+
+.booking .isi .jam {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.booking .isi .jam .status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.booking .isi .jam .statusbooked {
+    border: none;
+}
+
+.booking .isi .jam .status h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.booking .isi .jam .status .jambooked {
+    color: #656565;
+}
+
+.booking .isi .jam .status .jumlah {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking .isi .jam .status .jumlahbooked {
+    justify-content: center;
+    font-style: italic;
+    color: #656565;
+}
+
+.booking .isi .jam .status .jumlah h4 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.booking .isi .jam .status .jumlah input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #000000;
+}
+
+.booking .isi .jam .status .jumlah input[type="radio"]:checked {
+    background: #0fa958;
+    background-image: url(../image/ceklis.png);
+    background-size: 12px;
+    background-position: 3px;
+    background-repeat: no-repeat;
+}

@@ -18,9 +18,7 @@
     height: 40px;
     border-radius: 12px;
 }
-.regist input::placeholder{
-    padding-left: 24px;
-}
+
 .regist p a{
     color: #B6E388;
 }

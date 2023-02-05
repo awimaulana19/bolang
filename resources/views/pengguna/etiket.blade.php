@@ -21,7 +21,7 @@
         </div>
     </div>
     <hr>
-    <div class="row deskripsi mt-3">
+    <div class="row deskripsi mt-3 mb-5">
         <div class="col-7">
             <h1 class="mb-2">Deskripsi Lapangan</h1>
             <p>Lorem ipsum dolor sit amet consectetur. Placerat turpis sed cras scelerisque. Cursus ornare

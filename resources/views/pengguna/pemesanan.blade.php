@@ -77,7 +77,7 @@
                 <h3 class="pt-2 pb-2">Rincian Pesanan</h3>
             </div>
             <h4>Kakanta Sport Center</h4>
-            <h6>Senin, 12 April 2023 <i class="bi bi-circle-fill ms-1 me-1"></i> 08:00 - 09:00</h6>
+            <h6>Sabtu, 12 Desember 2022 <i class="bi bi-circle-fill ms-1 me-1"></i> 19:00 - 20:00</h6>
             <div class="harga mt-4">
                 <span>Harga Lapangan:</span><span>Rp. 80.000</span>
             </div>

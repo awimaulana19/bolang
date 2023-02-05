@@ -8,7 +8,7 @@
         <h3 class="mb-4 mb-lg-5">Riwayat Transaksi</h3>
         <div class="row justify-content-around">
             <div class="tombol col-4">
-                <label>Belum Di Bayar</label>
+                <label>Belum Di Bayar/Proses</label>
             </div>
             <div class="tombol col-4">
                 <label>Transaksi Selesai</label>
