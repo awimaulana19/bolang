@@ -12,17 +12,17 @@
             <div class="row baris1">
                 <div class="col-6 mb-4">
                     <label for="nama" class="form-label">Nama Pelanggan</label>
-                    <input type="text" class="form-control" id="nama" name="nama">
+                    <input required type="text" class="form-control" id="nama" name="nama">
                 </div>
                 <div class="col-6 mb-4 akhir">
                     <label for="nomor" class="form-label">No. Hp Pelanggan</label>
-                    <input type="text" class="form-control" id="nomor" name="nomor">
+                    <input required type="text" class="form-control" id="nomor" name="nomor">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 mb-4">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input required type="email" class="form-control" id="email" name="email">
                 </div>
             </div>
             <div class="row">

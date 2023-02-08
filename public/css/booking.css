@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .booking .herobooking{
     width: 100%;
 }
@@ -121,10 +125,9 @@
     justify-content: center;
 }
 
-.booking .jadwal .daftar a {
-    width: 30%;
-    display: flex;
-    justify-content: center;
+.booking .jadwal .daftar button {
+    border: none;
+    background-color: #fff;
 }
 
 .booking .jadwal .daftar img {
@@ -140,15 +143,15 @@
 .booking .jadwal .tanggal {
     margin: auto;
     width: 70%;
-    display: flex;
-    justify-content: space-around;
 }
 
 .booking .jadwal .hari {
+    width: 14%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
+    border: none;
+    background-color: #ffffff; 
 }
 
 .booking .jadwal .hari h5 {
@@ -159,8 +162,8 @@
 
 .booking .jadwal .hari .nomor {
     margin-top: -5px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,8 +213,7 @@
     border: none;
 }
 
-.booking .isi .jam .status h3 {
-    margin: 0;
+.booking .isi .jam .status label {
     font-weight: 600;
     font-size: 30px;
 }
