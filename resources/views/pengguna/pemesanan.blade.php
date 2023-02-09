@@ -34,7 +34,7 @@
         </div>
         <div class="tabel pilih">
             <h3 class="mb-4 mb-lg-5">Pilih Jenis Pembayaran</h3>
-            <select class="form-select mb-3">
+            <select required class="form-select mb-3">
                 <option selected>Payment</option>
                 <option value="1">BRI</option>
                 <option value="2">BNI</option>

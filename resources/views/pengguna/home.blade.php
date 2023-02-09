@@ -7,6 +7,7 @@
     <title>Bolang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('image/icon.png') }}" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -39,6 +40,23 @@
                         <a class="nav-link" href="/etiket">E-Ticket</a>
                     </li>
                 </ul>
+                {{-- <ul class="navbar-nav ms-lg-4 me-lg-5">
+                    <li class="d-none nav-item d-lg-flex align-items-center me-2">
+                        <span class="garis"></span>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Hi, Awi
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/akun"><i class="bi bi-person me-1"></i> Akun</a></li>
+                            <li><a class="dropdown-item" href="/transaksi"><i class="bi bi-journal-text me-1"></i> Transaksi</a></li>
+                            <li><a class="dropdown-item" href="/"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul> --}}
                 <a href="/registrasi" class="btn-temp">REGISTER</a>
                 <a href="/login" class="btn-temp">LOGIN</a>
             </div>
@@ -100,8 +118,8 @@
         </div>
         <div class="row rekomendasi">
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}" width="260px"
-                        height="380px"></a>
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}"
+                        width="260px" height="380px"></a>
                 <a href="/pilih">
                     <h5>Lapangan 1</h5>
                 </a>
@@ -109,8 +127,8 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
-                        height="380px"></a>
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}"
+                        width="260px" height="380px"></a>
                 <a href="/pilih">
                     <h5>Lapangan 2</h5>
                 </a>
@@ -118,8 +136,8 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
-                        height="380px"></a>
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}"
+                        width="260px" height="380px"></a>
                 <a href="/pilih">
                     <h5>Lapangan 3</h5>
                 </a>
@@ -127,8 +145,8 @@
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
             </div>
             <div class="col-xl-3 col-lg-4 col-6">
-                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
-                        height="380px"></a>
+                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}"
+                        width="260px" height="380px"></a>
                 <a href="/pilih">
                     <h5>Lapangan 4</h5>
                 </a>
@@ -146,8 +164,10 @@
                 <div class="carousel"
                     data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan1.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Kakanta Sport Center</h5>
                         </a>
@@ -155,8 +175,10 @@
                         <h6>Lapangan 1</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan2.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Kakanta Sport Center</h5>
                         </a>
@@ -164,8 +186,10 @@
                         <h6>Lapangan 1</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan3.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Kakanta Sport Center</h5>
                         </a>
@@ -173,8 +197,10 @@
                         <h6>Lapangan 2</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan4.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan4.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Aeropala Sport Center</h5>
                         </a>
@@ -182,8 +208,10 @@
                         <h6>Lapangan 2</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan2.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan2.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Aeropala Sport Center</h5>
                         </a>
@@ -191,8 +219,10 @@
                         <h6>Lapangan 1</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan1.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan1.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Aeropala Sport Center</h5>
                         </a>
@@ -200,8 +230,10 @@
                         <h6>Lapangan 2</h6>
                     </div>
                     <div class="carousel-cell">
-                        <a href="/booking"><div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3" src="{{ asset('image/lapangan3.png') }}"
-                                width="100%" height="70%"></a>
+                        <a href="/booking">
+                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                src="{{ asset('image/lapangan3.png') }}" width="100%" height="70%">
+                        </a>
                         <a href="/pilih">
                             <h5>Aeropala Sport Center</h5>
                         </a>
@@ -218,33 +250,27 @@
                 data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>GYM</span></div>
-                    <img src="{{ asset('image/gym.png') }}" width="100%"
-                        height="100%">
+                    <img src="{{ asset('image/gym.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Futsal</span></div>
-                    <img src="{{ asset('image/futsal.png') }}" width="100%"
-                        height="100%">
+                    <img src="{{ asset('image/futsal.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Mini Soccer</span></div>
-                    <img src="{{ asset('image/minisoccer.png') }}" width="100%"
-                        height="100%">
+                    <img src="{{ asset('image/minisoccer.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Basket</span></div>
-                    <img src="{{ asset('image/basket.png') }}" width="100%"
-                        height="100%">
+                    <img src="{{ asset('image/basket.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Tenis</span></div>
-                    <img src="{{ asset('image/tenis.png') }}" width="100%"
-                        height="100%">
+                    <img src="{{ asset('image/tenis.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Tenis Meja</span></div>
-                    <img src="{{ asset('image/tenismeja.png') }}" width="100%"
-                        height="100%">
+                    <img src="{{ asset('image/tenismeja.png') }}" width="100%" height="100%">
                 </a>
             </div>
         </div>
@@ -264,12 +290,22 @@
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Bantuan</p>
-                    <p><a href="https://wa.me/6282397032649?text=Hi+Admin.+Saya+ingin+bertanya+mengenai+Bolang">Live Chat</a></p>
+                    <p><a href="https://wa.me/6282397032649?text=Hi+Admin.+Saya+ingin+bertanya+mengenai+Bolang">Live
+                            Chat</a></p>
                     <p><a href="https://www.instagram.com/awimaulana19/">Sosmed</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Pembayaran</p>
-                    <img src="{{ asset('image/pembayaran.png') }}" alt="Pembayaran" width="100%">
+                    <div class="logopembayaran">
+                        <img src="{{ asset('image/bri.png') }}" alt="logo">
+                        <img src="{{ asset('image/bni.png') }}" alt="logo">
+                        <img src="{{ asset('image/bca.png') }}" alt="logo">
+                        <img src="{{ asset('image/mandiri.png') }}" alt="logo">
+                        <img src="{{ asset('image/gopay.png') }}" alt="logo">
+                        <img src="{{ asset('image/dana.png') }}" alt="logo">
+                        <img src="{{ asset('image/ovo.png') }}" alt="logo">
+                        <img class="linkajafoot" src="{{ asset('image/linkaja.png') }}" alt="logo">
+                    </div>
                 </div>
             </div>
         </div>

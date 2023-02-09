@@ -2,8 +2,10 @@
     box-sizing: border-box;
 }
 
-.booking .herobooking{
+.booking .herobooking {
     width: 100%;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
 }
 
 .booking .lokasi {
@@ -135,6 +137,7 @@
 }
 
 .booking .jadwal .daftar h3 {
+    margin: 0;
     font-weight: 700;
     font-size: 32px;
     color: #0fa958;
@@ -151,7 +154,7 @@
     flex-direction: column;
     align-items: center;
     border: none;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 .booking .jadwal .hari h5 {
@@ -223,14 +226,15 @@
 }
 
 .booking .isi .jam .status .jumlah {
-    width: 20%;
+    width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 }
 
 .booking .isi .jam .status .jumlahbooked {
-    justify-content: center;
+    justify-content: end;
+    margin-right: 20px;
     font-style: italic;
     color: #656565;
 }
@@ -238,6 +242,7 @@
 .booking .isi .jam .status .jumlah h4 {
     margin: 0;
     font-weight: 500;
+    margin-right: 20px;
     font-size: 25px;
 }
 
@@ -257,4 +262,171 @@
     background-size: 12px;
     background-position: 3px;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 991px) {
+    .booking .herobooking {
+        margin: auto;
+        width: 90%;
+        height: 150px;
+    }
+    
+    .booking .lokasi {
+        width: 70%;
+        margin-top: -40px;
+    }
+    
+    .booking .lokasi .icon {
+        margin-right: 15px;
+    }
+    
+    .booking .lokasi .icon img {
+        width: 100%;
+    }
+    
+    .booking .lokasi .info h1 {
+        font-size: 18px;
+    }
+    
+    .booking .lokasi .info h5 {
+        font-size: 16px;
+    }
+
+    .booking .isi {
+        padding: 20px;
+    }
+    
+    .booking .isi h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .booking .isi .bayar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .booking .isi .tempat {
+        margin-right: 10px;
+    }
+
+    .booking .isi .bayar .tempat h3 {
+        font-size: 15px;
+    }
+    
+    .booking .isi .bayar .tempat h6 {
+        font-size: 11px;
+    }
+    
+    .booking .isi .bayar .tempat h5 {
+        font-size: 11px;
+    }
+    
+    .booking .isi .bayar .harga h2 {
+        font-size: 15px;
+    }
+    
+    .booking .isi .bayar .tempat h5 .bi-circle-fill {
+        font-size: 10px;
+    }
+    
+    .booking .isi .btn-success {
+        height: 35px;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: -50px;
+    }
+    
+    .booking .jadwal .bulan {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .booking .jadwal .daftar {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .booking .jadwal .bulantahun {
+        width: 70%;
+    }
+    
+    .booking .jadwal .daftar img {
+        width: 50%;
+    }
+    
+    .booking .jadwal .daftar h3 {
+        font-size: 18px;
+    }
+    
+    .booking .jadwal .tanggal {
+        width: 75%;
+        margin-bottom: -20px;
+    }
+    
+    .booking .jadwal .hari {
+        width: 15%;
+        margin-right: 10px;
+    }
+    
+    .booking .jadwal .hari h5 {
+        font-size: 15px;
+    }
+    
+    .booking .jadwal .hari .nomor {
+        margin-top: -5px;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .booking .jadwal .hari .nomor h4 {
+        font-size: 15px;
+    }
+    
+    .booking .isi .jam {
+        width: 90%;
+        margin: auto;
+        margin-top: 40px;
+    }
+    
+    .booking .isi .jam .status {
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .booking .isi .jam .status label {
+        font-size: 15px;
+    }
+    
+    .booking .isi .jam .status .jumlah {
+        width: 45%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    
+    .booking .isi .jam .status .jumlahbooked {
+        justify-content: end;
+        margin-right: 15px;
+    }
+    
+    .booking .isi .jam .status .jumlah h4 {
+        font-size: 13px;
+        margin-right: 10px;
+    }
+    
+    .booking .isi .jam .status .jumlah input[type="radio"] {
+        width: 13px;
+        height: 13px;
+    }
+    
+    .booking .isi .jam .status .jumlah input[type="radio"]:checked {
+        background-size: 8.5px;
+        background-position: 1px;
+        background-repeat: no-repeat;
+    }
 }

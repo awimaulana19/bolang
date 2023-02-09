@@ -17,7 +17,7 @@
                         <img src="image/kiri.png" alt="icon" />
                     </button>
                 </div>
-                <div class="daftar">
+                <div class="daftar bulantahun">
                     <h3>{{ dataBulan[indexBulan].bulan }} {{ dataTahun }}</h3>
                 </div>
                 <div class="daftar">
@@ -102,7 +102,7 @@
                     </div> -->
             </div>
         </div>
-        <div class="isi mb-5">
+        <div class="isi mb-lg-5 mb-2">
             <form action="/pesan">
                 <h1>Pembayaran</h1>
                 <div class="bayar">
@@ -194,7 +194,7 @@ export default {
                 {
                     id: 1,
                     jam: "08:00 - 09:00",
-                    harga: "80.000",
+                    harga: "120.000",
                     tanggal: "11 Februari 2023",
                     status: false,
                 },

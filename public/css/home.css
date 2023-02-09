@@ -7,16 +7,40 @@
     background-color: #b6e388;
 }
 
-.navbar ul li a {
+.navbar .navbar-nav .nav-item .nav-link {
     font-weight: 600;
     font-size: 20px;
     line-height: 70px;
     color: #000000;
 }
 
-.navbar ul li a:hover {
+.navbar .navbar-nav .nav-item .nav-link:hover {
     transition: all ease-in-out 0.4s;
     color: #565656;
+}
+
+.navbar .dropdown-menu {
+    background-color: #b6e388;
+    border: none;
+    position: relative;
+    top: 0px;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    transition: all ease-in-out 0.1s;
+    color: #ffffff;
+    background: #0dc060;
+}
+
+.navbar .garis {
+    border: 1px solid #000000;
+    height: 40%;
 }
 
 .navbar .btn-temp {
@@ -192,7 +216,7 @@
 
 /* footer */
 .footer-edit {
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 10px;
     background-color: #b6e388;
     border-top: 20px solid #b6e388;
@@ -375,6 +399,22 @@
     justify-content: end;
 }
 
+.footer-edit .container .logopembayaran {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-edit .container .logopembayaran img {
+    width: 60px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-edit .container .logopembayaran .linkajafoot {
+    width: 40px;
+    height: 40px;
+}
+
 @media (max-width: 991px) {
     .baris-temp .kata {
         margin-top: -30px;
@@ -533,8 +573,45 @@
         font-size: 16px;
     }
 
-    .navbar ul li a {
+    .navbar .navbar-nav .nav-item .nav-link {
         font-size: 18px;
         line-height: 20px;
+    }
+
+    .footer-edit .container .logopembayaran img {
+        width: 40px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-edit .container .logopembayaran .linkajafoot {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-edit .container .logopembayaran img {
+        width: 26px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-edit .container .logopembayaran .linkajafoot {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer-edit .container .logopembayaran img {
+        width: 20px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-edit .container .logopembayaran .linkajafoot {
+        width: 15px;
+        height: 15px;
     }
 }

@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="{{ asset('css/temp.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('image/icon.png') }}" />
 </head>
@@ -37,8 +38,25 @@
                         <a class="nav-link" href="/etiket">E-Ticket</a>
                     </li>
                 </ul>
-                <a href="/registrasi" class="btn-temp">REGISTER</a>
-                <a href="/login" class="btn-temp">LOGIN</a>
+                <ul class="navbar-nav ms-lg-4 me-lg-5">
+                    <li class="d-none nav-item d-lg-flex align-items-center me-2">
+                        <span class="garis"></span>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Hi, Awi
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/akun"><i class="bi bi-person me-1"></i> Akun</a></li>
+                            <li><a class="dropdown-item" href="/transaksi"><i class="bi bi-journal-text me-1"></i> Transaksi</a></li>
+                            <li><a class="dropdown-item" href="/"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                {{-- <a href="/registrasi" class="btn-temp">REGISTER</a>
+                <a href="/login" class="btn-temp">LOGIN</a> --}}
             </div>
         </div>
     </nav>
@@ -60,12 +78,22 @@
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Bantuan</p>
-                    <p><a href="https://wa.me/6282397032649?text=Hi+Admin.+Saya+ingin+bertanya+mengenai+Bolang">Live Chat</a></p>
+                    <p><a href="https://wa.me/6282397032649?text=Hi+Admin.+Saya+ingin+bertanya+mengenai+Bolang">Live
+                            Chat</a></p>
                     <p><a href="https://www.instagram.com/awimaulana19/">Sosmed</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Pembayaran</p>
-                    <img src="{{ asset('image/pembayaran.png') }}" alt="Pembayaran" width="100%">
+                    <div class="logopembayaran">
+                        <img src="{{ asset('image/bri.png') }}" alt="logo">
+                        <img src="{{ asset('image/bni.png') }}" alt="logo">
+                        <img src="{{ asset('image/bca.png') }}" alt="logo">
+                        <img src="{{ asset('image/mandiri.png') }}" alt="logo">
+                        <img src="{{ asset('image/gopay.png') }}" alt="logo">
+                        <img src="{{ asset('image/dana.png') }}" alt="logo">
+                        <img src="{{ asset('image/ovo.png') }}" alt="logo">
+                        <img class="linkajafoot" src="{{ asset('image/linkaja.png') }}" alt="logo">
+                    </div>
                 </div>
             </div>
         </div>
