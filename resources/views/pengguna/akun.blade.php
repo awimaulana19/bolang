@@ -74,7 +74,8 @@
                     <h6>Olahraga Favorite:</h6>
                     <div class="row favorite">
                         <div class="col-2 gambar">
-                            <img src="{{ asset('image/bola.png') }}" width="75px">
+                            <input type="checkbox" style="display: none;">
+                            <img src="{{ asset('image/bola.png') }}" width="75px" class="checkbox-image checked">
                             <label class="form-label icon">Sepak Bola</label>
                         </div>
                         <div class="col-2 gambar">

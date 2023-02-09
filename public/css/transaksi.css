@@ -1,5 +1,6 @@
 .tabel {
     width: 90%;
+    height: 797px;
     margin: 50px auto;
     margin-top: 20px;
     background: #ffffff;
@@ -20,26 +21,33 @@
     color: #000000;
 }
 
+.tabel .row{
+    margin-right: 50px;
+    margin-left: -50px;
+}
+
 .tabel .tombol {
     background: #DCDCDC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     width: 310px;
     height: 55px;
+    margin-left: 30px;
+    margin-bottom: 30px;
 }
 
 .tabel .tombol label{
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 70px;
-    margin-top: 12px;
+    margin-top: 15px;
 }
 
 .tabel .riwayat{
-    width: 40%;
+    width: 387px;
     height: 181px;
-    margin: 50px auto;
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-right: 20px;
     background: #FFFFFF;
     border: 0.5px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -71,8 +79,12 @@ hr {
     height: 30px;
 }
 
-.tabel .riwayat .tanda .selesai{
-    margin-left: 60px;
+.tabel .riwayat .tanda .btn{
+    margin-left: 55px;
+    font-weight: 400;
+    font-size: 11px;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .tabel .riwayat .tanda label{
@@ -80,4 +92,8 @@ hr {
     margin-left: 14px;
     font-weight: 400;
     font-size: 11px;
+}
+
+.tabel .baris{
+    margin-right: 40px;
 }
