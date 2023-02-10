@@ -65,3 +65,27 @@ Route::get('/bayar', function () {
     return view('pengguna.pembayaran');
 });
 
+Route::prefix("/admin")->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/jenis', function () {
+        return view('admin.jenis');
+    });
+    Route::get('/lapangan', function () {
+        return view('admin.lapangan');
+    });
+    Route::get('/jadwal', function () {
+        return view('admin.jadwal');
+    });
+    Route::get('/transaksi', function () {
+        return view('admin.transaksi');
+    });
+});
+
+Route::prefix("/super")->group(function () {
+    Route::get('/user', function () {
+        return view('admin.user');
+    });
+});
+
