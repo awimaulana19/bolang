@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>@yield('head') - @yield('akun')</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('image/icon.png') }}" />
@@ -23,7 +23,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href=""><img src="{{ asset('image/logo.png') }}" alt="logo"
+                            <a href="/"><img src="{{ asset('image/logo.png') }}" alt="logo"
                                     style="width: 110px; height: 50px; padding-top: 5px;"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -72,14 +72,16 @@
 
                         <li class="sidebar-title">Lapangan</li>
 
-                        <li @if (request()->route()->uri == 'admin/jenis') class="sidebar-item active" @else class="sidebar-item" @endif>
+                        <li
+                            @if (request()->route()->uri == 'admin/jenis') class="sidebar-item active" @else class="sidebar-item" @endif>
                             <a href="jenis" class='sidebar-link'>
                                 <i class="fas fa-futbol"></i>
                                 <span>Jenis Olahraga</span>
                             </a>
                         </li>
 
-                        <li @if (request()->route()->uri == 'admin/lapangan') class="sidebar-item active" @else class="sidebar-item" @endif>
+                        <li
+                            @if (request()->route()->uri == 'admin/lapangan') class="sidebar-item active" @else class="sidebar-item" @endif>
                             <a href="lapangan" class='sidebar-link'>
                                 <i class="fas fa-running"></i>
                                 <span>Daftar Lapangan</span>
@@ -88,14 +90,16 @@
 
                         <li class="sidebar-title">Info</li>
 
-                        <li @if (request()->route()->uri == 'admin/jadwal') class="sidebar-item active" @else class="sidebar-item" @endif>
+                        <li
+                            @if (request()->route()->uri == 'admin/jadwal') class="sidebar-item active" @else class="sidebar-item" @endif>
                             <a href="jadwal" class='sidebar-link'>
                                 <i class="fas fa-calendar-alt"></i>
                                 <span>Jadwal</span>
                             </a>
                         </li>
 
-                        <li @if (request()->route()->uri == 'admin/transaksi') class="sidebar-item active" @else class="sidebar-item" @endif>
+                        <li
+                            @if (request()->route()->uri == 'admin/transaksi') class="sidebar-item active" @else class="sidebar-item" @endif>
                             <a href="transaksi" class='sidebar-link'>
                                 <i class="fas fa-file-invoice"></i>
                                 <span>Transaksi</span>
@@ -106,50 +110,137 @@
                 </div>
             </div>
         </div>
-        <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
+        <div id="main" class='layout-navbar'>
+            <header class='mb-3'>
+                <nav class="navbar navbar-expand navbar-light navbar-top">
+                    <div class="container-fluid">
+                        <a href="#" class="burger-btn d-block">
+                            <i class="bi bi-justify fs-3"></i>
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-lg-0">
+                                <li class="nav-item dropdown me-3">
+                                    <a class="nav-link active dropdown-toggle text-gray-600" href="#"
+                                        data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        <i class='bi bi-bell bi-sub fs-4'></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notification-dropdown"
+                                        aria-labelledby="dropdownMenuButton">
+                                        <li class="dropdown-header">
+                                            <h6>Notifications</h6>
+                                        </li>
+                                        <li class="dropdown-item notification-item">
+                                            <a class="d-flex align-items-center" href="#">
+                                                <div class="notification-icon bg-primary">
+                                                    <i class="bi bi-cart-check"></i>
+                                                </div>
+                                                <div class="notification-text ms-4">
+                                                    <p class="notification-title font-bold">Transaksi Sukses</p>
+                                                    <p class="notification-subtitle font-thin text-sm">Order ID #256
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item notification-item">
+                                            <a class="d-flex align-items-center" href="#">
+                                                <div class="notification-icon bg-primary">
+                                                    <i class="bi bi-cart-check"></i>
+                                                </div>
+                                                <div class="notification-text ms-4">
+                                                    <p class="notification-title font-bold">Transaksi Belum Dibayar</p>
+                                                    <p class="notification-subtitle font-thin text-sm">Order ID #256
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <p class="text-center py-2 mb-0"><a href="#">See all
+                                                    notification</a></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-menu d-flex">
+                                        <div class="user-name text-end me-3">
+                                            <h6 class="mb-0 text-gray-600">Kakanta</h6>
+                                            <p class="mb-0 text-sm text-gray-600">Admin</p>
+                                        </div>
+                                        <div class="user-img d-flex align-items-center">
+                                            <div class="avatar avatar-md">
+                                                <img src="{{ asset('assets/images/faces/1.jpg') }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
+                                    style="min-width: 11rem;">
+                                    <li>
+                                        <h6 class="dropdown-header">Hello, Kakanta</h6>
+                                    </li>
+                                    <li><a class="dropdown-item" href="dashboard"><i
+                                                class="fas fa-user me-2"></i> My
+                                            Profile</a></li>
+                                    <li><a class="dropdown-item" href="transaksi"><i
+                                                class="fas fa-file-invoice me-2"></i>
+                                            Transaksi</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i
+                                                class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </header>
+            <div id="main-content">
 
-            <div class="page-heading">
-                <div class="page-title">
-                    <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>@yield('head')</h3>
-                        </div>
-                        <div @if (request()->route()->uri == 'admin/dashboard') class="d-none" @else class="col-12 col-md-6 order-md-2 order-first" @endif>
-                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="dashboard">Admin</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">@yield('head')</li>
-                                </ol>
-                            </nav>
+                <div class="page-heading">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-md-1 order-last">
+                                <h3>@yield('head')</h3>
+                            </div>
+                            <div
+                                @if (request()->route()->uri == 'admin/dashboard') class="d-none" @else class="col-12 col-md-6 order-md-2 order-first" @endif>
+                                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="dashboard">@yield('akun')</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">@yield('head')</li>
+                                    </ol>
+                                </nav>
+                            </div>
                         </div>
                     </div>
+                    <section class="section">
+                        @yield('content')
+                    </section>
                 </div>
-                <section class="section">
-                    @yield('content')
-                </section>
+
+                <footer>
+                    <div class="footer clearfix mb-0 text-muted">
+                        <div class="d-flex justify-content-center">
+                            <p>2023 &copy; Bolang</p>
+                        </div>
+                    </div>
+                </footer>
             </div>
-
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="d-flex justify-content-center">
-                        <p>2023 &copy; Bolang</p>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 
     {{-- Script --}}
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
-    <!-- Need: Apexcharts -->
-    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
     {{-- End Script --}}
 
 </body>

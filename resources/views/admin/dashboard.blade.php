@@ -1,96 +1,114 @@
 @extends('template.adminTemp')
 
-@section('title', 'Dashboard - Admin')
+@section('akun', 'Admin')
 
 @section('head', 'Dashboard')
 
 @section('content')
-    <section class="row mt-3">
-        <div class="col-12 col-lg-9">
-            <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-4 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon purple mb-2">
-                                        <i class="iconly-boldShow"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Profile Views</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
-                                </div>
-                            </div>
-                        </div>
+<div class="row mt-3">
+    <div class="col-lg-12 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>Profile Pemilik</h4>
+            </div>
+            <div class="row ms-3 pb-3">
+                <div class="col-lg-4 col-md-12 align-self-center">
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <p class="fw-bold">
+                            Awi
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <p class="fw-bold">
+                            awimaulana19
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">No Whatsapp</label>
+                        <p class="fw-bold">
+                            6282397032649
+                        </p>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-4 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon blue mb-2">
-                                        <i class="iconly-boldProfile"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-4 col-md-12 align-self-center">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Tempat</label>
+                        <p class="fw-bold">
+                            Kakanta
+                        </p>
                     </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-4 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon green mb-2">
-                                        <i class="iconly-boldAdd-User"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Following</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Alamat</label>
+                        <p class="fw-bold">
+                            Antang
+                        </p>
                     </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-4 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon red mb-2">
-                                        <i class="iconly-boldBookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <p class="fw-bold">
+                            kakanta@gmail.com
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-3">
-            <div class="card">
-                <div class="card-body py-4 px-4">
-                    <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl">
-                            <img src="{{ asset('assets/images/faces/1.jpg') }}" alt="Face 1">
-                        </div>
-                        <div class="ms-3 name">
-                            <h5 class="font-bold">Kakanta</h5>
-                            <h6 class="text-muted mb-0">@kakanta</h6>
-                        </div>
-                    </div>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card border border-success border-1">
+            <div class="card-header d-flex ms-auto me-auto">
+                <h4>Jumlah Olahraga</h4>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <div class="me-3">
+                    <i class="fas fa-futbol fa-3x"></i>
+                </div>
+                <div class="me-3">
+                    <h1>=</h1>
+                </div>
+                <div>
+                    <h1>6</h1>
                 </div>
             </div>
-    </section>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card border border-success border-1">
+            <div class="card-header d-flex ms-auto me-auto">
+                <h4>Jumlah Lapangan</h4>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <div class="me-3">
+                    <i class="fas fa-running fa-3x"></i>
+                </div>
+                <div class="me-3">
+                    <h1>=</h1>
+                </div>
+                <div>
+                    <h1>6</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="card border border-success border-1">
+            <div class="card-header d-flex ms-auto me-auto">
+                <h4>Jumlah Transaksi</h4>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <div class="me-3">
+                    <i class="fas fa-file-invoice fa-3x"></i>
+                </div>
+                <div class="me-3">
+                    <h1>=</h1>
+                </div>
+                <div>
+                    <h1>5</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

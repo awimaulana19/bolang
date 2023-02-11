@@ -65,6 +65,10 @@ Route::get('/bayar', function () {
     return view('pengguna.pembayaran');
 });
 
+Route::get('/admin', function () {
+    return view('admin.loginAdmin');
+});
+
 Route::prefix("/admin")->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
