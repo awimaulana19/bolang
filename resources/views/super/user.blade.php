@@ -11,7 +11,7 @@
         <div class="card">
             <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
                 <div class="card-header">Data User</div>
-                <a href="#" class="btn btn-primary mt-4 me-5" style="height:40px;">Tambah Data</a>
+                <a href="#" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah Data</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -29,10 +29,12 @@
                             <td>Antang</td>
                             <td>6282397032649</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
-                                        data-feather="edit"></i>Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                        data-feather="x-circle"></i>Hapus</a>
+                                <div class="d-flex">
+                                    <a href="#" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
+                                            data-feather="edit"></i>Edit</a>
+                                    <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                            data-feather="x-circle"></i>Hapus</a>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -40,10 +42,12 @@
                             <td>Hertasning</td>
                             <td>6282397032649</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
-                                        data-feather="edit"></i>Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                        data-feather="x-circle"></i>Hapus</a>
+                                <div class="d-flex">
+                                    <a href="#" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
+                                            data-feather="edit"></i>Edit</a>
+                                    <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                            data-feather="x-circle"></i>Hapus</a>
+                                </div>
                             </td>
                         </tr>
                     </tbody>

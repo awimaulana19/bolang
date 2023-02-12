@@ -41,14 +41,13 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li
-                            @if (request()->route()->uri == 'admin/dashboard') class="sidebar-item active" @else class="sidebar-item" @endif>
-                            <a href="dashboard" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/dashboard*') ? 'active' : '' }}">
+                            <a href="/admin/dashboard" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        {{-- <li @if (request()->route()->uri == 'super/user') class="sidebar-item active" @else class="sidebar-item" @endif>
+                        {{-- <li class="sidebar-item {{ request()->is('super/user*') ? 'active' : '' }}">
                             <a href="/super/user" class='sidebar-link'>
                                 <i class="fas fa-user"></i>
                                 <span>User</span>
@@ -72,17 +71,15 @@
 
                         <li class="sidebar-title">Lapangan</li>
 
-                        <li
-                            @if (request()->route()->uri == 'admin/jenis') class="sidebar-item active" @else class="sidebar-item" @endif>
-                            <a href="jenis" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/jenis*') ? 'active' : '' }}">
+                            <a href="/admin/jenis" class='sidebar-link'>
                                 <i class="fas fa-futbol"></i>
                                 <span>Jenis Olahraga</span>
                             </a>
                         </li>
 
-                        <li
-                            @if (request()->route()->uri == 'admin/lapangan') class="sidebar-item active" @else class="sidebar-item" @endif>
-                            <a href="lapangan" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/lapangan*') ? 'active' : '' }}">
+                            <a href="/admin/lapangan" class='sidebar-link'>
                                 <i class="fas fa-running"></i>
                                 <span>Daftar Lapangan</span>
                             </a>
@@ -90,17 +87,15 @@
 
                         <li class="sidebar-title">Info</li>
 
-                        <li
-                            @if (request()->route()->uri == 'admin/jadwal') class="sidebar-item active" @else class="sidebar-item" @endif>
-                            <a href="jadwal" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/jadwal*') ? 'active' : '' }}">
+                            <a href="/admin/jadwal" class='sidebar-link'>
                                 <i class="fas fa-calendar-alt"></i>
                                 <span>Jadwal</span>
                             </a>
                         </li>
 
-                        <li
-                            @if (request()->route()->uri == 'admin/transaksi') class="sidebar-item active" @else class="sidebar-item" @endif>
-                            <a href="transaksi" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/transaksi*') ? 'active' : '' }}">
+                            <a href="/admin/transaksi" class='sidebar-link'>
                                 <i class="fas fa-file-invoice"></i>
                                 <span>Transaksi</span>
                             </a>
@@ -170,8 +165,8 @@
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
-                                            <h6 class="mb-0 text-gray-600">Kakanta</h6>
-                                            <p class="mb-0 text-sm text-gray-600">Admin</p>
+                                            <h6 class="mb-0 text-gray-600">{{ auth()->user()->nama }}</h6>
+                                            <p class="mb-0 text-sm text-gray-600">{{ auth()->user()->roles }}</p>
                                         </div>
                                         <div class="user-img d-flex align-items-center">
                                             <div class="avatar avatar-md">
@@ -183,18 +178,18 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
                                     style="min-width: 11rem;">
                                     <li>
-                                        <h6 class="dropdown-header">Hello, Kakanta</h6>
+                                        <h6 class="dropdown-header">Hello, {{ auth()->user()->nama }}</h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="dashboard"><i
+                                    <li><a class="dropdown-item" href="/admin/dashboard"><i
                                                 class="fas fa-user me-2"></i> My
                                             Profile</a></li>
-                                    <li><a class="dropdown-item" href="transaksi"><i
+                                    <li><a class="dropdown-item" href="/admin/transaksi"><i
                                                 class="fas fa-file-invoice me-2"></i>
                                             Transaksi</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#"><i
+                                    <li><a class="dropdown-item" href="{{ url('logout') }}"><i
                                                 class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
                                 </ul>
                             </div>
@@ -214,7 +209,7 @@
                                 @if (request()->route()->uri == 'admin/dashboard') class="d-none" @else class="col-12 col-md-6 order-md-2 order-first" @endif>
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="dashboard">@yield('akun')</a></li>
+                                        <li class="breadcrumb-item"><a href="/admin/dashboard">@yield('akun')</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">@yield('head')</li>
                                     </ol>
                                 </nav>

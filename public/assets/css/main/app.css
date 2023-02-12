@@ -2475,8 +2475,8 @@ textarea.form-control-lg {
     }
 }
 .form-select:focus {
-    border-color: #a1afdf;
-    box-shadow: 0 0 0 0.25rem rgba(67, 94, 190, 0.25);
+    border-color: #a3dfa1;
+    box-shadow: 0 0 0 0.25rem rgba(75, 190, 67, 0.25);
     outline: 0;
 }
 .form-select[multiple],

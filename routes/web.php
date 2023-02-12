@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\LapanganController;
+use App\Http\Controllers\OlahragaController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,31 +70,33 @@ Route::get('/bayar', function () {
     return view('pengguna.pembayaran');
 });
 
-Route::get('/admin', function () {
-    return view('admin.loginAdmin');
+Route::get('/admin', [AuthController::class, 'login']);
+Route::post('/admin', [AuthController::class, 'login_action']);
+Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
+    Route::prefix("/admin")->group(function () {
+        Route::get('/dashboard', [AuthController::class, 'dashboard']);
+        Route::get('/jenis', [OlahragaController::class, 'index']);
+        Route::get('/jenis/tambah', [OlahragaController::class, 'tambah']);
+        Route::get('/jenis/operasional', [OlahragaController::class, 'operasional']);
+        Route::get('/jenis/edit', [OlahragaController::class, 'edit']);
+        Route::get('/lapangan', [LapanganController::class, 'index']);
+        Route::get('/lapangan/tambah', [LapanganController::class, 'tambah']);
+        Route::get('/lapangan/edit', [LapanganController::class, 'edit']);
+        Route::get('/jadwal', [JadwalController::class, 'index']);
+        Route::get('/jadwal/tambah', [JadwalController::class, 'tambah']);
+        Route::get('/jadwal/edit', [JadwalController::class, 'edit']);
+        Route::get('/transaksi', [TransaksiController::class, 'index']);
+        Route::get('/transaksi/lihat', [TransaksiController::class, 'lihat']);
+    });
 });
 
-Route::prefix("/admin")->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
-    Route::get('/jenis', function () {
-        return view('admin.jenis');
-    });
-    Route::get('/lapangan', function () {
-        return view('admin.lapangan');
-    });
-    Route::get('/jadwal', function () {
-        return view('admin.jadwal');
-    });
-    Route::get('/transaksi', function () {
-        return view('admin.transaksi');
-    });
-});
-
-Route::prefix("/super")->group(function () {
-    Route::get('/user', function () {
-        return view('admin.user');
+Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
+    Route::prefix("/super")->group(function () {
+        Route::get('/user', function () {
+            return view('super.user');
+        });
     });
 });
 

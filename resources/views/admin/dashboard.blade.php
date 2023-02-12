@@ -16,19 +16,19 @@
                     <div class="mb-3">
                         <label class="form-label">Nama</label>
                         <p class="fw-bold">
-                            Awi
+                            {{ auth()->user()->nama }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Username</label>
                         <p class="fw-bold">
-                            awimaulana19
+                            {{ auth()->user()->username }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">No Whatsapp</label>
                         <p class="fw-bold">
-                            6282397032649
+                            {{ auth()->user()->whatsapp }}
                         </p>
                     </div>
                 </div>
@@ -36,19 +36,19 @@
                     <div class="mb-3">
                         <label class="form-label">Nama Tempat</label>
                         <p class="fw-bold">
-                            Kakanta
+                            {{ auth()->user()->namatempat }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Alamat</label>
                         <p class="fw-bold">
-                            Antang
+                            {{ auth()->user()->alamat }}
                         </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Email</label>
                         <p class="fw-bold">
-                            kakanta@gmail.com
+                            {{ auth()->user()->email }}
                         </p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <h1>=</h1>
                 </div>
                 <div>
-                    <h1>6</h1>
+                    <h1>{{ $user->olahraga->count() }}</h1>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
                     <h1>=</h1>
                 </div>
                 <div>
-                    <h1>6</h1>
+                    <h1>{{ $user->lapangan->count() }}</h1>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
                     <h1>=</h1>
                 </div>
                 <div>
-                    <h1>5</h1>
+                    <h1>{{ $user->transaksi->count() }}</h1>
                 </div>
             </div>
         </div>

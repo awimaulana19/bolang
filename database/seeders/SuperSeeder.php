@@ -21,5 +21,18 @@ class SuperSeeder extends Seeder
             'password' => bcrypt('super'),
             'roles' => 'super',
         ]);
+
+        DB::table('users')->insert([
+            'namatempat' => 'Kakanta',
+            'alamat' => 'Antang',
+            'email' => 'kakanta@gmail.com',
+            'username' => 'kakanta',
+            'nama' => 'Adam',
+            'password' => bcrypt('awi123'),
+            'roles' => 'admin',
+            'whatsapp' => '082397032649',
+            'instagram' => 'kakant123',
+            'lokasi' => 'mapsantang',
+        ]);
     }
 }

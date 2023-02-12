@@ -14,7 +14,7 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Nama Pelanggan</th>
+                            <th>Nama Pemesan</th>
                             <th>No Hp</th>
                             <th>Email</th>
                             <th>Action</th>
@@ -26,18 +26,7 @@
                             <td>6282397032649</td>
                             <td>adam@gmail.com</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm icon icon-left rounded-3"><i
-                                        data-feather="eye"></i>Lihat</a>
-                                {{-- <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                        data-feather="x-circle"></i>Hapus</a> --}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Adam</td>
-                            <td>6282397032649</td>
-                            <td>adam@gmail.com</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-sm icon icon-left rounded-3"><i
+                                <a href="transaksi/lihat" class="btn btn-info btn-sm icon icon-left rounded-3"><i
                                     data-feather="eye"></i>Lihat</a>
                                 {{-- <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
                                         data-feather="x-circle"></i>Hapus</a> --}}

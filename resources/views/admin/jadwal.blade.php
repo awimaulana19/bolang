@@ -11,7 +11,7 @@
         <div class="card">
             <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
                 <div class="card-header">Data Jadwal</div>
-                <a href="#" class="btn btn-primary mt-4 me-5" style="height:40px;">Tambah Data</a>
+                <a href="jadwal/tambah" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah Data</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -26,24 +26,15 @@
                     <tbody>
                         <tr>
                             <td>11 Februari 2023</td>
-                            <td>14:00 - 15:00</td>
-                            <td>Rp. 135.000</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
-                                        data-feather="edit"></i>Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                        data-feather="x-circle"></i>Hapus</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>11 Februari 2023</td>
                             <td>16:00 - 17:00</td>
                             <td>Rp. 150.000</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
-                                        data-feather="edit"></i>Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                        data-feather="x-circle"></i>Hapus</a>
+                                <div class="d-flex">
+                                    <a href="jadwal/edit" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
+                                            data-feather="edit"></i>Edit</a>
+                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="/" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                            data-feather="x-circle"></i>Hapus</a>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
