@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('operasionals', function (Blueprint $table) {
             $table->id();
-            $table->string('hari');
-            $table->string('jam_buka');
-            $table->string('jam_tutup');
+            $table->foreignId('olahraga_id');
+            $table->string('hari')->nullable();
+            $table->string('jam_buka')->nullable();
+            $table->string('jam_tutup')->nullable();
             $table->timestamps();
         });
     }

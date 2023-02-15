@@ -16,12 +16,15 @@ return new class extends Migration
         Schema::create('olahragas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('operasional_id');
             $table->string('jenis');
             $table->string('foto');
             $table->string('deskripsi');
             $table->string('aturan');
-            $table->string('fasilitas');
+            $table->boolean('parkiran');
+            $table->boolean('minuman');
+            $table->boolean('ruang_ganti');
+            $table->boolean('toilet');
+            $table->boolean('wifi');
             $table->timestamps();
         });
     }

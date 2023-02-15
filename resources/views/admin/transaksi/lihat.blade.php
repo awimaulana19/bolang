@@ -17,67 +17,76 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Nama Pemesan</label>
-                                    <input type="text" class="form-control" value="Awi" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->nama_pelanggan }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Jenis Olahraga</label>
-                                    <input type="text" class="form-control" value="Futsal" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->olahraga->jenis }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Nama Lapangan</label>
-                                    <input type="text" class="form-control" value="Lapangan 1" disabled>
+                                    <input type="text" class="form-control"
+                                        value="{{ $transaksi->lapangan->nama_lapangan }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Tanggal</label>
-                                    <input type="text" class="form-control" value="19 Desember 2023" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->jadwal->tanggal }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Jam</label>
-                                    <input type="text" class="form-control" value="13:00 - 14:00" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->jadwal->jam }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Nama Akun</label>
-                                    <input type="text" class="form-control" value="Awiajha" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->nama_pelanggan }}"
+                                        disabled>
+                                    {{-- relasi pengguna --}}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Nomor Hp</label>
-                                    <input type="text" class="form-control" value="082397032649" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->nomor_hp }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" value="awimaulana19@gmail.com" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->email }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Catatan</label>
-                                    <input type="text" class="form-control" value="Datang 10 menit Lambat" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->catatan }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Jenis Pembayaran</label>
-                                    <input type="text" class="form-control" value="BRI" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->jenis_pembayaran }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Harga Lapangan</label>
-                                    <input type="text" class="form-control" value="Rp. 80.000" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->jadwal->harga }}"
+                                        disabled>
                                 </div>
                             </div>
                             {{-- <div class="col-md-6 col-12">
@@ -95,31 +104,35 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Order ID</label>
-                                    <input type="text" class="form-control" value="7FF55ES21333BGK" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->order_id }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" class="form-control" value="Sukses" disabled>
+                                    <input type="text" class="form-control"
+                                        value="{{ $transaksi->status === '0' ? 'Pending' : 'Sukses' }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Jenis Transaksi</label>
-                                    <input type="text" class="form-control" value="Booking Lapangan" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->jenis_transaksi }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Waktu Order</label>
-                                    <input type="text" class="form-control" value="06 Desember 2023 18:02" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->waktu_order }}"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Nomor Pembayaran</label>
-                                    <input type="text" class="form-control" value="743553432666" disabled>
+                                    <input type="text" class="form-control" value="{{ $transaksi->nomor_pembayaran }}"
+                                        disabled>
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,9 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form enctype="multipart/form-data" class="form form-horizontal" action="/admin/jenis/tambah" method="POST">
+                        <form enctype="multipart/form-data" class="form form-horizontal" action="/admin/jadwal/tambah"
+                            method="POST">
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -23,11 +25,12 @@
                                     </div>
                                     <div class="col-md-9 form-group">
                                         <fieldset class="form-group">
-                                            <select class="form-select" name="olahraga_id" id="basicSelect">
+                                            <select class="form-select" name="olahraga_id" id="olahraga_id"
+                                                onchange="updateLapangan()">
                                                 <option selected>Pilih Olahraga</option>
-                                                <option value="idfutsal">Futsal</option>
-                                                <option value="idms">Mini Soccer</option>
-                                                <option value="idbultang">Bulu Tangkis</option>
+                                                @foreach ($olahraga as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->jenis }}</option>
+                                                @endforeach
                                             </select>
                                         </fieldset>
                                     </div>
@@ -36,10 +39,8 @@
                                     </div>
                                     <div class="col-md-9 form-group">
                                         <fieldset class="form-group">
-                                            <select class="form-select" name="lapangan_id" id="basicSelect">
-                                                <option selected>Pilih Lapangan</option>
-                                                <option value="id1">Lapangan 1</option>
-                                                <option value="id2">Lapangan 2</option>
+                                            <select class="form-select" name="lapangan_id" id="lapangan_id" disabled>
+                                                <option value="">Pilih Lapangan</option>
                                             </select>
                                         </fieldset>
                                     </div>
@@ -123,8 +124,8 @@
                                     <div class="col-md-9 form-group">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">Rp. </span>
-                                            <input type="number" name="harga" class="form-control" placeholder="Harga"
-                                                aria-label="harga" aria-describedby="basic-addon1">
+                                            <input type="number" name="harga" class="form-control"
+                                                placeholder="Harga" aria-label="harga" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">
@@ -138,4 +139,29 @@
             </div>
         </div>
     </section>
+
+    <script>
+        async function updateLapangan() {
+            const olahraga = document.getElementById('olahraga_id').value;
+
+            document.getElementById('lapangan_id').innerHTML = '';
+            document.getElementById('lapangan_id').disabled = true;
+
+            try {
+                const response = await fetch(`/lapanganlist?olahraga=${olahraga}`);
+                const data = await response.json();
+
+                data.forEach(lapangan => {
+                    const option = document.createElement('option');
+                    option.value = lapangan.id;
+                    option.text = lapangan.nama_lapangan;
+                    document.getElementById('lapangan_id').appendChild(option);
+                });
+
+                document.getElementById('lapangan_id').disabled = false;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
 @endsection

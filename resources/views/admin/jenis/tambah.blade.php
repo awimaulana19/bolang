@@ -16,6 +16,7 @@
                 <div class="card-content">
                     <div class="card-body">
                         <form enctype="multipart/form-data" class="form form-horizontal" action="/admin/jenis/tambah" method="POST">
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -39,7 +40,7 @@
                                         <label>Deskripsi</label>
                                     </div>
                                     <div class="col-md-9 form-group">
-                                        <textarea name="deskripsi" id="deskripsi" hidden></textarea>
+                                        <input type="hidden" name="deskripsi" id="deskripsi">
                                         <div id="bubble" class="border border-1">
                                         </div>
                                     </div>
@@ -47,7 +48,7 @@
                                         <label>Aturan</label>
                                     </div>
                                     <div class="col-md-9 form-group mt-2" style="margin-bottom: 60px;">
-                                        <textarea name="aturan" id="aturan" hidden></textarea>
+                                        <input type="hidden" name="aturan" id="aturan">
                                         <div id="snow">
                                         </div>
                                     </div>
@@ -59,7 +60,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" id="checkbox1" class="form-check-input">
+                                                        <input type="checkbox" name="parkiran" id="checkbox1" class="form-check-input">
                                                         <label for="checkbox1">Parkiran</label>
                                                     </div>
                                                 </div>
@@ -67,7 +68,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox2">
+                                                        <input type="checkbox" name="minuman" class="form-check-input" id="checkbox2">
                                                         <label for="checkbox2">Minuman</label>
                                                     </div>
                                                 </div>
@@ -75,7 +76,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox3">
+                                                        <input type="checkbox" class="form-check-input" name="ruang_ganti" id="checkbox3">
                                                         <label for="checkbox3">Ruang Ganti</label>
                                                     </div>
                                                 </div>
@@ -83,7 +84,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox4">
+                                                        <input type="checkbox" class="form-check-input" name="toilet" id="checkbox4">
                                                         <label for="checkbox4">Toilet</label>
                                                     </div>
                                                 </div>
@@ -91,7 +92,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox5">
+                                                        <input type="checkbox" class="form-check-input" name="wifi" id="checkbox5">
                                                         <label for="checkbox5">Wifi</label>
                                                     </div>
                                                 </div>
@@ -121,26 +122,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        var quill = new Quill('#bubble', {
-            theme: 'bubble'
-        });
-
-        var quill2 = new Quill('#snow', {
-            theme: 'snow'
-        });
-
-        document.querySelector('form').onsubmit = function() {
-            var content = quill.getContents();
-            var text = content.toString();
-            document.querySelector('#deskripsi').value = text;
-
-            var content2 = quill2.getContents();
-            var text2 = content2.toString();
-            document.querySelector('#aturan').value = text2;
-        }
-    </script>
 
     <script src="{{ asset('assets/extensions/quill/quill.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/quill.js') }}"></script>

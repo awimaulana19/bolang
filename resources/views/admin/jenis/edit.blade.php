@@ -12,11 +12,12 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between" style="margin-bottom:-20px;">
                     <div class="card-title">Edit Data</div>
-                    <a href="operasional" class="btn btn-primary" style="height:40px;">Atur Jam Operasional</a>
+                    <a href="{{url('/admin/jenis/operasional/'.$olahraga->id)}}" class="btn btn-primary" style="height:40px;">Atur Jam Operasional</a>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form enctype="multipart/form-data" class="form form-horizontal" action="/admin/jenis/edit" method="POST">
+                        <form enctype="multipart/form-data" class="form form-horizontal" action="{{url('/admin/jenis/edit/'.$olahraga->id)}}" method="POST">
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -26,13 +27,13 @@
                                         <fieldset class="form-group">
                                             <select class="form-select" name="jenis" id="basicSelect">
                                                 <option selected>Pilih Jenis Olahraga</option>
-                                                <option value="Futsal">Futsal</option>
-                                                <option value="Mini Soccer">Mini Soccer</option>
-                                                <option value="Bulu Tangkis">Bulu Tangkis</option>
-                                                <option value="Basket">Basket</option>
-                                                <option value="Gym">Gym</option>
-                                                <option value="Tenis">Tenis</option>
-                                                <option value="Tenis Meja">Tenis Meja</option>
+                                                <option value="Futsal" {{($olahraga->jenis === 'Futsal') ? 'Selected' : ''}}>Futsal</option>
+                                                <option value="Mini Soccer" {{($olahraga->jenis === 'Mini Soccer') ? 'Selected' : ''}}>Mini Soccer</option>
+                                                <option value="Bulu Tangkis" {{($olahraga->jenis === 'Bulu Tangkis') ? 'Selected' : ''}}>Bulu Tangkis</option>
+                                                <option value="Basket" {{($olahraga->jenis === 'Basket') ? 'Selected' : ''}}>Basket</option>
+                                                <option value="Gym" {{($olahraga->jenis === 'Gym') ? 'Selected' : ''}}>Gym</option>
+                                                <option value="Tenis" {{($olahraga->jenis === 'Tenis') ? 'Selected' : ''}}>Tenis</option>
+                                                <option value="Tenis Meja" {{($olahraga->jenis === 'Tenis Meja') ? 'Selected' : ''}}>Tenis Meja</option>
                                             </select>
                                         </fieldset>
                                     </div>
@@ -40,16 +41,18 @@
                                         <label>Deskripsi</label>
                                     </div>
                                     <div class="col-md-9 form-group">
-                                        <textarea name="deskripsi" id="deskripsi" hidden></textarea>
+                                        <input type="hidden" name="deskripsi" id="deskripsi">
                                         <div id="bubble" class="border border-1">
+                                            {!! $olahraga->deskripsi !!}
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-2">
                                         <label>Aturan</label>
                                     </div>
                                     <div class="col-md-9 form-group mt-2" style="margin-bottom: 60px;">
-                                        <textarea name="aturan" id="aturan" hidden></textarea>
+                                        <input type="hidden" name="aturan" id="aturan">
                                         <div id="snow">
+                                            {!! $olahraga->aturan !!}
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -60,7 +63,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" id="checkbox1" class="form-check-input">
+                                                        <input type="checkbox" name="parkiran" id="checkbox1" class="form-check-input" @checked($olahraga->parkiran == true)>
                                                         <label for="checkbox1">Parkiran</label>
                                                     </div>
                                                 </div>
@@ -68,7 +71,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox2">
+                                                        <input type="checkbox" class="form-check-input" name="minuman" id="checkbox2" @checked($olahraga->minuman == true)>
                                                         <label for="checkbox2">Minuman</label>
                                                     </div>
                                                 </div>
@@ -76,7 +79,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox3">
+                                                        <input type="checkbox" class="form-check-input" name="ruang_ganti" id="checkbox3" @checked($olahraga->ruang_ganti == true)>
                                                         <label for="checkbox3">Ruang Ganti</label>
                                                     </div>
                                                 </div>
@@ -84,7 +87,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox4">
+                                                        <input type="checkbox" class="form-check-input" name="toilet" id="checkbox4" @checked($olahraga->toilet == true)>
                                                         <label for="checkbox4">Toilet</label>
                                                     </div>
                                                 </div>
@@ -92,7 +95,7 @@
                                             <li class="d-inline-block me-2 mb-1">
                                                 <div class="form-check">
                                                     <div class="checkbox">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox5">
+                                                        <input type="checkbox" class="form-check-input" name="wifi" id="checkbox5" @checked($olahraga->wifi == true)>
                                                         <label for="checkbox5">Wifi</label>
                                                     </div>
                                                 </div>

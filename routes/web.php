@@ -6,6 +6,9 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LapanganController;
 use App\Http\Controllers\OlahragaController;
 use App\Http\Controllers\TransaksiController;
+use App\Models\Lapangan;
+use App\Models\Olahraga;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,16 +82,26 @@ Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
         Route::get('/dashboard', [AuthController::class, 'dashboard']);
         Route::get('/jenis', [OlahragaController::class, 'index']);
         Route::get('/jenis/tambah', [OlahragaController::class, 'tambah']);
-        Route::get('/jenis/operasional', [OlahragaController::class, 'operasional']);
-        Route::get('/jenis/edit', [OlahragaController::class, 'edit']);
+        Route::post('/jenis/tambah', [OlahragaController::class, 'store']);
+        Route::get('/jenis/edit/{id}', [OlahragaController::class, 'edit']);
+        Route::post('/jenis/edit/{id}', [OlahragaController::class, 'update']);
+        Route::get('/jenis/delete/{id}', [OlahragaController::class, 'delete']);
+        Route::get('/jenis/operasional/{id}', [OlahragaController::class, 'operasional']);
+        Route::post('/jenis/operasional/{id}', [OlahragaController::class, 'storeOperasional']);
         Route::get('/lapangan', [LapanganController::class, 'index']);
         Route::get('/lapangan/tambah', [LapanganController::class, 'tambah']);
-        Route::get('/lapangan/edit', [LapanganController::class, 'edit']);
+        Route::post('/lapangan/tambah', [LapanganController::class, 'store']);
+        Route::get('/lapangan/edit/{id}', [LapanganController::class, 'edit']);
+        Route::post('/lapangan/edit/{id}', [LapanganController::class, 'update']);
+        Route::get('/lapangan/delete/{id}', [LapanganController::class, 'delete']);
         Route::get('/jadwal', [JadwalController::class, 'index']);
         Route::get('/jadwal/tambah', [JadwalController::class, 'tambah']);
-        Route::get('/jadwal/edit', [JadwalController::class, 'edit']);
+        Route::post('/jadwal/tambah', [JadwalController::class, 'store']);
+        Route::get('/jadwal/edit/{id}', [JadwalController::class, 'edit']);
+        Route::post('/jadwal/edit/{id}', [JadwalController::class, 'update']);
+        Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
         Route::get('/transaksi', [TransaksiController::class, 'index']);
-        Route::get('/transaksi/lihat', [TransaksiController::class, 'lihat']);
+        Route::get('/transaksi/lihat/{id}', [TransaksiController::class, 'lihat']);
     });
 });
 
@@ -99,4 +112,12 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         });
     });
 });
+
+Route::get('/lapanganlist', function (Request $request) {
+    $olahraga = $request->input('olahraga');
+  
+    $lapangan = Lapangan::where('olahraga_id', '=', $olahraga)->get();
+  
+    return response()->json($lapangan);
+  });
 

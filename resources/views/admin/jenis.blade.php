@@ -24,32 +24,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($olahraga as $item)  
                         <tr>
-                            <td>Kakanta Sport Center</td>
-                            <td>Futsal</td>
-                            <td>6282397032649</td>
+                            <td>{{ $item->user->namatempat }}</td>
+                            <td>{{ $item->jenis }}</td>
+                            <td>{{ $item->user->whatsapp }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="jenis/edit" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
+                                    <a href="{{url('/admin/jenis/edit/'.$item->id)}}" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
                                             data-feather="edit"></i>Edit</a>
-                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="/admin/jenis/operasional" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="{{url('/admin/jenis/delete/'.$item->id)}}" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
                                             data-feather="x-circle"></i>Hapus</a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Kakanta Sport Center</td>
-                            <td>Bulu Tangkis</td>
-                            <td>6282397032649</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
-                                            data-feather="edit"></i>Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                            data-feather="x-circle"></i>Hapus</a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

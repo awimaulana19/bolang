@@ -17,26 +17,30 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
+                            <th>Nama Lapangan</th>
+                            <th>Olahraga</th>
                             <th>Tanggal</th>
                             <th>Jam</th>
-                            <th>Harga</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($jadwal as $item)                    
                         <tr>
-                            <td>11 Februari 2023</td>
-                            <td>16:00 - 17:00</td>
-                            <td>Rp. 150.000</td>
+                            <td>{{ $item->lapangan->nama_lapangan }}</td>
+                            <td>{{ $item->olahraga->jenis }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->jam }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="jadwal/edit" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
+                                    <a href="{{ '/admin/jadwal/edit/'.$item->id }}" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
                                             data-feather="edit"></i>Edit</a>
-                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="/" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="{{ '/admin/jadwal/delete/'.$item->id }}" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
                                             data-feather="x-circle"></i>Hapus</a>
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

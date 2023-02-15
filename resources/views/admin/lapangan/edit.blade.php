@@ -15,14 +15,15 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form enctype="multipart/form-data" class="form form-horizontal" action="/admin/lapangan/edit" method="POST">
+                        <form enctype="multipart/form-data" class="form form-horizontal" action="{{ '/admin/lapangan/edit/'.$lapangan->id }}" method="POST">
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label>Nama Lapangan</label>
                                     </div>
                                     <div class="col-md-9 form-group">
-                                        <input type="text" id="nama" class="form-control" name="nama" placeholder="Nama Lapangan">
+                                        <input type="text" id="nama" class="form-control" name="nama_lapangan" placeholder="Nama Lapangan" value="{{ $lapangan->nama_lapangan }}">
                                     </div>
                                     <div class="col-md-3 mt-2">
                                         <label>Olahraga</label>
@@ -31,9 +32,9 @@
                                         <fieldset class="form-group">
                                             <select class="form-select" name="olahraga_id" id="basicSelect">
                                                 <option selected>Pilih Olahraga</option>
-                                                <option value="idfutsal">Futsal</option>
-                                                <option value="idms">Mini Soccer</option>
-                                                <option value="idbultang">Bulu Tangkis</option>
+                                                @foreach ($olahraga as $item)  
+                                                <option value="{{ $item->id }}" {{($lapangan->olahraga_id === $item->id) ? 'Selected' : ''}}>{{ $item->jenis }}</option>
+                                                @endforeach
                                             </select>
                                         </fieldset>
                                     </div>

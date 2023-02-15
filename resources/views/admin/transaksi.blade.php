@@ -21,17 +21,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Adam</td>
-                            <td>6282397032649</td>
-                            <td>adam@gmail.com</td>
-                            <td>
-                                <a href="transaksi/lihat" class="btn btn-info btn-sm icon icon-left rounded-3"><i
-                                    data-feather="eye"></i>Lihat</a>
-                                {{-- <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                        @foreach ($transaksi as $item)
+                            <tr>
+                                <td>{{ $item->nama_pelanggan }}</td>
+                                <td>{{ $item->nomor_hp }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>
+                                    <a href="{{ 'transaksi/lihat/'.$item->id }}" class="btn btn-info btn-sm icon icon-left rounded-3"><i
+                                            data-feather="eye"></i>Lihat</a>
+                                    {{-- <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
                                         data-feather="x-circle"></i>Hapus</a> --}}
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
