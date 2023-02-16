@@ -17,7 +17,7 @@
                 <div class="card-content">
                     <div class="card-body">
                         <form enctype="multipart/form-data" class="form form-horizontal" action="{{url('/admin/jenis/edit/'.$olahraga->id)}}" method="POST">
-                            @csrf
+                            @csrf 
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -105,6 +105,7 @@
                                     <div class="col-md-3 mt-1">
                                         <label>Foto</label>
                                     </div>
+                                    <input type="hidden" name="fotoLama" id="fotoLama" value="{{ $olahraga->foto }}">
                                     <div class="col-md-9 form-group mt-1">
                                         <input type="file" id="foto" class="form-control" name="foto">
                                     </div>

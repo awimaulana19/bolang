@@ -11,53 +11,58 @@
             <div class="pembayaran">
                 <div class="dat data">
                     <h4>Order ID</h4>
-                    <h5>FB-0031-U4O7BPEL0DH8</h5>
+                    <h5>{{ $transaksi->order_id }}</h5>
                 </div>
                 <div class="dat datakanan">
                     <h4>Status Pembayaran</h4>
-                    <div class="status">
-                        <span>PENDING</span>
+                    <div class="status {{($transaksi->status === 0) ? 'pending' : ''}}">
+                        @if ($transaksi->status === 0)
+                            <span>PENDING</span>
+                        @else
+                            <span>SUKSES</span>
+                        @endif
                     </div>
                 </div>
                 <div class="dat data">
                     <h4>Nama Customer</h4>
-                    <h5>Awi Maulana</h5>
+                    <h5>{{ $transaksi->nama_pelanggan }}</h5>
                 </div>
                 <div class="dat datakanan">
                     <h4>Jenis Transaksi</h4>
-                    <h5>Booking Lapangan</h5>
+                    <h5>{{ $transaksi->jenis_transaksi }}</h5>
                 </div>
                 <div class="dat data">
                     <h4>Tanggal Order</h4>
-                    <h5>01 Februari 2023 16:41</h5>
+                    <h5>{{ $transaksi->waktu_order }}</h5>
                 </div>
                 <div class="dat datakanan">
                     <h4>Batas Waktu Pembayaran</h4>
-                    <h5>01 Februari 2023 17:41</h5>
+                    <h5>{{ $transaksi->batas_pembayaran }}</h5>
                 </div>
                 <div class="dat data">
                     <h4>Nomor</h4>
-                    <h5>733235123654534</h5>
+                    <h5>{{ $transaksi->nomor_pembayaran }}</h5>
                 </div>
                 <div class="dat datakanan">
                     <h4>Metode Pembayaran</h4>
-                    <h5>BRI</h5>
+                    <h5>{{ $transaksi->jenis_pembayaran }}</h5>
                 </div>
             </div>
             <hr>
             <div class="rincian rincibayar">
-                <h4>Kakanta Sport Center</h4>
-                <h6>Senin, 12 April 2023 <i class="bi bi-circle-fill ms-1 me-1"></i> 08:00 - 09:00</h6>
+                <h4>{{ $transaksi->user->namatempat }}</h4>
+                <h6>{{ $transaksi->jadwal->tanggal }} <i class="bi bi-circle-fill ms-1 me-1"></i>
+                    {{ $transaksi->jadwal->jam }}</h6>
                 <div class="harga mt-4">
-                    <span>Harga Lapangan:</span><span>Rp. 80.000</span>
+                    <span>Harga Lapangan:</span><span>Rp. {{ $transaksi->harga_lapangan }}</span>
                 </div>
                 <hr>
                 <div class="harga">
-                    <span>Biaya Admin:</span><span>Rp. 0</span>
+                    <span>Biaya Admin:</span><span>Rp. {{ $transaksi->biaya_admin }}</span>
                 </div>
                 <hr>
                 <div class="harga">
-                    <span>Total Bayar:</span><span>Rp. 80.000</span>
+                    <span>Total Bayar:</span><span>Rp. {{ $transaksi->total }}</span>
                 </div>
             </div>
             <div class="d-flex justify-content-center mt-5">

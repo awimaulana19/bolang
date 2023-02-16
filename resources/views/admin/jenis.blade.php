@@ -38,6 +38,7 @@
                                 </div>
                             </td>
                         </tr>
+                        {{-- <img src="{{ asset('storage/'.$item->foto) }}" alt="" width="auto" height="100px"> --}}
                         @endforeach
                     </tbody>
                 </table>

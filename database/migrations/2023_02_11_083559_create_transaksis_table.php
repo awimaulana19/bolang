@@ -25,11 +25,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('catatan')->nullable();
             $table->string('jenis_pembayaran');
-            $table->string('harga_lapangan');
-            $table->string('biaya_admin');
-            $table->string('total');
+            $table->integer('harga_lapangan');
+            $table->integer('biaya_admin');
+            $table->integer('total');
             $table->string('order_id');
-            $table->string('status');
+            $table->boolean('status');
             $table->string('jenis_transaksi');
             $table->string('waktu_order');
             $table->string('batas_pembayaran');

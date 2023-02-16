@@ -1,14 +1,15 @@
 <?php
 
+use App\Models\Lapangan;
+use App\Models\Olahraga;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LapanganController;
 use App\Http\Controllers\OlahragaController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\TransaksiController;
-use App\Models\Lapangan;
-use App\Models\Olahraga;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('pengguna.home');
-});
-
 Route::get('/registrasi', function () {
     return view('pengguna.regist');
 });
@@ -33,13 +30,15 @@ Route::get('/login', function () {
     return view('pengguna.login');
 });
 
-Route::get('/akun', function () {
-    return view('pengguna.akun');
-});
-
-Route::get('/promo', function () {
-    return view('pengguna.promo');
-});
+Route::get('/', [PenggunaController::class, 'index']);
+Route::get('/lapangan', [PenggunaController::class, 'lapangan']);
+Route::get('/promo', [PenggunaController::class, 'promo']);
+Route::get('/akun', [PenggunaController::class, 'akun']);
+Route::get('/pilih/{id}', [PenggunaController::class, 'pilih']);
+Route::get('/booking/{id}', [PenggunaController::class, 'booking']);
+Route::get('/pesan', [PenggunaController::class, 'pesan']);
+Route::post('/pesan', [TransaksiController::class, 'store']);
+Route::get('/bayar/{id}', [PenggunaController::class, 'bayar']);
 
 Route::get('/etiket', function () {
     return view('pengguna.etiket');
@@ -49,28 +48,8 @@ Route::get('/transaksi', function () {
     return view('pengguna.transaksi');
 });
 
-Route::get('/lapangan', function () {
-    return view('pengguna.lapangan');
-});
-
 Route::get('/olahraga', function () {
     return view('pengguna.olahraga');
-});
-
-Route::get('/pilih', function () {
-    return view('pengguna.pilihlapangan');
-});
-
-Route::get('/booking', function () {
-    return view('pengguna.booking');
-});
-
-Route::get('/pesan', function () {
-    return view('pengguna.pemesanan');
-});
-
-Route::get('/bayar', function () {
-    return view('pengguna.pembayaran');
 });
 
 Route::get('/admin', [AuthController::class, 'login']);

@@ -111,6 +111,13 @@ hr {
     color: #000000;
 }
 
+.deskripsi ol li {
+    margin-left: 1em;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+
 .deskripsi .operasional {
     justify-content: center;
 }

@@ -41,6 +41,7 @@
                                     <div class="col-md-3">
                                         <label>Foto</label>
                                     </div>
+                                    <input type="hidden" name="fotoLama" id="fotoLama" value="{{ $lapangan->foto }}">
                                     <div class="col-md-9 form-group">
                                         <input type="file" id="foto" class="form-control" name="foto">
                                     </div>

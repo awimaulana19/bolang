@@ -170,6 +170,10 @@
     align-items: center;
 }
 
+.pelanggan .pembayaran .dat .pending {
+    background: #b4c702;
+}
+
 .pelanggan .pembayaran .dat .status span {
     font-weight: 600;
     font-size: 19px;

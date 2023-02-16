@@ -5,18 +5,19 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/pemesanan.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <form class="pelanggan mt-5" action="/bayar">
+    <form id="order_form" class="pelanggan mt-5" action="/pesan" method="POST">
+        @csrf
         <h1>Pemesanan</h1>
         <div class="tabel">
             <h3 class="mb-4 mb-lg-5">Detail Pelanggan</h3>
             <div class="row baris1">
                 <div class="col-6 mb-4">
-                    <label for="nama" class="form-label">Nama Pelanggan</label>
-                    <input required type="text" class="form-control" id="nama" name="nama">
+                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan</label>
+                    <input required type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan">
                 </div>
                 <div class="col-6 mb-4 akhir">
-                    <label for="nomor" class="form-label">No. Hp Pelanggan</label>
-                    <input required type="text" class="form-control" id="nomor" name="nomor">
+                    <label for="nomor_hp" class="form-label">No. Hp Pelanggan</label>
+                    <input required type="text" class="form-control" id="nomor_hp" name="nomor_hp">
                 </div>
             </div>
             <div class="row">
@@ -34,16 +35,16 @@
         </div>
         <div class="tabel pilih">
             <h3 class="mb-4 mb-lg-5">Pilih Jenis Pembayaran</h3>
-            <select required class="form-select mb-3">
+            <select required class="form-select mb-3" name="jenis_pembayaran" id="jenis_pembayaran">
                 <option selected>Payment</option>
-                <option value="1">BRI</option>
-                <option value="2">BNI</option>
-                <option value="3">BCA</option>
-                <option value="4">MANDIRI</option>
-                <option value="5">GOPAY</option>
-                <option value="6">DANA</option>
-                <option value="7">OVO</option>
-                <option value="8">LINKAJA</option>
+                <option value="BRI">BRI</option>
+                <option value="BNI">BNI</option>
+                <option value="BCA">BCA</option>
+                <option value="MANDIRI">MANDIRI</option>
+                <option value="GOPAY">GOPAY</option>
+                <option value="DANA">DANA</option>
+                <option value="OVO">OVO</option>
+                <option value="LINKAJA">LINKAJA</option>
             </select>
             <div class="pembayaran">
                 <div class="gambar">
@@ -76,10 +77,10 @@
             <div class="tombol mb-4">
                 <h3 class="pt-2 pb-2">Rincian Pesanan</h3>
             </div>
-            <h4>Kakanta Sport Center</h4>
-            <h6>Sabtu, 12 Desember 2022 <i class="bi bi-circle-fill ms-1 me-1"></i> 19:00 - 20:00</h6>
+            <h4>{{ $jadwal->user->namatempat }}</h4>
+            <h6>{{ $jadwal->tanggal }} <i class="bi bi-circle-fill ms-1 me-1"></i> {{ $jadwal->jam }}</h6>
             <div class="harga mt-4">
-                <span>Harga Lapangan:</span><span>Rp. 80.000</span>
+                <span>Harga Lapangan:</span><span>Rp. {{ $jadwal->harga }}</span>
             </div>
             <hr>
             <div class="harga">
@@ -87,11 +88,35 @@
             </div>
             <hr>
             <div class="harga">
-                <span>Total Bayar:</span><span>Rp. 80.000</span>
+                <span>Total Bayar:</span><span>Rp. {{ $jadwal->harga }}</span>
             </div>
         </div>
+        <input type="hidden" id="jadwal_id" name="jadwal_id" value="{{ $jadwal->id }}">
+        <input type="hidden" id="order_datetime" name="order_datetime" value="">
+        <input type="hidden" id="batas_pembayaran" name="batas_pembayaran" value="">
         <div class="d-flex justify-content-center mb-5">
-            <button type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
+            <button type="submit" onclick="submitForm()" class="btn btn-success">Konfirmasi Pembayaran</button>
         </div>
     </form>
+
+    <script>
+        function submitForm() {
+            var current_datetime = new Date();
+            var options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            var date = current_datetime.toLocaleDateString('id-ID', options);
+            // var date = current_datetime.getFullYear() + '-' + (current_datetime.getMonth() + 1) + '-' + current_datetime
+            //     .getDate();
+            var time = current_datetime.getHours() + ":" + current_datetime.getMinutes();
+            var batasWaktu = (current_datetime.getHours() + 1) + ":" + current_datetime.getMinutes();
+            var datetime = date + ' ' + time;
+            var batas = date + ' ' + batasWaktu;
+            document.getElementById("order_datetime").value = datetime;
+            document.getElementById("batas_pembayaran").value = batas;
+            document.getElementById("order_form").submit();
+        }
+    </script>
 @endsection

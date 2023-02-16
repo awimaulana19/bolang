@@ -14,20 +14,23 @@ class JadwalController extends Controller
 {
     public function index()
     {
-        $jadwal = Jadwal::get();
+        $user = Auth::user()->id;
+        $jadwal = Jadwal::where('user_id', $user)->get();
         return view('admin.jadwal', compact('jadwal'));
     }
 
     public function tambah()
     {
-        $olahraga = Olahraga::get();
+        $user = Auth::user()->id; 
+        $olahraga = Olahraga::where('user_id', $user)->get();
         return view('admin.jadwal.tambah', compact('olahraga'));
     }
 
     public function edit($id)
     {
+        $user = Auth::user()->id; 
+        $olahraga = Olahraga::where('user_id', $user)->get();
         $jadwal = Jadwal::where('id', $id)->first();
-        $olahraga = Olahraga::get();
         $lapangan = Lapangan::where('olahraga_id', $jadwal->olahraga_id)->get();
 
         $date = $jadwal->tanggal;
@@ -80,7 +83,6 @@ class JadwalController extends Controller
         $jadwal->tanggal = $tanggal;
         $jadwal->jam = $jam;
         $jadwal->harga = $harga;
-        $jadwal->status = false;
         $jadwal->update();
 
         return redirect('admin/jadwal');

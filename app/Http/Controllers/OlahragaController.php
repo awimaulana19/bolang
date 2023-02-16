@@ -8,12 +8,14 @@ use App\Models\Olahraga;
 use App\Models\Operasional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class OlahragaController extends Controller
 {
     public function index()
     {
-        $olahraga = Olahraga::get();
+        $user = Auth::user()->id;
+        $olahraga = Olahraga::where('user_id', $user)->get();
         return view('admin.jenis', compact('olahraga'));
     }
 
@@ -67,7 +69,6 @@ class OlahragaController extends Controller
         $ruang_ganti = $request->input('ruang_ganti') ? true : false;
         $toilet = $request->input('toilet') ? true : false;
         $wifi = $request->input('wifi') ? true : false;
-        $foto = $request->foto;
 
         $olahraga = new Olahraga();
 
@@ -80,7 +81,9 @@ class OlahragaController extends Controller
         $olahraga->ruang_ganti = $ruang_ganti;
         $olahraga->toilet = $toilet;
         $olahraga->wifi = $wifi;
-        $olahraga->foto = $foto;
+        if ($request->file('foto')) {
+            $olahraga->foto = $request->file('foto')->store('foto-olahraga');
+        }
 
         $olahraga->save();
 
@@ -100,7 +103,12 @@ class OlahragaController extends Controller
         $olahraga->ruang_ganti = $request->input('ruang_ganti') ? true : false;
         $olahraga->toilet = $request->input('toilet') ? true : false;
         $olahraga->wifi = $request->input('wifi') ? true : false;
-        $olahraga->foto = $request->foto;
+        if ($request->file('foto')) {
+            if ($request->fotoLama) {
+                Storage::delete($request->fotoLama);
+            }
+            $olahraga->foto = $request->file('foto')->store('foto-olahraga');
+        }
 
         $olahraga->update();
 
@@ -314,7 +322,6 @@ class OlahragaController extends Controller
             }
         }
         
-
         return redirect('admin/jenis/edit/'.$olahraga->id);
     }
 
@@ -324,6 +331,10 @@ class OlahragaController extends Controller
         $operasional = Operasional::where('olahraga_id', $olahraga->id)->get();
         $lapangan = Lapangan::where('olahraga_id', $olahraga->id)->get();
         $jadwal = Jadwal::where('olahraga_id', $olahraga->id)->get();
+
+        if ($olahraga->foto) {
+            Storage::delete($olahraga->foto);
+        }
 
         Operasional::destroy($operasional);
         Lapangan::destroy($lapangan);

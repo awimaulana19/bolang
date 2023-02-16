@@ -111,7 +111,7 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <input type="text" class="form-control"
-                                        value="{{ $transaksi->status === '0' ? 'Pending' : 'Sukses' }}" disabled>
+                                        value="{{ $transaksi->status === 0 ? 'Pending' : 'Sukses' }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">

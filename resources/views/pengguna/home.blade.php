@@ -117,16 +117,32 @@
             </div>
         </div>
         <div class="row rekomendasi">
-            <div class="col-xl-3 col-lg-4 col-6">
-                <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan1.png') }}"
-                        width="260px" height="380px"></a>
-                <a href="/pilih">
-                    <h5>Lapangan 1</h5>
-                </a>
-                <h6>Makassar - <span>1 Lapangan</span></h6>
-                <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-6">
+            @foreach ($olahraga as $item)
+                <div class="col-xl-3 col-lg-4 col-6">
+                    <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
+                            width="260px" height="380px"></a>
+                    <a href="/pilih">
+                        <h5>{{ $item->user->namatempat }}</h5>
+                    </a>
+                    <h6>{{ $item->user->alamat }} - <span>{{ $item->lapangan->count() }} Lapangan</span></h6>
+                    @php
+                        $lowestPrice = PHP_INT_MAX;
+                    @endphp
+                    @foreach ($item->jadwal as $jadwal)
+                        @php
+                            $lowestPrice = min($lowestPrice, $jadwal['harga']);
+                        @endphp
+                    @endforeach
+                    <h6>Harga Mulai - <span class="harga">
+                            Rp. @if ($item->jadwal->isEmpty())
+                                0
+                            @else
+                                {{ $lowestPrice }}
+                            @endif
+                        </span></h6>
+                </div>
+            @endforeach
+            {{-- <div class="col-xl-3 col-lg-4 col-6">
                 <a href="/pilih"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}"
                         width="260px" height="380px"></a>
                 <a href="/pilih">
@@ -152,7 +168,7 @@
                 </a>
                 <h6>Makassar - <span>1 Lapangan</span></h6>
                 <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
-            </div>
+            </div> --}}
         </div>
         <div class="row mb-4 promo">
             <div class="col-lg-2 col-3 desk">
@@ -163,18 +179,20 @@
             <div class="col-lg-10 col-9">
                 <div class="carousel"
                     data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
+                    @foreach ($lapangan as $item)   
                     <div class="carousel-cell">
-                        <a href="/booking">
+                        <a href="{{ '/booking/'.$item->id }}">
                             <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
-                                src="{{ asset('image/lapangan1.png') }}" width="100%" height="70%">
+                                src="{{ asset('storage/' . $item->foto) }}" width="100%" height="70%">
                         </a>
-                        <a href="/pilih">
-                            <h5>Kakanta Sport Center</h5>
+                        <a href="{{ '/booking/'.$item->id }}">
+                            <h5>{{ $item->user->namatempat }}</h5>
                         </a>
-                        <h6><span>Futsal</span></h6>
-                        <h6>Lapangan 1</h6>
+                        <h6><span>{{ $item->olahraga->jenis }}</span></h6>
+                        <h6>{{ $item->nama_lapangan }}</h6>
                     </div>
-                    <div class="carousel-cell">
+                    @endforeach
+                    {{-- <div class="carousel-cell">
                         <a href="/booking">
                             <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
                                 src="{{ asset('image/lapangan2.png') }}" width="100%" height="70%">
@@ -239,7 +257,7 @@
                         </a>
                         <h6><span>Basket</span></h6>
                         <h6>Lapangan 1</h6>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -249,10 +267,6 @@
             <div class="carousel2 mb-5"
                 data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
                 <a href="/olahraga" class="carousel-cell2">
-                    <div class="namaolahraga"><span>GYM</span></div>
-                    <img src="{{ asset('image/gym.png') }}" width="100%" height="100%">
-                </a>
-                <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Futsal</span></div>
                     <img src="{{ asset('image/futsal.png') }}" width="100%" height="100%">
                 </a>
@@ -261,8 +275,16 @@
                     <img src="{{ asset('image/minisoccer.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
+                    <div class="namaolahraga"><span>Bulu Tangkis</span></div>
+                    <img src="{{ asset('image/tenis.png') }}" width="100%" height="100%">
+                </a>
+                <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Basket</span></div>
                     <img src="{{ asset('image/basket.png') }}" width="100%" height="100%">
+                </a>
+                <a href="/olahraga" class="carousel-cell2">
+                    <div class="namaolahraga"><span>GYM</span></div>
+                    <img src="{{ asset('image/gym.png') }}" width="100%" height="100%">
                 </a>
                 <a href="/olahraga" class="carousel-cell2">
                     <div class="namaolahraga"><span>Tenis</span></div>
