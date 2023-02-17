@@ -38,25 +38,36 @@
                         <a class="nav-link" href="/etiket">E-Ticket</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ms-lg-4 me-lg-5">
-                    <li class="d-none nav-item d-lg-flex align-items-center me-2">
-                        <span class="garis"></span>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Hi, Awi
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/akun"><i class="bi bi-person me-1"></i> Akun</a></li>
-                            <li><a class="dropdown-item" href="/transaksi"><i class="bi bi-journal-text me-1"></i> Transaksi</a></li>
-                            <li><a class="dropdown-item" href="/"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
+                @auth
+                    @if (auth()->user()->roles == 'pengguna')
+                        <ul class="navbar-nav ms-lg-4 me-lg-5">
+                            <li class="d-none nav-item d-lg-flex align-items-center me-2">
+                                <span class="garis"></span>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {{ explode(' ', auth()->user()->nama)[0] }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/akun"><i class="bi bi-person me-1"></i> Akun</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="/transaksi"><i class="bi bi-journal-text me-1"></i>
+                                            Transaksi</a></li>
+                                    <li><a class="dropdown-item" href="/keluar"><i class="bi bi-box-arrow-right me-1"></i>
+                                            Logout</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul>
-                {{-- <a href="/registrasi" class="btn-temp">REGISTER</a>
-                <a href="/login" class="btn-temp">LOGIN</a> --}}
+                    @else
+                        <a href="/registrasi" class="btn-temp">REGISTER</a>
+                        <a href="/login" class="btn-temp">LOGIN</a>
+                    @endif
+                @else
+                    <a href="/registrasi" class="btn-temp">REGISTER</a>
+                    <a href="/login" class="btn-temp">LOGIN</a>
+                @endauth
             </div>
         </div>
     </nav>

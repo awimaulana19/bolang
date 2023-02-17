@@ -13,17 +13,36 @@
                     </div>
                 </div>
                 <div class="regist col-5 kata p-2 mx-auto">
-                    <form action="/">
-                        <input class="form mb-3 w-100" type="text" value="" placeholder="Nama Lengkap">
-                        <input class="form mb-3 w-100" type="text" value="" placeholder="Username">
-                        <input class="form mb-3 w-100" type="email" value="" placeholder="Alamat Email">
-                        <input class="form mb-3 w-100" type="password" value="" placeholder="Masukkan Password">
-                        <input class="form mb-3 w-100" type="password" value="" placeholder="Masukkan Ulang Password">
-                        <input class="button-primary mb-3 w-100" type="submit" value="Registrasi">
+                    <form action="/registrasi" method="POST">
+                        @csrf
+                        <input class="form mb-3 w-100" type="text" name="nama" placeholder="Nama Lengkap">
+                        <input class="form mb-3 w-100" type="text" name="username" placeholder="Username">
+                        <input class="form mb-3 w-100" type="email" name="email" placeholder="Alamat Email">
+                        <input class="form mb-3 w-100" type="password" id="password" placeholder="Masukkan Password">
+                        <input class="form mb-3 w-100" type="password" id="confirm-password" name="password"
+                            placeholder="Masukkan Ulang Password">
+                        <p id="password-mismatch" style="color: red; display: none;">Password tidak cocok</p>
+                        <input id="submit-regist" class="button-primary mb-3 w-100" type="submit" value="Registrasi">
                     </form>
                     <p style="text-align: center;">Sudah Punya Akun? &nbsp<a href="/login">LOGIN</a></p>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirm-password");
+        const registerButton = document.getElementById("submit-regist");
+        const passwordMismatch = document.getElementById("password-mismatch");
+
+        confirmPasswordInput.addEventListener("input", function() {
+            if (confirmPasswordInput.value === passwordInput.value) {
+                registerButton.disabled = false;
+                passwordMismatch.style.display = "none";
+            } else {
+                registerButton.disabled = true;
+                passwordMismatch.style.display = "block";
+            }
+        });
+    </script>
 @endsection

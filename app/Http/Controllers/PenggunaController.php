@@ -29,6 +29,11 @@ class PenggunaController extends Controller
         return view('pengguna.lapangan', compact('futsal', 'minisoccer', 'bulutangkis', 'basket', 'gym', 'tenis', 'tenismeja'));
     }
 
+    public function olahraga ($jenis) {
+        $olahraga = Olahraga::where('jenis', $jenis)->get();
+        return view('pengguna.olahraga', compact('olahraga', 'jenis'));
+    }
+
     public function promo () {
         $lapangan = Lapangan::get();
         return view('pengguna.promo', compact('lapangan'));

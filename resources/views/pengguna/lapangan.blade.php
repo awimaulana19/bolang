@@ -10,7 +10,7 @@
             <h3>Lapangan <span>Futsal</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Futsal">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi">
@@ -76,7 +76,7 @@
             <h3>Lapangan <span>Mini Soccer</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Mini Soccer">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi">
@@ -142,7 +142,7 @@
             <h3>Lapangan <span>Bulu Tangkis</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Bulu Tangkis">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi">
@@ -181,7 +181,7 @@
             <h3>Lapangan <span>Basket</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Basket">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi">
@@ -220,7 +220,7 @@
             <h3>Lapangan <span>Gym</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Gym">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi">
@@ -259,7 +259,7 @@
             <h3>Lapangan <span>Tenis</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Tenis">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi">
@@ -298,7 +298,7 @@
             <h3>Lapangan <span>Tenis Meja</span></h3>
         </div>
         <div class="col-5">
-            <a class="mt-1" href="/olahraga">Selengkapnya..</a>
+            <a class="mt-1" href="/olahraga/Tenis Meja">Selengkapnya..</a>
         </div>
     </div>
     <div class="row rekomendasi mb-5">

@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jadwals', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('user_id');
-            $table->foreignId('olahraga_id');
-            $table->foreignId('lapangan_id');
+            $table->foreignUuid('olahraga_id');
+            $table->foreignUuid('lapangan_id');
             $table->string('tanggal');
             $table->string('jam');
             $table->integer('harga');

@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('transaksis', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('pengguna_id');
-            $table->foreignId('olahraga_id');
-            $table->foreignId('lapangan_id');
-            $table->foreignId('jadwal_id');
+            $table->uuid('id')->primary();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('pengguna_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('pengguna_id')->references('id')->on('users');
+            $table->foreignUuid('olahraga_id');
+            $table->foreignUuid('lapangan_id');
+            $table->foreignUuid('jadwal_id');
             $table->string('nama_pelanggan');
             $table->string('nomor_hp');
             $table->string('email');

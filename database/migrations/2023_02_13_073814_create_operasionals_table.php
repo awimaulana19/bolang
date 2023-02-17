@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('operasionals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('olahraga_id');
+            $table->foreignUuid('olahraga_id');
             $table->string('hari')->nullable();
             $table->string('jam_buka')->nullable();
             $table->string('jam_tutup')->nullable();

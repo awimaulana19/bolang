@@ -13,9 +13,16 @@
                     </div>
                 </div>
                 <div class="regist col-5 kata p-5 mx-auto">
-                    <form action="/">
-                        <input class="form mb-3 w-100" type="email" placeholder="Username/Email">
-                        <input class="form mb-3 w-100" type="password" placeholder="Password">
+                    @if (session('pesan-danger'))
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        {{ session('pesan-danger') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+                    <form action="/login" method="POST">
+                        @csrf
+                        <input class="form mb-3 w-100" type="text" name="useremail" placeholder="Username/Email">
+                        <input class="form mb-3 w-100" type="password" name="password" placeholder="Password">
                         <input class="button-primary mb-3 w-100" type="submit" value="Login">
                     </form>
                     <p style="text-align: center;">Belum Punya Akun? &nbsp<a href="/registrasi">REGISTRASI DI SINI</a>

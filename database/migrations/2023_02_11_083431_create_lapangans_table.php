@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lapangans', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('user_id');
-            $table->foreignId('olahraga_id');
+            $table->foreignUuid('olahraga_id');
             $table->string('nama_lapangan');
             $table->string('foto');
             $table->timestamps();

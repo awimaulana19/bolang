@@ -22,41 +22,40 @@ use App\Http\Controllers\TransaksiController;
 |
 */
 
-Route::get('/registrasi', function () {
-    return view('pengguna.regist');
-});
-
-Route::get('/login', function () {
-    return view('pengguna.login');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/registrasi', [AuthController::class, 'registPengguna']);
+    Route::post('/registrasi', [AuthController::class, 'registAction']);
+    Route::get('/login', [AuthController::class, 'loginPengguna'])->name('loginPengguna');
+    Route::post('/login', [AuthController::class, 'actionLogin']);
+    Route::get('/admin', [AuthController::class, 'login']);
+    Route::post('/admin', [AuthController::class, 'login_action']);
 });
 
 Route::get('/', [PenggunaController::class, 'index']);
 Route::get('/lapangan', [PenggunaController::class, 'lapangan']);
 Route::get('/promo', [PenggunaController::class, 'promo']);
-Route::get('/akun', [PenggunaController::class, 'akun']);
-Route::get('/pilih/{id}', [PenggunaController::class, 'pilih']);
-Route::get('/booking/{id}', [PenggunaController::class, 'booking']);
-Route::get('/pesan', [PenggunaController::class, 'pesan']);
-Route::post('/pesan', [TransaksiController::class, 'store']);
-Route::get('/bayar/{id}', [PenggunaController::class, 'bayar']);
+Route::get('/olahraga/{jenis}', [PenggunaController::class, 'olahraga']);
 
-Route::get('/etiket', function () {
-    return view('pengguna.etiket');
+Route::group(['middleware' => ['auth', 'OnlyPengguna']], function () {
+    Route::get('/keluar', [AuthController::class, 'logoutPengguna']);
+    Route::get('/akun', [PenggunaController::class, 'akun']);
+    Route::get('/pilih/{id}', [PenggunaController::class, 'pilih']);
+    Route::get('/booking/{id}', [PenggunaController::class, 'booking']);
+    Route::get('/pesan', [PenggunaController::class, 'pesan']);
+    Route::post('/pesan', [TransaksiController::class, 'store']);
+    Route::get('/bayar/{id}', [PenggunaController::class, 'bayar']);
+
+    Route::get('/etiket', function () {
+        return view('pengguna.etiket');
+    });
+
+    Route::get('/transaksi', function () {
+        return view('pengguna.transaksi');
+    });
 });
-
-Route::get('/transaksi', function () {
-    return view('pengguna.transaksi');
-});
-
-Route::get('/olahraga', function () {
-    return view('pengguna.olahraga');
-});
-
-Route::get('/admin', [AuthController::class, 'login']);
-Route::post('/admin', [AuthController::class, 'login_action']);
-Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
+    Route::get('/logout', [AuthController::class, 'logout']);
     Route::prefix("/admin")->group(function () {
         Route::get('/dashboard', [AuthController::class, 'dashboard']);
         Route::get('/jenis', [OlahragaController::class, 'index']);
@@ -85,6 +84,7 @@ Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
+    Route::get('/logoutsuper', [AuthController::class, 'logout']);
     Route::prefix("/super")->group(function () {
         Route::get('/user', function () {
             return view('super.user');

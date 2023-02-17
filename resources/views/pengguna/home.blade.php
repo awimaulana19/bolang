@@ -40,25 +40,36 @@
                         <a class="nav-link" href="/etiket">E-Ticket</a>
                     </li>
                 </ul>
-                {{-- <ul class="navbar-nav ms-lg-4 me-lg-5">
-                    <li class="d-none nav-item d-lg-flex align-items-center me-2">
-                        <span class="garis"></span>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Hi, Awi
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/akun"><i class="bi bi-person me-1"></i> Akun</a></li>
-                            <li><a class="dropdown-item" href="/transaksi"><i class="bi bi-journal-text me-1"></i> Transaksi</a></li>
-                            <li><a class="dropdown-item" href="/"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
+                @auth
+                    @if (auth()->user()->roles == 'pengguna')
+                        <ul class="navbar-nav ms-lg-4 me-lg-5">
+                            <li class="d-none nav-item d-lg-flex align-items-center me-2">
+                                <span class="garis"></span>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {{ explode(' ', auth()->user()->nama)[0] }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/akun"><i class="bi bi-person me-1"></i> Akun</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="/transaksi"><i class="bi bi-journal-text me-1"></i>
+                                            Transaksi</a></li>
+                                    <li><a class="dropdown-item" href="/keluar"><i class="bi bi-box-arrow-right me-1"></i>
+                                            Logout</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul> --}}
-                <a href="/registrasi" class="btn-temp">REGISTER</a>
-                <a href="/login" class="btn-temp">LOGIN</a>
+                    @else
+                        <a href="/registrasi" class="btn-temp">REGISTER</a>
+                        <a href="/login" class="btn-temp">LOGIN</a>
+                    @endif
+                @else
+                    <a href="/registrasi" class="btn-temp">REGISTER</a>
+                    <a href="/login" class="btn-temp">LOGIN</a>
+                @endauth
             </div>
         </div>
     </nav>
@@ -119,8 +130,8 @@
         <div class="row rekomendasi">
             @foreach ($olahraga as $item)
                 <div class="col-xl-3 col-lg-4 col-6">
-                    <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
-                            width="260px" height="380px"></a>
+                    <a href="{{ '/pilih/' . $item->id }}"><img class="rounded-3 mb-3"
+                            src="{{ asset('storage/' . $item->foto) }}" width="260px" height="380px"></a>
                     <a href="/pilih">
                         <h5>{{ $item->user->namatempat }}</h5>
                     </a>
@@ -179,18 +190,18 @@
             <div class="col-lg-10 col-9">
                 <div class="carousel"
                     data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
-                    @foreach ($lapangan as $item)   
-                    <div class="carousel-cell">
-                        <a href="{{ '/booking/'.$item->id }}">
-                            <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
-                                src="{{ asset('storage/' . $item->foto) }}" width="100%" height="70%">
-                        </a>
-                        <a href="{{ '/booking/'.$item->id }}">
-                            <h5>{{ $item->user->namatempat }}</h5>
-                        </a>
-                        <h6><span>{{ $item->olahraga->jenis }}</span></h6>
-                        <h6>{{ $item->nama_lapangan }}</h6>
-                    </div>
+                    @foreach ($lapangan as $item)
+                        <div class="carousel-cell">
+                            <a href="{{ '/booking/' . $item->id }}">
+                                <div class="tanda"><span>PROMO</span></div><img class="rounded-5 mb-3"
+                                    src="{{ asset('storage/' . $item->foto) }}" width="100%" height="70%">
+                            </a>
+                            <a href="{{ '/booking/' . $item->id }}">
+                                <h5>{{ $item->user->namatempat }}</h5>
+                            </a>
+                            <h6><span>{{ $item->olahraga->jenis }}</span></h6>
+                            <h6>{{ $item->nama_lapangan }}</h6>
+                        </div>
                     @endforeach
                     {{-- <div class="carousel-cell">
                         <a href="/booking">
@@ -266,31 +277,31 @@
             <h3 class="mb-3">Jenis <span>Olahraga</span></h3>
             <div class="carousel2 mb-5"
                 data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false, "autoPlay": true }'>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Futsal" class="carousel-cell2">
                     <div class="namaolahraga"><span>Futsal</span></div>
                     <img src="{{ asset('image/futsal.png') }}" width="100%" height="100%">
                 </a>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Mini Soccer" class="carousel-cell2">
                     <div class="namaolahraga"><span>Mini Soccer</span></div>
                     <img src="{{ asset('image/minisoccer.png') }}" width="100%" height="100%">
                 </a>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Bulu Tangkis" class="carousel-cell2">
                     <div class="namaolahraga"><span>Bulu Tangkis</span></div>
                     <img src="{{ asset('image/tenis.png') }}" width="100%" height="100%">
                 </a>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Basket" class="carousel-cell2">
                     <div class="namaolahraga"><span>Basket</span></div>
                     <img src="{{ asset('image/basket.png') }}" width="100%" height="100%">
                 </a>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Gym" class="carousel-cell2">
                     <div class="namaolahraga"><span>GYM</span></div>
                     <img src="{{ asset('image/gym.png') }}" width="100%" height="100%">
                 </a>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Tenis" class="carousel-cell2">
                     <div class="namaolahraga"><span>Tenis</span></div>
                     <img src="{{ asset('image/tenis.png') }}" width="100%" height="100%">
                 </a>
-                <a href="/olahraga" class="carousel-cell2">
+                <a href="/olahraga/Tenis Meja" class="carousel-cell2">
                     <div class="namaolahraga"><span>Tenis Meja</span></div>
                     <img src="{{ asset('image/tenismeja.png') }}" width="100%" height="100%">
                 </a>

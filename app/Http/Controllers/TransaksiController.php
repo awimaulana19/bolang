@@ -11,7 +11,8 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $transaksi = Transaksi::get();
+        $user = Auth::user()->id;
+        $transaksi = Transaksi::where('user_id', $user)->get();
         return view('admin.transaksi', compact('transaksi'));
     }
 
@@ -40,7 +41,8 @@ class TransaksiController extends Controller
         $harga_lapangan = $jadwal->harga;
         $biaya_admin = 0;
         $total = $harga_lapangan + $biaya_admin;
-        $order_id = uniqid('ord');
+        $order_id = 'ORD'.strtoupper(substr(str_replace(".", "", uniqid('', true)), 0, 10));
+        // $order_id = uniqid('ord');
         $status = false;
         $jenis_transaksi = "Booking Lapangan";
         $waktu_order = $request->order_datetime;

@@ -52,7 +52,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Nama Akun</label>
-                                    <input type="text" class="form-control" value="{{ $transaksi->nama_pelanggan }}"
+                                    <input type="text" class="form-control" value="{{ $transaksi->pengguna->nama }}"
                                         disabled>
                                     {{-- relasi pengguna --}}
                                 </div>

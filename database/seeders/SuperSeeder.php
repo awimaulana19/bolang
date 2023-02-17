@@ -31,8 +31,21 @@ class SuperSeeder extends Seeder
             'password' => bcrypt('awi123'),
             'roles' => 'admin',
             'whatsapp' => '082397032649',
-            'instagram' => 'kakant123',
-            'lokasi' => 'mapsantang',
+            'instagram' => 'kakanta123',
+            'lokasi' => 'Jl. Antang',
+        ]);
+
+        DB::table('users')->insert([
+            'namatempat' => 'Aeropala',
+            'alamat' => 'Samata',
+            'email' => 'aeropala@gmail.com',
+            'username' => 'aeropala',
+            'nama' => 'Sumi',
+            'password' => bcrypt('awi123'),
+            'roles' => 'admin',
+            'whatsapp' => '085298564285',
+            'instagram' => 'aeropala123',
+            'lokasi' => 'Jl. Hertasning',
         ]);
     }
 }
