@@ -29,7 +29,7 @@
                     <p>Ref : NE16-1141111UYD6</p>
                     <hr>
                     <div class="tanda">
-                        <a href="/bayar/" class="btn btn-success">Konfirmasi Ulang</a>
+                        <a href="#" class="btn btn-success">Konfirmasi Ulang</a>
                     </div>
                 </div> --}}
             </div>
@@ -54,8 +54,9 @@
                     <span>NE16 - LAPANGAN KAKANTA </span>
                     <p>Ref : NE16-1141111UYD6</p>
                     <hr>
-                    <div class="tanda">
-                        <a href="/etiket" class="btn btn-success">Detail</a>
+                    <div class="tanda d-flex justify-content-between">
+                        <a href="#" class="btn btn-success">Riwayat</a>
+                        <a href="/etiket" class="btn btn-success">E-Ticket</a>
                     </div>
                 </div> --}}
             </div>

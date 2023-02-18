@@ -59,7 +59,6 @@
         <h2 class="text-center" style="margin-top: 350px; margin-bottom: 350px;">Anda Belum Booking Apapun</h2>
     @endif
     {{-- <section>
-        <hr>
         <div class="row hero mt-5 mb-5">
             <img class="imghero" src="{{ asset('image/heropilih.png') }}" alt="hero">
             <h1 class="head">Kakanta Sport Center</h1>
@@ -112,15 +111,19 @@
                 </ul>
             </div>
             <div class="fasilitas mt-2 col-2">
-                <div class="row isi">
+                <div class="isi">
                     <p>E-ticket</p>
                     <h3>Rp 135.000</h3>
-                    <div class="col-sm-6 col-md-8 waktu">
-                        <label>Tanggal <br><span>12 Desember 2022</span></label>
-                        <label class="mt-4">Jam <br><span>19:00 - 20:00</span></label>
-                    </div>
-                    <div class="col-6 col-md-4 waktu">
-                        <label>Hari <br><span>Sabtu</span></label>
+                    <div class="bungkus">
+                        <div class="waktu">
+                            <label>Tanggal <br><span>12 Desember 2022</span></label>
+                        </div>
+                        <div class="waktu">
+                            <label>Jam <br><span>19:00 - 20:00</span></label>
+                        </div>
+                        <div class="waktu">
+                            <label>Lapangan <br><span>Lapangan 2</span></label>
+                        </div>
                     </div>
                 </div>
             </div>
