@@ -9,6 +9,7 @@ use App\Models\Olahraga;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PenggunaController extends Controller
 {
@@ -171,7 +172,48 @@ class PenggunaController extends Controller
     }
 
     public function akun () {
+        $user = Auth::user()->id;
+        $akun = User::where('id', $user)->first();
+        return view('pengguna.akun', compact('akun'));
+    }
+
+    public function simpan (Request $request, $id) {
+        $akun = User::where('id', $id)->first();
+
+        $akun->nama = $request->nama;
+        $akun->username = $request->username;
+        $akun->jenis_kelamin = $request->jenis_kelamin;
+        $akun->whatsapp = $request->whatsapp;
+        $akun->bulan_lahir = $request->bulan_lahir;
+        $akun->tahun_lahir = $request->tahun_lahir;
+        $akun->tanggal_lahir = $request->tanggal_lahir;
+        $akun->sepak_bola = $request->sepak_bola ? true : false;
+        $akun->mini_soccer = $request->mini_soccer ? true : false;
+        $akun->futsal = $request->futsal ? true : false;
+        $akun->bulu_tangkis = $request->bulu_tangkis ? true : false;
+        $akun->basket = $request->basket ? true : false;
+        $akun->voli = $request->voli ? true : false;
+        $akun->fitnes = $request->fitnes ? true : false;
+        $akun->tenis = $request->tenis ? true : false;
+        $akun->baseball = $request->baseball ? true : false;
+        $akun->lainnya = $request->lainnya ? true : false;
+        $akun->update();
+
+        return redirect('/akun');
+    }
+
+    public function simpanFoto (Request $request, $id) {
+        $akun = User::where('id', $id)->first();
+
+        if ($request->file('foto')) {
+            if ($request->fotoLama) {
+                Storage::delete($request->fotoLama);
+            }
+            $akun->foto = $request->file('foto')->store('foto-akun');
+        }
         
-        return view('pengguna.akun');
+        $akun->update();
+
+        return redirect('/akun');
     }
 }

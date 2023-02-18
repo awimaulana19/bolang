@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth', 'OnlyPengguna']], function () {
     Route::get('/konfirmasi/{id}', [PenggunaController::class, 'konfirmasi']);
     Route::get('/etiket', [PenggunaController::class, 'etiket']);
     Route::get('/akun', [PenggunaController::class, 'akun']);
+    Route::post('/akun/{id}', [PenggunaController::class, 'simpan']);
+    Route::post('/akun/foto/{id}', [PenggunaController::class, 'simpanFoto']);
 });
 
 Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
