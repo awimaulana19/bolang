@@ -1,6 +1,5 @@
 .tabel {
     width: 90%;
-    height: 797px;
     margin: 50px auto;
     margin-top: 20px;
     background: #ffffff;
@@ -72,19 +71,28 @@ hr {
     margin-top: 20px;
 }
 
-.tabel .riwayat .tanda{
-    background: #0FA958;
-    border-radius: 35px;
-    width: 164px;
-    height: 30px;
-}
-
 .tabel .riwayat .tanda .btn{
-    margin-left: 55px;
     font-weight: 400;
     font-size: 11px;
     color: #FFFFFF;
     text-decoration: none;
+}
+
+.tabel .riwayat .tanda .btn-success {
+    background: #0FA958;
+    border-radius: 35px;
+    width: 164px;
+    height: 30px;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabel .riwayat .tanda .btn-success:hover {
+    background: #0dc060;
+    color: #ffffff;
 }
 
 .tabel .riwayat .tanda label{

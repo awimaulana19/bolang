@@ -38,20 +38,15 @@ Route::get('/olahraga/{jenis}', [PenggunaController::class, 'olahraga']);
 
 Route::group(['middleware' => ['auth', 'OnlyPengguna']], function () {
     Route::get('/keluar', [AuthController::class, 'logoutPengguna']);
-    Route::get('/akun', [PenggunaController::class, 'akun']);
     Route::get('/pilih/{id}', [PenggunaController::class, 'pilih']);
     Route::get('/booking/{id}', [PenggunaController::class, 'booking']);
     Route::get('/pesan', [PenggunaController::class, 'pesan']);
     Route::post('/pesan', [TransaksiController::class, 'store']);
     Route::get('/bayar/{id}', [PenggunaController::class, 'bayar']);
-
-    Route::get('/etiket', function () {
-        return view('pengguna.etiket');
-    });
-
-    Route::get('/transaksi', function () {
-        return view('pengguna.transaksi');
-    });
+    Route::get('/transaksi', [PenggunaController::class, 'transaksi']);
+    Route::get('/konfirmasi/{id}', [PenggunaController::class, 'konfirmasi']);
+    Route::get('/etiket', [PenggunaController::class, 'etiket']);
+    Route::get('/akun', [PenggunaController::class, 'akun']);
 });
 
 Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {

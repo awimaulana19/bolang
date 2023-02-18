@@ -8,23 +8,24 @@ use App\Models\Lapangan;
 use App\Models\Olahraga;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PenggunaController extends Controller
 {
     public function index () {
-        $olahraga = Olahraga::get();
-        $lapangan = Lapangan::get();
+        $olahraga = Olahraga::inRandomOrder()->take(4)->get();
+        $lapangan = Lapangan::inRandomOrder()->take(10)->get();
         return view('pengguna.home', compact('olahraga', 'lapangan'));
     }
 
     public function lapangan () {
-        $futsal = Olahraga::where('jenis', 'Futsal')->get();
-        $minisoccer = Olahraga::where('jenis', 'Mini Soccer')->get();
-        $bulutangkis = Olahraga::where('jenis', 'Bulu Tangkis')->get();
-        $basket = Olahraga::where('jenis', 'Basket')->get();
-        $gym = Olahraga::where('jenis', 'Gym')->get();
-        $tenis = Olahraga::where('jenis', 'Tenis')->get();
-        $tenismeja = Olahraga::where('jenis', 'Tenis Meja')->get();
+        $futsal = Olahraga::where('jenis', 'Futsal')->inRandomOrder()->take(4)->get();
+        $minisoccer = Olahraga::where('jenis', 'Mini Soccer')->inRandomOrder()->take(4)->get();
+        $bulutangkis = Olahraga::where('jenis', 'Bulu Tangkis')->inRandomOrder()->take(4)->get();
+        $basket = Olahraga::where('jenis', 'Basket')->inRandomOrder()->take(4)->get();
+        $gym = Olahraga::where('jenis', 'Gym')->inRandomOrder()->take(4)->get();
+        $tenis = Olahraga::where('jenis', 'Tenis')->inRandomOrder()->take(4)->get();
+        $tenismeja = Olahraga::where('jenis', 'Tenis Meja')->inRandomOrder()->take(4)->get();
 
         return view('pengguna.lapangan', compact('futsal', 'minisoccer', 'bulutangkis', 'basket', 'gym', 'tenis', 'tenismeja'));
     }
@@ -73,6 +74,100 @@ class PenggunaController extends Controller
     public function bayar ($id) {
         $transaksi = Transaksi::where('id', $id)->first();
         return view('pengguna.pembayaran', compact('transaksi'));
+    }
+
+    public function konfirmasi($id)
+    {
+        $transaksi = Transaksi::where('id', $id)->first();
+
+        $wa = "082397032649";
+        $nama_pelanggan = $transaksi->nama_pelanggan;
+
+        $isi_pesan = "Ada Transaksi Dari " . $nama_pelanggan .
+            " Dengan Jumlah Bayar, Jadwal, Di Lapangan, Tempat";
+
+        $api_key   = '469d065c8788ab986e8486312fe68b8f9d21155b'; // API KEY Anda
+        $id_device = '2077'; // ID DEVICE yang di SCAN (Sebagai pengirim)
+        $url   = 'https://api.watsap.id/send-message'; // URL API
+        $no_hp = $wa; // No.HP yang dikirim (No.HP Penerima)
+        $pesan = $isi_pesan; // Pesan yang dikirim
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curl, CURLOPT_MAXREDIRS, 10);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 0); // batas waktu response
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl, CURLOPT_POST, 1);
+
+        $data_post = [
+            'id_device' => $id_device,
+            'api-key' => $api_key,
+            'no_hp'   => $no_hp,
+            'pesan'   => $pesan
+        ];
+
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data_post));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        $testing = json_decode($response, true);
+
+        // dd($data_post, $testing);
+        
+        if ($testing['kode'] == 200) {
+            return redirect('/transaksi')->with([
+                'berhasil' => 'Konfirmasi Berhasil',
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses'
+            ]);
+        } else if ($testing['kode'] == 402) {
+            $transaksi->delete();
+            return redirect('/transaksi')->with([
+                'gagal' => 'Transaksi Di Batalkan',
+                'infogagal' => 'Kesalahan Sistem, Admin tidak terdaftar di Whatsapp'
+            ]);
+        } else if ($testing['kode'] == 403) {
+            $transaksi->delete();
+            return redirect('/transaksi')->with([
+                'gagal' => 'Transaksi Di Batalkan',
+                'infogagal' => 'Kesalahan Sistem, Harap SCAN QRCODE sebelum menggunakan API'
+            ]);
+        } else if ($testing['kode'] == 500) {
+            $transaksi->delete();
+            return redirect('/transaksi')->with([
+                'gagal' => 'Transaksi Di Batalkan',
+                'infogagal' => 'Gagal Konfirmasi'
+            ]);
+        } else if ($testing['kode'] == 300) {
+            $transaksi->delete();
+            return redirect('/transaksi')->with([
+                'gagal' => 'Transaksi Di Batalkan',
+                'infogagal' => 'Gagal Konfirmasi / Tidak ada hasil'
+            ]);
+        } else {
+            $transaksi->delete();
+            return redirect('/transaksi')->with([
+                'gagal' => 'Transaksi Di Batalkan',
+                'infogagal' => 'Gagal Konfirmasi, Kesalahan Pada Wa Gateway'
+            ]);
+        }
+    }
+
+    public function transaksi () {
+        $user = Auth::user()->id;
+        $transaksiproses = Transaksi::where('pengguna_id', $user)->where('status', 0)->get();
+        $transaksiselesai = Transaksi::where('pengguna_id', $user)->where('status', 1)->get();
+        return view('pengguna.transaksi', compact('transaksiproses', 'transaksiselesai'));
+    }
+
+    public function etiket () {
+        $user = Auth::user()->id;
+        $transaksi = Transaksi::where('pengguna_id', $user)->where('status', 1)->get();
+        return view('pengguna.etiket', compact('transaksi'));
     }
 
     public function akun () {

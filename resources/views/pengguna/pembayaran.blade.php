@@ -15,7 +15,7 @@
                 </div>
                 <div class="dat datakanan">
                     <h4>Status Pembayaran</h4>
-                    <div class="status {{($transaksi->status === 0) ? 'pending' : ''}}">
+                    <div class="status {{ $transaksi->status === 0 ? 'pending' : '' }}">
                         @if ($transaksi->status === 0)
                             <span>PENDING</span>
                         @else
@@ -65,9 +65,11 @@
                     <span>Total Bayar:</span><span>Rp. {{ $transaksi->total }}</span>
                 </div>
             </div>
-            <div class="d-flex justify-content-center mt-5">
-                <a href="/transaksi" class="btn btn-bayar">SUDAH BAYAR</a>
-            </div>
+            @if ($transaksi->status === 0)
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="{{ '/konfirmasi/' . $transaksi->id }}" class="btn btn-bayar">SUDAH BAYAR</a>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
