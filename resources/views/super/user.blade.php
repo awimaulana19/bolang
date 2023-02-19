@@ -1,6 +1,6 @@
 @extends('template.adminTemp')
 
-@section('akun', 'Super')
+@section('akun', 'Super Admin')
 
 @section('head', 'User')
 
@@ -11,7 +11,7 @@
         <div class="card">
             <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
                 <div class="card-header">Data User</div>
-                <a href="#" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah Data</a>
+                <a href="user/tambah" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah Data</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -24,32 +24,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($user as $item)     
                         <tr>
-                            <td>Kakanta Sport Center</td>
-                            <td>Antang</td>
-                            <td>6282397032649</td>
+                            <td>{{ $item->namatempat }}</td>
+                            <td>{{ $item->alamat }}</td>
+                            <td>{{ $item->whatsapp }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="#" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
-                                            data-feather="edit"></i>Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                            data-feather="x-circle"></i>Hapus</a>
+                                    <a href="{{ '/super/user/edit/'.$item->id }}" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
+                                        class="far fa-edit me-sm-1"></i>Edit</a>
+                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="{{ '/super/user/delete/'.$item->id }}" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                        class="far fa-times-circle me-sm-1"></i>Hapus</a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Kakanta Sport Center</td>
-                            <td>Hertasning</td>
-                            <td>6282397032649</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
-                                            data-feather="edit"></i>Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                            data-feather="x-circle"></i>Hapus</a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -1,6 +1,10 @@
 @extends('template.adminTemp')
 
-@section('akun', 'Admin')
+@if (auth()->user()->roles == 'admin')
+    @section('akun', 'Admin')
+@elseif(auth()->user()->roles == 'super')
+    @section('akun', 'Super Admin')
+@endif
 
 @section('head', 'Jadwal')
 
@@ -11,35 +15,45 @@
         <div class="card">
             <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
                 <div class="card-header">Data Jadwal</div>
-                <a href="jadwal/tambah" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah Data</a>
+                <a href="jadwal/tambah" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah
+                    Data</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Nama Lapangan</th>
+                            @if (auth()->user()->roles == 'super')
+                                <th>Tempat</th>
+                            @endif
                             <th>Olahraga</th>
+                            <th>Lapangan</th>
                             <th>Tanggal</th>
                             <th>Jam</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($jadwal as $item)                    
-                        <tr>
-                            <td>{{ $item->lapangan->nama_lapangan }}</td>
-                            <td>{{ $item->olahraga->jenis }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->jam }}</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="{{ '/admin/jadwal/edit/'.$item->id }}" class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
-                                            data-feather="edit"></i>Edit</a>
-                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="{{ '/admin/jadwal/delete/'.$item->id }}" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                            data-feather="x-circle"></i>Hapus</a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($jadwal as $item)
+                            <tr>
+                                @if (auth()->user()->roles == 'super')
+                                    <td>{{ $item->user->namatempat }}</td>
+                                @endif
+                                <td>{{ $item->olahraga->jenis }}</td>
+                                <td>{{ $item->lapangan->nama_lapangan }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->jam }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jadwal/edit/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jadwal/edit/' . $item->id) }} @endif"
+                                            class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
+                                                class="far fa-edit me-sm-1"></i>Edit</a>
+                                        <a onclick="return confirm('Yakin Untuk Menghapus?')"
+                                            href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jadwal/delete/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jadwal/delete/' . $item->id) }} @endif"
+                                            class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                                class="far fa-times-circle me-sm-1"></i></i>Hapus</a>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

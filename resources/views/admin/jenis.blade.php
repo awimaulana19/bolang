@@ -1,6 +1,10 @@
 @extends('template.adminTemp')
 
-@section('akun', 'Admin')
+@if (auth()->user()->roles == 'admin')
+    @section('akun', 'Admin')
+@elseif(auth()->user()->roles == 'super')
+    @section('akun', 'Super Admin')
+@endif
 
 @section('head', 'Jenis Olahraga')
 
@@ -17,28 +21,31 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Nama Tempat</th>
+                            <th>Tempat</th>
                             <th>Olahraga</th>
                             <th>Whatsapp</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($olahraga as $item)  
-                        <tr>
-                            <td>{{ $item->user->namatempat }}</td>
-                            <td>{{ $item->jenis }}</td>
-                            <td>{{ $item->user->whatsapp }}</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="{{url('/admin/jenis/edit/'.$item->id)}}" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
-                                            data-feather="edit"></i>Edit</a>
-                                    <a onclick="return confirm('Yakin Untuk Menghapus?')" href="{{url('/admin/jenis/delete/'.$item->id)}}" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                            data-feather="x-circle"></i>Hapus</a>
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- <img src="{{ asset('storage/'.$item->foto) }}" alt="" width="auto" height="100px"> --}}
+                        @foreach ($olahraga as $item)
+                            <tr>
+                                <td>{{ $item->user->namatempat }}</td>
+                                <td>{{ $item->jenis }}</td>
+                                <td>{{ $item->user->whatsapp }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jenis/edit/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jenis/edit/' . $item->id) }} @endif"
+                                            class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
+                                                class="far fa-edit me-sm-1"></i>Edit</a>
+                                        <a onclick="return confirm('Yakin Untuk Menghapus?')"
+                                            href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jenis/delete/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jenis/delete/' . $item->id) }} @endif"
+                                            class="btn btn-danger btn-sm icon icon-left rounded-3"><i
+                                                class="far fa-times-circle me-sm-1"></i>Hapus</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {{-- <img src="{{ asset('storage/'.$item->foto) }}" alt="" width="auto" height="100px"> --}}
                         @endforeach
                     </tbody>
                 </table>

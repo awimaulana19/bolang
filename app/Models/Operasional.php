@@ -14,4 +14,8 @@ class Operasional extends Model
     public function olahraga(){
         return $this->belongsTo(Olahraga::class);
     }
+
+    public function user(){
+        return $this->belongsTo(Operasional::class);
+    }
 }

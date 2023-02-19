@@ -1,6 +1,10 @@
 @extends('template.adminTemp')
 
-@section('akun', 'Admin')
+@if (auth()->user()->roles == 'admin')
+    @section('akun', 'Admin')
+@elseif(auth()->user()->roles == 'super')
+    @section('akun', 'Super Admin')
+@endif
 
 @section('head', 'Transaksi')
 
@@ -14,6 +18,9 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
+                            @if (auth()->user()->roles == 'super')
+                                <th>Tempat</th>
+                            @endif
                             <th>Nama Pemesan</th>
                             <th>No Hp</th>
                             <th>Email</th>
@@ -23,12 +30,14 @@
                     <tbody>
                         @foreach ($transaksi as $item)
                             <tr>
+                                @if (auth()->user()->roles == 'super')
+                                    <td>{{ $item->user->namatempat }}</td>
+                                @endif
                                 <td>{{ $item->nama_pelanggan }}</td>
                                 <td>{{ $item->nomor_hp }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
-                                    <a href="{{ 'transaksi/lihat/'.$item->id }}" class="btn btn-info btn-sm icon icon-left rounded-3"><i
-                                            data-feather="eye"></i>Lihat</a>
+                                    <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/transaksi/lihat/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/transaksi/lihat/' . $item->id) }} @endif" class="btn btn-info btn-sm icon icon-left rounded-3"><i class="far fa-eye me-sm-1"></i>Lihat</a>
                                     {{-- <a href="#" class="btn btn-danger btn-sm icon icon-left rounded-3"><i
                                         data-feather="x-circle"></i>Hapus</a> --}}
                                 </td>

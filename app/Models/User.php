@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function transaksi(){
         return $this->hasMany(Transaksi::class);
     }
+
+    public function operasional(){
+        return $this->hasMany(Operasional::class);
+    }
 }

@@ -11,8 +11,13 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $user = Auth::user()->id;
-        $transaksi = Transaksi::where('user_id', $user)->get();
+        if (Auth::user()->roles == 'admin') {
+            $user = Auth::user()->id;
+            $transaksi = Transaksi::where('user_id', $user)->get();
+        } elseif (Auth::user()->roles == 'super') {
+            $transaksi = Transaksi::get();
+        }
+
         return view('admin.transaksi', compact('transaksi'));
     }
 
@@ -20,6 +25,12 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::where('id', $id)->first();
         return view('admin.transaksi.lihat', compact('transaksi'));
+    }
+
+    public function lihatSuper($id)
+    {
+        $transaksi = Transaksi::where('id', $id)->first();
+        return view('super.transaksi.lihat', compact('transaksi'));
     }
 
     public function store(Request $request)

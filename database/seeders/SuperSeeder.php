@@ -20,6 +20,8 @@ class SuperSeeder extends Seeder
             'nama' => 'Awi',
             'password' => bcrypt('super'),
             'roles' => 'super',
+            'whatsapp' => '082397032649',
+            'email' => 'awi@gmail.com',
         ]);
 
         DB::table('users')->insert([

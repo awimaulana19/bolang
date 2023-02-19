@@ -1,6 +1,10 @@
 @extends('template.adminTemp')
 
-@section('akun', 'Admin')
+@if (auth()->user()->roles == 'admin')
+    @section('akun', 'Admin')
+@elseif(auth()->user()->roles == 'super')
+    @section('akun', 'Super Admin')
+@endif
 
 @section('head', 'Daftar Lapangan')
 
@@ -18,7 +22,10 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Nama Lapangan</th>
+                            @if (auth()->user()->roles == 'super')
+                                <th>Tempat</th>
+                            @endif
+                            <th>Lapangan</th>
                             <th>Olahraga</th>
                             <th>Harga</th>
                             <th>Action</th>
@@ -37,6 +44,9 @@
                                 @endphp
                             @endforeach
                             <tr>
+                                @if (auth()->user()->roles == 'super')
+                                    <td>{{ $item->user->namatempat }}</td>
+                                @endif
                                 <td>{{ $item->nama_lapangan }}</td>
                                 <td>{{ $item->olahraga->jenis }}</td>
                                 @if ($item->jadwal->isEmpty())
@@ -46,11 +56,13 @@
                                 @endif
                                 <td>
                                     <div class="d-flex">
-                                        <a href="{{ '/admin/lapangan/edit/'.$item->id  }}" class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
-                                                data-feather="edit"></i>Edit</a>
-                                        <a onclick="return confirm('Yakin Untuk Menghapus?')" href="{{ '/admin/lapangan/delete/'.$item->id }}"
+                                        <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/lapangan/edit/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/lapangan/edit/' . $item->id) }} @endif"
+                                            class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
+                                                class="far fa-edit me-sm-1"></i>Edit</a>
+                                        <a onclick="return confirm('Yakin Untuk Menghapus?')"
+                                            href="@if (auth()->user()->roles == 'admin') {{ url('/admin/lapangan/delete/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/lapangan/delete/' . $item->id) }} @endif"
                                             class="btn btn-danger btn-sm icon icon-left rounded-3"><i
-                                                data-feather="x-circle"></i>Hapus</a>
+                                                class="far fa-times-circle me-sm-1"></i></i>Hapus</a>
                                     </div>
                                 </td>
                             </tr>

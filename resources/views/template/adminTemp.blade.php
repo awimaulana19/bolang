@@ -41,18 +41,22 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item {{ request()->is('admin/dashboard*') ? 'active' : '' }}">
-                            <a href="/admin/dashboard" class='sidebar-link'>
+                        <li
+                            class="sidebar-item {{ request()->is('admin/dashboard*') || request()->is('super/dashboard*') ? 'active' : '' }}">
+                            <a href="{{ auth()->user()->roles == 'admin' ? '/admin/dashboard' : '/super/dashboard' }}"
+                                class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        {{-- <li class="sidebar-item {{ request()->is('super/user*') ? 'active' : '' }}">
-                            <a href="/super/user" class='sidebar-link'>
-                                <i class="fas fa-user"></i>
-                                <span>User</span>
-                            </a>
-                        </li> --}}
+                        @if (auth()->user()->roles == 'super')
+                            <li class="sidebar-item {{ request()->is('super/user*') ? 'active' : '' }}">
+                                <a href="/super/user" class='sidebar-link'>
+                                    <i class="fas fa-user"></i>
+                                    <span>Admin Lapangan</span>
+                                </a>
+                            </li>
+                        @endif
 
                         {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
@@ -71,15 +75,15 @@
 
                         <li class="sidebar-title">Lapangan</li>
 
-                        <li class="sidebar-item {{ request()->is('admin/jenis*') ? 'active' : '' }}">
-                            <a href="/admin/jenis" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/jenis*') || request()->is('super/jenis*') ? 'active' : '' }}">
+                            <a href="{{ auth()->user()->roles == 'admin' ? '/admin/jenis' : '/super/jenis' }}" class='sidebar-link'>
                                 <i class="fas fa-futbol"></i>
                                 <span>Jenis Olahraga</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item {{ request()->is('admin/lapangan*') ? 'active' : '' }}">
-                            <a href="/admin/lapangan" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/lapangan*') || request()->is('super/lapangan*') ? 'active' : '' }}">
+                            <a href="{{ auth()->user()->roles == 'admin' ? '/admin/lapangan' : '/super/lapangan' }}" class='sidebar-link'>
                                 <i class="fas fa-running"></i>
                                 <span>Daftar Lapangan</span>
                             </a>
@@ -87,15 +91,15 @@
 
                         <li class="sidebar-title">Info</li>
 
-                        <li class="sidebar-item {{ request()->is('admin/jadwal*') ? 'active' : '' }}">
-                            <a href="/admin/jadwal" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/jadwal*') || request()->is('super/jadwal*') ? 'active' : '' }}">
+                            <a href="{{ auth()->user()->roles == 'admin' ? '/admin/jadwal' : '/super/jadwal' }}" class='sidebar-link'>
                                 <i class="fas fa-calendar-alt"></i>
                                 <span>Jadwal</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item {{ request()->is('admin/transaksi*') ? 'active' : '' }}">
-                            <a href="/admin/transaksi" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->is('admin/transaksi*') || request()->is('super/transaksi*') ? 'active' : '' }}">
+                            <a href="{{ auth()->user()->roles == 'admin' ? '/admin/transaksi' : '/super/transaksi' }}" class='sidebar-link'>
                                 <i class="fas fa-file-invoice"></i>
                                 <span>Transaksi</span>
                             </a>
@@ -189,7 +193,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ url('logout') }}"><i
+                                    <li><a class="dropdown-item" href="{{ auth()->user()->roles == 'admin' ? '/logout' : '/logoutsuper' }}"><i
                                                 class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
                                 </ul>
                             </div>
@@ -206,10 +210,11 @@
                                 <h3>@yield('head')</h3>
                             </div>
                             <div
-                                @if (request()->route()->uri == 'admin/dashboard') class="d-none" @else class="col-12 col-md-6 order-md-2 order-first" @endif>
+                                @if (request()->is('admin/dashboard*') || request()->is('super/dashboard*')) class="d-none" @else class="col-12 col-md-6 order-md-2 order-first" @endif>
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="/admin/dashboard">@yield('akun')</a></li>
+                                        <li class="breadcrumb-item"><a href="{{ auth()->user()->roles == 'admin' ? '/admin/dashboard' : '/super/dashboard' }}">@yield('akun')</a>
+                                        </li>
                                         <li class="breadcrumb-item active" aria-current="page">@yield('head')</li>
                                     </ol>
                                 </nav>

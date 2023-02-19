@@ -22,6 +22,11 @@ use App\Http\Controllers\TransaksiController;
 |
 */
 
+Route::get('/', [PenggunaController::class, 'index']);
+Route::get('/lapangan', [PenggunaController::class, 'lapangan']);
+Route::get('/promo', [PenggunaController::class, 'promo']);
+Route::get('/olahraga/{jenis}', [PenggunaController::class, 'olahraga']);
+
 Route::middleware(['guest'])->group(function () {
     Route::get('/registrasi', [AuthController::class, 'registPengguna']);
     Route::post('/registrasi', [AuthController::class, 'registAction']);
@@ -30,11 +35,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/admin', [AuthController::class, 'login']);
     Route::post('/admin', [AuthController::class, 'login_action']);
 });
-
-Route::get('/', [PenggunaController::class, 'index']);
-Route::get('/lapangan', [PenggunaController::class, 'lapangan']);
-Route::get('/promo', [PenggunaController::class, 'promo']);
-Route::get('/olahraga/{jenis}', [PenggunaController::class, 'olahraga']);
 
 Route::group(['middleware' => ['auth', 'OnlyPengguna']], function () {
     Route::get('/keluar', [AuthController::class, 'logoutPengguna']);
@@ -83,9 +83,35 @@ Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
 Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
     Route::get('/logoutsuper', [AuthController::class, 'logout']);
     Route::prefix("/super")->group(function () {
-        Route::get('/user', function () {
-            return view('super.user');
-        });
+        Route::get('/dashboard', [AuthController::class, 'dashboardSuper']);
+        Route::get('/user', [AuthController::class, 'user']);
+        Route::get('/user/tambah', [AuthController::class, 'tambah']);
+        Route::post('/user/tambah', [AuthController::class, 'store']);
+        Route::get('/user/edit/{id}', [AuthController::class, 'edit']);
+        Route::post('/user/edit/{id}', [AuthController::class, 'update']);
+        Route::get('/user/delete/{id}', [AuthController::class, 'delete']);
+        Route::get('/jenis', [OlahragaController::class, 'index']);
+        Route::get('/jenis/tambah', [OlahragaController::class, 'tambahSuper']);
+        Route::post('/jenis/tambah', [OlahragaController::class, 'storeSuper']);
+        Route::get('/jenis/edit/{id}', [OlahragaController::class, 'editSuper']);
+        Route::post('/jenis/edit/{id}', [OlahragaController::class, 'updateSuper']);
+        Route::get('/jenis/delete/{id}', [OlahragaController::class, 'delete']);
+        Route::get('/jenis/operasional/{id}', [OlahragaController::class, 'operasionalSuper']);
+        Route::post('/jenis/operasional/{id}', [OlahragaController::class, 'storeOperasionalSuper']);
+        Route::get('/lapangan', [LapanganController::class, 'index']);
+        Route::get('/lapangan/tambah', [LapanganController::class, 'tambahSuper']);
+        Route::post('/lapangan/tambah', [LapanganController::class, 'storeSuper']);
+        Route::get('/lapangan/edit/{id}', [LapanganController::class, 'editSuper']);
+        Route::post('/lapangan/edit/{id}', [LapanganController::class, 'updateSuper']);
+        Route::get('/lapangan/delete/{id}', [LapanganController::class, 'delete']);
+        Route::get('/jadwal', [JadwalController::class, 'index']);
+        Route::get('/jadwal/tambah', [JadwalController::class, 'tambahSuper']);
+        Route::post('/jadwal/tambah', [JadwalController::class, 'storeSuper']);
+        Route::get('/jadwal/edit/{id}', [JadwalController::class, 'editSuper']);
+        Route::post('/jadwal/edit/{id}', [JadwalController::class, 'updateSuper']);
+        Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
+        Route::get('/transaksi', [TransaksiController::class, 'index']);
+        Route::get('/transaksi/lihat/{id}', [TransaksiController::class, 'lihatSuper']);
     });
 });
 
@@ -95,5 +121,13 @@ Route::get('/lapanganlist', function (Request $request) {
     $lapangan = Lapangan::where('olahraga_id', '=', $olahraga)->get();
   
     return response()->json($lapangan);
+  });
+
+Route::get('/olahragalist', function (Request $request) {
+    $user = $request->input('user');
+  
+    $olahraga = Olahraga::where('user_id', '=', $user)->get();
+  
+    return response()->json($olahraga);
   });
 

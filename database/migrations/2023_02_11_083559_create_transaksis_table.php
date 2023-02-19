@@ -17,8 +17,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('pengguna_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('pengguna_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pengguna_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignUuid('olahraga_id');
             $table->foreignUuid('lapangan_id');
             $table->foreignUuid('jadwal_id');

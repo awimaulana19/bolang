@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Jadwal;
 use App\Models\Lapangan;
 use App\Models\Olahraga;
@@ -13,8 +14,12 @@ class LapanganController extends Controller
 {
     public function index()
     {
-        $user = Auth::user()->id; 
-        $lapangan = Lapangan::where('user_id', $user)->get();
+        if (Auth::user()->roles == 'admin') {
+            $user = Auth::user()->id; 
+            $lapangan = Lapangan::where('user_id', $user)->get();
+        } elseif (Auth::user()->roles == 'super') {
+            $lapangan = Lapangan::get();
+        }
         return view('admin.lapangan', compact('lapangan'));
     }
 
@@ -25,12 +30,18 @@ class LapanganController extends Controller
         return view('admin.lapangan.tambah', compact('olahraga'));
     }
 
-    public function edit($id)
+    public function tambahSuper()
+    {
+        $user = User::where('roles', 'admin')->get();
+        return view('super.lapangan.tambah', compact('user'));
+    }
+
+    public function editSuper($id)
     {
         $lapangan = Lapangan::where('id', $id)->first();
-        $user = Auth::user()->id; 
-        $olahraga = Olahraga::where('user_id', $user)->get();
-        return view('admin.lapangan.edit', compact('lapangan', 'olahraga'));
+        $olahraga = Olahraga::where('user_id', $lapangan->user_id)->get();
+        $user = User::where('roles', 'admin')->get();
+        return view('super.lapangan.edit', compact('lapangan', 'user', 'olahraga'));
     }
 
     public function store(Request $request)
@@ -50,6 +61,25 @@ class LapanganController extends Controller
         $lapangan->save();
 
         return redirect('admin/lapangan');
+    }
+
+    public function storeSuper(Request $request)
+    {
+        $user_id = $request->user_id;
+        $olahraga_id = $request->olahraga_id;
+        $nama_lapangan = $request->nama_lapangan;
+
+        $lapangan = new Lapangan();
+
+        $lapangan->user_id = $user_id;
+        $lapangan->olahraga_id = $olahraga_id;
+        $lapangan->nama_lapangan = $nama_lapangan;
+        if ($request->file('foto')) {
+            $lapangan->foto = $request->file('foto')->store('foto-lapangan');
+        }
+        $lapangan->save();
+
+        return redirect('super/lapangan');
     }
 
     public function update(Request $request, $id)
@@ -72,6 +102,28 @@ class LapanganController extends Controller
         return redirect('admin/lapangan');
     }
 
+    public function updateSuper(Request $request, $id)
+    {
+        $user_id = $request->user_id;
+        $olahraga_id = $request->olahraga_id;
+        $nama_lapangan = $request->nama_lapangan;
+
+        $lapangan = Lapangan::where('id', $id)->first();
+
+        $lapangan->user_id = $user_id;
+        $lapangan->olahraga_id = $olahraga_id;
+        $lapangan->nama_lapangan = $nama_lapangan;
+        if ($request->file('foto')) {
+            if ($request->fotoLama) {
+                Storage::delete($request->fotoLama);
+            }
+            $lapangan->foto = $request->file('foto')->store('foto-lapangan');
+        }
+        $lapangan->update();
+
+        return redirect('super/lapangan');
+    }
+
     public function delete($id)
     {
         $lapangan = Lapangan::where('id', $id)->first();
@@ -84,6 +136,11 @@ class LapanganController extends Controller
         Jadwal::destroy($jadwal);
         $lapangan->delete();
 
-        return redirect('admin/lapangan');
+        if (Auth::user()->roles == 'admin') {
+            return redirect('admin/lapangan');
+        } elseif (Auth::user()->roles == 'super') {
+            return redirect('super/lapangan');
+        }
+        
     }
 }
