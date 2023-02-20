@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jadwal;
 use App\Models\Transaksi;
+use App\Models\Konfigurasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,14 +52,43 @@ class TransaksiController extends Controller
         $jenis_pembayaran = $request->jenis_pembayaran;
         $harga_lapangan = $jadwal->harga;
         $biaya_admin = 0;
+        // $biaya_admin = mt_rand(0, 199) + 1;
+        // $biaya_admin = $request->biaya_admin;
         $total = $harga_lapangan + $biaya_admin;
         $order_id = 'ORD'.strtoupper(substr(str_replace(".", "", uniqid('', true)), 0, 10));
-        // $order_id = uniqid('ord');
         $status = false;
         $jenis_transaksi = "Booking Lapangan";
         $waktu_order = $request->order_datetime;
         $batas_pembayaran = $request->batas_pembayaran;
-        $nomor_pembayaran = "Coming Soon";
+
+        $konfigurasi = Konfigurasi::where('konfigurasi', 'rekening')->first();
+
+        if ($jenis_pembayaran === "BRI") {
+            $nomor_pembayaran = $konfigurasi->bri;
+        }
+        elseif ($jenis_pembayaran === "BNI") {
+            $nomor_pembayaran = $konfigurasi->bni;
+        }
+        elseif ($jenis_pembayaran === "BCA") {
+            $nomor_pembayaran = $konfigurasi->bca;
+        }
+        elseif ($jenis_pembayaran === "MANDIRI") {
+            $nomor_pembayaran = $konfigurasi->mandiri;
+        }
+        elseif ($jenis_pembayaran === "GOPAY") {
+            $nomor_pembayaran = $konfigurasi->gopay;
+        }
+        elseif ($jenis_pembayaran === "DANA") {
+            $nomor_pembayaran = $konfigurasi->dana;
+        }
+        elseif ($jenis_pembayaran === "OVO") {
+            $nomor_pembayaran = $konfigurasi->ovo;
+        }
+        elseif ($jenis_pembayaran === "LINKAJA") {
+            $nomor_pembayaran = $konfigurasi->linkaja;
+        }
+
+        // $nomor_pembayaran = "Coming Soon";
 
         $transaksi = new Transaksi();
 
@@ -85,5 +115,51 @@ class TransaksiController extends Controller
         $transaksi->save();
 
         return redirect('/bayar/'.$transaksi->id);
+    }
+
+    public function konfirmasiSuper($id)
+    {
+        $transaksi = Transaksi::where('id', $id)->first();
+
+        $transaksi->status = true;
+        $transaksi->update();
+        return redirect('/super/transaksi');
+    }
+
+    public function batalSuper($id)
+    {
+        $transaksi = Transaksi::where('id', $id)->first();
+        $jadwal = Jadwal::where('id', $transaksi->jadwal_id)->first();
+
+        $jadwal->status = false;
+        $jadwal->update();
+
+        $transaksi->delete();
+
+        return redirect('/super/transaksi');
+    }
+
+    public function konfigurasi()
+    {
+        $konfigurasi = Konfigurasi::where('konfigurasi', 'rekening')->first();
+        return view('super.transaksi.konfigurasi', compact('konfigurasi'));
+    }
+
+    public function updateKonfigurasi(Request $request ,$id)
+    {
+        $konfigurasi = Konfigurasi::where('id', $id)->first();
+        
+        $konfigurasi->bri = $request->bri;
+        $konfigurasi->bni = $request->bni;
+        $konfigurasi->bca = $request->bca;
+        $konfigurasi->mandiri = $request->mandiri;
+        $konfigurasi->gopay = $request->gopay;
+        $konfigurasi->dana = $request->dana;
+        $konfigurasi->ovo = $request->ovo;
+        $konfigurasi->linkaja = $request->linkaja;
+
+        $konfigurasi->update();
+
+        return redirect('super/transaksi');
     }
 }

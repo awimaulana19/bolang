@@ -2,7 +2,7 @@
 
 @section('akun', 'Super Admin')
 
-@section('head', 'User')
+@section('head', 'Admin Lapangan')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}" />

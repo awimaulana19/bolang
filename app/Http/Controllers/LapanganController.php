@@ -143,4 +143,22 @@ class LapanganController extends Controller
         }
         
     }
+
+    public function promoSuper($id)
+    {
+        $lapangan = Lapangan::where('id', $id)->first();
+
+        $lapangan->promo = true;
+        $lapangan->update();
+        return redirect('/super/lapangan');
+    }
+
+    public function batalPromoSuper($id)
+    {
+        $lapangan = Lapangan::where('id', $id)->first();
+
+        $lapangan->promo = false;
+        $lapangan->update();
+        return redirect('/super/lapangan');
+    }
 }

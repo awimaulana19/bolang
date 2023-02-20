@@ -263,7 +263,6 @@ export default {
     },
     beforeCreate() {
         const id = document.getElementById("idLapangan").value;
-        console.log(id);
 
         axios
             .get("/api/datajadwal/" + id)

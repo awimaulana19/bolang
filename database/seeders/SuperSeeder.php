@@ -24,6 +24,10 @@ class SuperSeeder extends Seeder
             'email' => 'awi@gmail.com',
         ]);
 
+        DB::table('konfigurasis')->insert([
+            'konfigurasi' => 'rekening',
+        ]);
+
         DB::table('users')->insert([
             'namatempat' => 'Kakanta',
             'alamat' => 'Antang',

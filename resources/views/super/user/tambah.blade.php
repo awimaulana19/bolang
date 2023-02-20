@@ -2,7 +2,7 @@
 
 @section('akun', 'Super Admin')
 
-@section('head', 'Data User')
+@section('head', 'Data Admin')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('assets/extensions/quill/quill.snow.css') }}">

@@ -7,6 +7,7 @@ use App\Models\Jadwal;
 use App\Models\Lapangan;
 use App\Models\Olahraga;
 use App\Models\Transaksi;
+use App\Models\Konfigurasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Storage;
 class PenggunaController extends Controller
 {
     public function index () {
-        $olahraga = Olahraga::inRandomOrder()->take(4)->get();
-        $lapangan = Lapangan::inRandomOrder()->take(10)->get();
+        $olahraga = Olahraga::where('rekomendasi', true)->inRandomOrder()->take(4)->get();
+        $lapangan = Lapangan::where('promo', true)->inRandomOrder()->take(10)->get();
         return view('pengguna.home', compact('olahraga', 'lapangan'));
     }
 
@@ -37,7 +38,7 @@ class PenggunaController extends Controller
     }
 
     public function promo () {
-        $lapangan = Lapangan::get();
+        $lapangan = Lapangan::where('promo', true)->get();
         return view('pengguna.promo', compact('lapangan'));
     }
 
@@ -68,8 +69,11 @@ class PenggunaController extends Controller
     public function pesan (Request $request) {
         $pilihan = $request->input('jadwal');
         $jadwal = Jadwal::where('id', $pilihan)->first();
+        $pembayaran = Konfigurasi::where('konfigurasi', 'rekening')->first();
 
-        return view('pengguna.pemesanan', compact('jadwal'));
+        // $biaya_admin = mt_rand(0, 199) + 1;
+
+        return view('pengguna.pemesanan', compact('jadwal', 'pembayaran'));
     }
 
     public function bayar ($id) {
@@ -160,14 +164,14 @@ class PenggunaController extends Controller
 
     public function transaksi () {
         $user = Auth::user()->id;
-        $transaksiproses = Transaksi::where('pengguna_id', $user)->where('status', 0)->get();
-        $transaksiselesai = Transaksi::where('pengguna_id', $user)->where('status', 1)->get();
+        $transaksiproses = Transaksi::where('pengguna_id', $user)->where('status', 0)->take(4)->latest()->get();
+        $transaksiselesai = Transaksi::where('pengguna_id', $user)->where('status', 1)->take(4)->orderBy('updated_at', 'desc')->get();
         return view('pengguna.transaksi', compact('transaksiproses', 'transaksiselesai'));
     }
 
     public function etiket () {
         $user = Auth::user()->id;
-        $transaksi = Transaksi::where('pengguna_id', $user)->where('status', 1)->get();
+        $transaksi = Transaksi::where('pengguna_id', $user)->where('status', 1)->take(3)->orderBy('updated_at', 'desc')->get();
         return view('pengguna.etiket', compact('transaksi'));
     }
 

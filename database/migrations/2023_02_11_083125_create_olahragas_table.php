@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignId('user_id');
             $table->string('jenis');
+            $table->boolean('rekomendasi')->default(false);
             $table->string('foto');
             $table->string('deskripsi');
             $table->string('aturan');

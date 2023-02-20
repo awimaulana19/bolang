@@ -12,7 +12,7 @@
             <h3 class="mb-4 mb-lg-5">Detail Pelanggan</h3>
             <div class="row baris1">
                 <div class="col-6 mb-4">
-                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan</label>
+                    <label for="nama_pelanggan" class="form-label">Nama Rekening / Akun</label>
                     <input required type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan">
                 </div>
                 <div class="col-6 mb-4 akhir">
@@ -37,14 +37,30 @@
             <h3 class="mb-4 mb-lg-5">Pilih Jenis Pembayaran</h3>
             <select required class="form-select mb-3" name="jenis_pembayaran" id="jenis_pembayaran">
                 <option selected>Payment</option>
-                <option value="BRI">BRI</option>
-                <option value="BNI">BNI</option>
-                <option value="BCA">BCA</option>
-                <option value="MANDIRI">MANDIRI</option>
-                <option value="GOPAY">GOPAY</option>
-                <option value="DANA">DANA</option>
-                <option value="OVO">OVO</option>
-                <option value="LINKAJA">LINKAJA</option>
+                @if (!$pembayaran->bri == null)
+                    <option value="BRI">BRI</option>
+                @endif
+                @if (!$pembayaran->bni == null)
+                    <option value="BNI">BNI</option>
+                @endif
+                @if (!$pembayaran->bca == null)
+                    <option value="BCA">BCA</option>
+                @endif
+                @if (!$pembayaran->mandiri == null)
+                    <option value="MANDIRI">MANDIRI</option>
+                @endif
+                @if (!$pembayaran->gopay == null)
+                    <option value="GOPAY">GOPAY</option>
+                @endif
+                @if (!$pembayaran->dana == null)
+                    <option value="DANA">DANA</option>
+                @endif
+                @if (!$pembayaran->ovo == null)
+                    <option value="OVO">OVO</option>
+                @endif
+                @if (!$pembayaran->linkaja == null)
+                    <option value="LINKAJA">LINKAJA</option>
+                @endif
             </select>
             <div class="pembayaran">
                 <div class="gambar">
@@ -85,12 +101,14 @@
             <hr>
             <div class="harga">
                 <span>Biaya Admin:</span><span>Rp. 0</span>
+                {{-- + Kode Unik --}}
             </div>
             <hr>
             <div class="harga">
                 <span>Total Bayar:</span><span>Rp. {{ $jadwal->harga }}</span>
             </div>
         </div>
+        {{-- <input type="hidden" id="biaya_admin" name="biaya_admin" value="{{ $biaya_admin }}"> --}}
         <input type="hidden" id="jadwal_id" name="jadwal_id" value="{{ $jadwal->id }}">
         <input type="hidden" id="order_datetime" name="order_datetime" value="">
         <input type="hidden" id="batas_pembayaran" name="batas_pembayaran" value="">

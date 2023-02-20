@@ -695,4 +695,22 @@ class OlahragaController extends Controller
             return redirect('super/jenis');
         }
     }
+
+    public function rekomendasiSuper($id)
+    {
+        $olahraga = Olahraga::where('id', $id)->first();
+
+        $olahraga->rekomendasi = true;
+        $olahraga->update();
+        return redirect('/super/jenis');
+    }
+
+    public function batalRekomendasiSuper($id)
+    {
+        $olahraga = Olahraga::where('id', $id)->first();
+
+        $olahraga->rekomendasi = false;
+        $olahraga->update();
+        return redirect('/super/jenis');
+    }
 }

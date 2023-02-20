@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label>Nama Pemesan</label>
+                                    <label>Nama Rekening / Akun</label>
                                     <input type="text" class="form-control" value="{{ $transaksi->nama_pelanggan }}"
                                         disabled>
                                 </div>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label>Nama Akun</label>
+                                    <label>Nama Akun Bolang</label>
                                     <input type="text" class="form-control" value="{{ $transaksi->pengguna->nama }}"
                                         disabled>
                                     {{-- relasi pengguna --}}

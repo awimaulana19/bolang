@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignUuid('olahraga_id');
             $table->string('nama_lapangan');
+            $table->boolean('promo')->default(false);
             $table->string('foto');
             $table->timestamps();
         });

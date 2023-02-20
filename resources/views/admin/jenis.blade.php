@@ -35,6 +35,17 @@
                                 <td>{{ $item->user->whatsapp }}</td>
                                 <td>
                                     <div class="d-flex">
+                                        @if (auth()->user()->roles == 'super')
+                                            @if ($item->rekomendasi === 0)
+                                                <a href="{{ url('/super/jenis/rekomendasi/' . $item->id) }}"
+                                                    class="btn btn-primary btn-sm icon icon-left rounded-3 me-1"><i
+                                                        class="far fa-thumbs-up me-sm-1"></i>Rekomendasi</a>
+                                            @elseif ($item->rekomendasi === 1)
+                                                <a href="{{ url('/super/jenis/batalrekomendasi/' . $item->id) }}"
+                                                    class="btn btn-warning btn-sm icon icon-left rounded-3 me-1"><i
+                                                        class="far fa-thumbs-up me-sm-1"></i>Batal</a>
+                                            @endif
+                                        @endif
                                         <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jenis/edit/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jenis/edit/' . $item->id) }} @endif"
                                             class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
                                                 class="far fa-edit me-sm-1"></i>Edit</a>

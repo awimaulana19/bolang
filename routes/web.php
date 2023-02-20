@@ -91,6 +91,8 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         Route::post('/user/edit/{id}', [AuthController::class, 'update']);
         Route::get('/user/delete/{id}', [AuthController::class, 'delete']);
         Route::get('/jenis', [OlahragaController::class, 'index']);
+        Route::get('/jenis/rekomendasi/{id}', [OlahragaController::class, 'rekomendasiSuper']);
+        Route::get('/jenis/batalrekomendasi/{id}', [OlahragaController::class, 'batalRekomendasiSuper']);
         Route::get('/jenis/tambah', [OlahragaController::class, 'tambahSuper']);
         Route::post('/jenis/tambah', [OlahragaController::class, 'storeSuper']);
         Route::get('/jenis/edit/{id}', [OlahragaController::class, 'editSuper']);
@@ -99,6 +101,8 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         Route::get('/jenis/operasional/{id}', [OlahragaController::class, 'operasionalSuper']);
         Route::post('/jenis/operasional/{id}', [OlahragaController::class, 'storeOperasionalSuper']);
         Route::get('/lapangan', [LapanganController::class, 'index']);
+        Route::get('/lapangan/promo/{id}', [LapanganController::class, 'promoSuper']);
+        Route::get('/lapangan/batalpromo/{id}', [LapanganController::class, 'batalPromoSuper']);
         Route::get('/lapangan/tambah', [LapanganController::class, 'tambahSuper']);
         Route::post('/lapangan/tambah', [LapanganController::class, 'storeSuper']);
         Route::get('/lapangan/edit/{id}', [LapanganController::class, 'editSuper']);
@@ -111,7 +115,11 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         Route::post('/jadwal/edit/{id}', [JadwalController::class, 'updateSuper']);
         Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
         Route::get('/transaksi', [TransaksiController::class, 'index']);
+        Route::get('/transaksi/konfigurasi', [TransaksiController::class, 'konfigurasi']);
+        Route::post('/transaksi/konfigurasi/{id}', [TransaksiController::class, 'updateKonfigurasi']);
         Route::get('/transaksi/lihat/{id}', [TransaksiController::class, 'lihatSuper']);
+        Route::get('/transaksi/konfirmasi/{id}', [TransaksiController::class, 'konfirmasiSuper']);
+        Route::get('/transaksi/batal/{id}', [TransaksiController::class, 'batalSuper']);
     });
 });
 

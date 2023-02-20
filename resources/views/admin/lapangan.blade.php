@@ -56,6 +56,17 @@
                                 @endif
                                 <td>
                                     <div class="d-flex">
+                                        @if (auth()->user()->roles == 'super')
+                                            @if ($item->promo === 0)
+                                                <a href="{{ url('/super/lapangan/promo/' . $item->id) }}"
+                                                    class="btn btn-primary btn-sm icon icon-left rounded-3 me-1"><i
+                                                        class="fa fa-percent me-sm-1"></i>Promo</a>
+                                            @elseif ($item->promo === 1)
+                                                <a href="{{ url('/super/lapangan/batalpromo/' . $item->id) }}"
+                                                    class="btn btn-warning btn-sm icon icon-left rounded-3 me-1"><i
+                                                        class="fa fa-percent me-sm-1"></i>Batal</a>
+                                            @endif
+                                        @endif
                                         <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/lapangan/edit/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/lapangan/edit/' . $item->id) }} @endif"
                                             class="btn btn-info btn-sm icon icon-left rounded-3 me-1"><i
                                                 class="far fa-edit me-sm-1"></i>Edit</a>

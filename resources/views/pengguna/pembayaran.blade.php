@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="dat data">
-                    <h4>Nama Customer</h4>
+                    <h4>Nama Rekening / Akun</h4>
                     <h5>{{ $transaksi->nama_pelanggan }}</h5>
                 </div>
                 <div class="dat datakanan">
@@ -40,7 +40,7 @@
                     <h5>{{ $transaksi->batas_pembayaran }}</h5>
                 </div>
                 <div class="dat data">
-                    <h4>Nomor</h4>
+                    <h4>Nomor Pembayaran</h4>
                     <h5>{{ $transaksi->nomor_pembayaran }}</h5>
                 </div>
                 <div class="dat datakanan">
