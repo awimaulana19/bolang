@@ -10,6 +10,7 @@ use App\Http\Controllers\LapanganController;
 use App\Http\Controllers\OlahragaController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\TransaksiController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ use App\Http\Controllers\TransaksiController;
 Route::get('/', [PenggunaController::class, 'index']);
 Route::get('/lapangan', [PenggunaController::class, 'lapangan']);
 Route::get('/promo', [PenggunaController::class, 'promo']);
+Route::get('/cari', [PenggunaController::class, 'cari']);
 Route::get('/olahraga/{jenis}', [PenggunaController::class, 'olahraga']);
 
 Route::middleware(['guest'])->group(function () {
@@ -36,8 +38,8 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/admin', [AuthController::class, 'login_action']);
 });
 
-Route::group(['middleware' => ['auth', 'OnlyPengguna']], function () {
-    Route::get('/keluar', [AuthController::class, 'logoutPengguna']);
+Route::get('/keluar', [AuthController::class, 'logoutPengguna'])->middleware(['auth', 'OnlyPengguna']);
+Route::group(['middleware' => ['auth', 'verified', 'OnlyPengguna']], function () {
     Route::get('/pilih/{id}', [PenggunaController::class, 'pilih']);
     Route::get('/booking/{id}', [PenggunaController::class, 'booking']);
     Route::get('/pesan', [PenggunaController::class, 'pesan']);
@@ -138,4 +140,21 @@ Route::get('/olahragalist', function (Request $request) {
   
     return response()->json($olahraga);
   });
+
+// Email Verification
+Route::get('/email/verify', function () {
+    return view('pengguna.verify-email');
+})->middleware(['auth', 'OnlyPengguna'])->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/');
+})->middleware(['auth', 'OnlyPengguna', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'OnlyPengguna', 'throttle:6,1'])->name('verification.send');
 

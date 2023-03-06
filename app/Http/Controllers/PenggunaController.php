@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Jadwal;
 use App\Models\Lapangan;
@@ -35,6 +36,16 @@ class PenggunaController extends Controller
     public function olahraga ($jenis) {
         $olahraga = Olahraga::where('jenis', $jenis)->get();
         return view('pengguna.olahraga', compact('olahraga', 'jenis'));
+    }
+
+    public function cari (Request $request) {
+        setlocale(LC_TIME, 'id_ID');
+        Carbon::setLocale('id');
+
+        $tanggal = Carbon::create($request->cari)->locale('id')->isoFormat('D MMMM Y');
+
+        $lapangan = Jadwal::where('tanggal', $tanggal)->get();
+        return view('pengguna.cari', compact('lapangan'));
     }
 
     public function promo () {

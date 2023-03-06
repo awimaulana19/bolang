@@ -11,6 +11,7 @@ use App\Models\Operasional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
@@ -96,17 +97,45 @@ class AuthController extends Controller
 
     public function registAction(Request $request)
     {
-        $user = new User();
+        $akun = User::where('email', $request->email)->first();
+        if ($akun) {
+            $akun->password = Hash::make("default");
+            $akun->update();
+            if(Auth::attempt(['email' => $akun->email, 'password' => "default"])){
+                if (auth()->user()->roles == 'pengguna') {
+                    $akun->nama = $request->nama;
+                    $akun->username = $request->username;
+                    $akun->email = $request->email;
+                    $akun->password = Hash::make($request->password);
+                    $akun->update();
 
-        $user->nama = $request->nama;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->roles = 'pengguna';
+                    event(new Registered($akun));
 
-        $user->save();
+                    return redirect('/email/verify');
+                }
+                else{
+                    Auth::logout();
+                    $request->session()->invalidate();
+                    $request->session()->regenerateToken();
+                }
+            }
+        }else{
+            $user = new User();
 
-        return redirect('/login');
+            $user->nama = $request->nama;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->roles = 'pengguna';
+
+            $user->save();
+
+            Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+
+            event(new Registered($user));
+
+            return redirect('/email/verify');
+        }
     }
 
     public function loginPengguna()

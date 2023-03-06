@@ -77,14 +77,13 @@
         <div class="container">
             <div class="row baris-temp">
                 <div class="col-lg-5 col-md-12 kata">
-                    <h1>Selamat Beraktivitas</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi suscipit non quisquam eaque
-                        eligendi,
-                        labore dolores sed. Omnis, sequi. Molestiae ipsa iure nam illum repellendus accusantium,
-                        nulla
-                        libero adipisci minima Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-                        dolorum neque, quisquam aliquid magnam amet dignissimos eos itaque. Quidem, fuga incidunt.
-                        Incidunt, itaque a. Eveniet excepturi facilis asperiores blanditiis accusantium</p>
+                    <h1>Booking Sekarang</h1>
+                    <p>Bolang adalah sebuah aplikasi yang membantu pengguna dalam mencari dan memesan
+                        lapangan olahraga sesuai dengan
+                        kebutuhan mereka. Dalam Bolang, pengguna dapat menemukan berbagai jenis lapangan olahraga, mulai
+                        dari lapangan sepak bola, basket, tenis, hingga lapangan futsal. Selain itu, aplikasi ini juga
+                        menyediakan informasi lengkap
+                        mengenai fasilitas yang tersedia di lapangan, jam operasional, serta harga sewa lapangan.</p>
                 </div>
                 <div class="col-lg-7 col-md-12">
                     <div class="gambarhero">
@@ -110,7 +109,8 @@
             </div>
         </div>
         <div class="row">
-            <form>
+            <form action="/cari" method="GET">
+                @csrf
                 <div class="d-flex justify-content-center pencarian">
                     <input type="text" class="form-control datepicker" id="cari" name="cari">
                     <button type="submit" class="btn btn-success"><img src="{{ asset('image/cari.png') }}"
