@@ -1,6 +1,6 @@
 @extends('template.temp')
 
-@section('title', 'Verifikasi Email - Bolang')
+@section('title', 'Lupa Password - Bolang')
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/regist.css') }}">
@@ -16,13 +16,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <h5 class="text-center mb-4">Email Verifikasi Telah Dikirim, Silahkan Cek Email Anda, Jika Email Belum Masuk Silahkan Klik Tombol Di Bawah</h5>
-                <form action="/email/verification-notification" method="POST">
+                <form action="{{ route('forget.password.post') }}" method="POST">
                     @csrf
-                    <input class="button-primary mb-3 w-100" type="submit" value="Kirim Ulang">
+                    <input class="form mb-2 w-100" type="text" id="email_address" name="email" placeholder="E-Mail Address">
+                    @if ($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                    @endif
+                    <input class="button-primary mt-2 w-100" type="submit" value="Send Password Reset Link">
                 </form>
             </div>
         </div>
     </div>
 @endsection
-

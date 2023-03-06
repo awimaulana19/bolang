@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Jadwal;
 use App\Models\Lapangan;
 use App\Models\Olahraga;
 use App\Models\Transaksi;
 use App\Models\Operasional;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Storage;
 
@@ -43,7 +47,13 @@ class AuthController extends Controller
     {
         if (Auth::attempt(['username' => $request->useremail, 'password' => $request->password]) || Auth::attempt(['email' => $request->useremail, 'password' => $request->password])) {
             if (auth()->user()->roles == 'pengguna') {
-                return redirect('/');
+                if (auth()->user()->email_verified_at == NULL) {
+                    $user = auth()->user();
+                    event(new Registered($user));
+                    return redirect('/email/verify');
+                }else{
+                    return redirect('/');
+                }
             }
             else{
                 Auth::logout();
@@ -97,45 +107,21 @@ class AuthController extends Controller
 
     public function registAction(Request $request)
     {
-        $akun = User::where('email', $request->email)->first();
-        if ($akun) {
-            $akun->password = Hash::make("default");
-            $akun->update();
-            if(Auth::attempt(['email' => $akun->email, 'password' => "default"])){
-                if (auth()->user()->roles == 'pengguna') {
-                    $akun->nama = $request->nama;
-                    $akun->username = $request->username;
-                    $akun->email = $request->email;
-                    $akun->password = Hash::make($request->password);
-                    $akun->update();
+        $user = new User();
 
-                    event(new Registered($akun));
+        $user->nama = $request->nama;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->roles = 'pengguna';
 
-                    return redirect('/email/verify');
-                }
-                else{
-                    Auth::logout();
-                    $request->session()->invalidate();
-                    $request->session()->regenerateToken();
-                }
-            }
-        }else{
-            $user = new User();
+        $user->save();
 
-            $user->nama = $request->nama;
-            $user->username = $request->username;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-            $user->roles = 'pengguna';
+        Auth::attempt(['email' => $request->email, 'password' => $request->password]);
 
-            $user->save();
+        event(new Registered($user));
 
-            Auth::attempt(['email' => $request->email, 'password' => $request->password]);
-
-            event(new Registered($user));
-
-            return redirect('/email/verify');
-        }
+        return redirect('/email/verify');
     }
 
     public function loginPengguna()
@@ -230,4 +216,62 @@ class AuthController extends Controller
 
         return redirect('super/user');
     }
+
+      public function showForgetPasswordForm()
+      {
+         return view('pengguna.forgetPassword');
+      }
+  
+      public function submitForgetPasswordForm(Request $request)
+      {
+          $request->validate([
+              'email' => 'required|email|exists:users',
+          ]);
+  
+          $token = Str::random(64);
+  
+          DB::table('password_resets')->insert([
+              'email' => $request->email, 
+              'token' => $token, 
+              'created_at' => Carbon::now()
+            ]);
+  
+          Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
+              $message->to($request->email);
+              $message->subject('Reset Password');
+          });
+  
+          return back()->with('message', 'Email Reset Password Telah Dikirim');
+      }
+
+      public function showResetPasswordForm($token) { 
+         return view('pengguna.forgetPasswordLink', ['token' => $token]);
+      }
+  
+      public function submitResetPasswordForm(Request $request)
+      {
+          $request->validate([
+              'email' => 'required|email|exists:users',
+              'password' => 'required|string|min:3|confirmed',
+              'password_confirmation' => 'required'
+          ]);
+  
+          $updatePassword = DB::table('password_resets')
+                              ->where([
+                                'email' => $request->email, 
+                                'token' => $request->token
+                              ])
+                              ->first();
+  
+          if(!$updatePassword){
+              return back()->withInput()->with('error', 'Token Kadaluwarsa!');
+          }
+  
+          $user = User::where('email', $request->email)
+                      ->update(['password' => Hash::make($request->password)]);
+ 
+          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+  
+          return redirect('/login')->with('message', 'Password Berhasil Diubah, Silahkan Login!');
+      }
 }

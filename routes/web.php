@@ -36,6 +36,10 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'actionLogin']);
     Route::get('/admin', [AuthController::class, 'login']);
     Route::post('/admin', [AuthController::class, 'login_action']);
+    Route::get('forget-password', [AuthController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('forget-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::get('reset-password/{token}', [AuthController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('reset-password', [AuthController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 });
 
 Route::get('/keluar', [AuthController::class, 'logoutPengguna'])->middleware(['auth', 'OnlyPengguna']);
@@ -155,6 +159,6 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
  
-    return back()->with('message', 'Verification link sent!');
+    return back()->with('message', 'Email Verifikasi Telah Dikirim!');
 })->middleware(['auth', 'OnlyPengguna', 'throttle:6,1'])->name('verification.send');
 

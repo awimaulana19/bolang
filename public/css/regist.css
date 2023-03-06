@@ -1,6 +1,14 @@
 * {
     font-family: "Poppins";
 }
+
+.container .gambarHero{
+    width: 100%;
+    justify-content: center;
+}
+
+
+
 .regist .button-primary{
     background-color: #B6E388;
     border: none;
