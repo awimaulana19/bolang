@@ -266,13 +266,12 @@
 
 @media (max-width: 991px) {
     .booking .herobooking {
-        margin: auto;
-        width: 90%;
+        width: 100%;
         height: 150px;
     }
     
     .booking .lokasi {
-        width: 70%;
+        width: 80%;
         margin-top: -40px;
     }
     
@@ -293,6 +292,7 @@
     }
 
     .booking .isi {
+        width: 90%;
         padding: 20px;
     }
     

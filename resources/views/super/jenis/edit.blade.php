@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between" style="margin-bottom:-20px;">
                     <div class="card-title">Edit Data</div>
-                    <a href="{{url('/super/jenis/operasional/'.$olahraga->id)}}" class="btn btn-primary" style="height:40px;">Atur Jam Operasional</a>
+                    <a href="{{url('/super/jenis/operasional/'.$olahraga->id)}}" class="btn btn-primary">Atur Jam Operasional</a>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
@@ -68,7 +68,7 @@
                                             {!! $olahraga->aturan !!}
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mt-md-0 mt-4">
                                         <label>Fasilitas</label>
                                     </div>
                                     <div class="col-md-9 form-group">

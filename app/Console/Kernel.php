@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('check:status-transaksi')->hourly();
         // $schedule->command('inspire')->hourly();
     }
 

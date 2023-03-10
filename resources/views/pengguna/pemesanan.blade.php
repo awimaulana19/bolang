@@ -9,6 +9,11 @@
         @csrf
         <h1>Pemesanan</h1>
         <div class="tabel">
+            @if ($errors->has('jadwal_id'))
+                <div class="input" style="margin-bottom: 15px">
+                    <p class="text-center text-danger">Jadwal Sudah Di Booking</p>
+                </div>
+            @endif
             <h3 class="mb-4 mb-lg-5">Detail Pelanggan</h3>
             <div class="row baris1">
                 <div class="col-6 mb-4">
@@ -63,30 +68,46 @@
                 @endif
             </select>
             <div class="pembayaran">
-                <div class="gambar">
-                    <img src="{{ asset('image/bri.png') }}" alt="bri">
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('image/bni.png') }}" alt="bni">
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('image/bca.png') }}" alt="bca">
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('image/mandiri.png') }}" alt="mandiri">
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('image/gopay.png') }}" alt="gopay">
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('image/dana.png') }}" alt="dana">
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('image/ovo.png') }}" alt="ovo">
-                </div>
-                <div class="gambar">
-                    <img class="linkaja" src="{{ asset('image/linkaja.png') }}" alt="linkaja">
-                </div>
+                @if (!$pembayaran->bri == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/bri.png') }}" alt="bri">
+                    </div>
+                @endif
+                @if (!$pembayaran->bni == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/bni.png') }}" alt="bni">
+                    </div>
+                @endif
+                @if (!$pembayaran->bca == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/bca.png') }}" alt="bca">
+                    </div>
+                @endif
+                @if (!$pembayaran->mandiri == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/mandiri.png') }}" alt="mandiri">
+                    </div>
+                @endif
+                @if (!$pembayaran->gopay == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/gopay.png') }}" alt="gopay">
+                    </div>
+                @endif
+                @if (!$pembayaran->dana == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/dana.png') }}" alt="dana">
+                    </div>
+                @endif
+                @if (!$pembayaran->ovo == null)
+                    <div class="gambar">
+                        <img src="{{ asset('image/ovo.png') }}" alt="ovo">
+                    </div>
+                @endif
+                @if (!$pembayaran->linkaja == null)
+                    <div class="gambar">
+                        <img class="linkaja" src="{{ asset('image/linkaja.png') }}" alt="linkaja">
+                    </div>
+                @endif
             </div>
         </div>
         <div class="tabel rincian">

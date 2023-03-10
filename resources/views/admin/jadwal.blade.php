@@ -11,6 +11,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/pages/simple-datatables.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.css') }}">
     <section class="section mt-3">
         <div class="card">
             <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
@@ -63,4 +64,15 @@
 
     <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
     <script src="{{ asset('assets/js/pages/simple-datatables.js') }}"></script>
+
+    <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>
+    @if (session('gagal'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: '{{ session('gagal') }}',
+                text: '{{ session('infogagal') }}',
+            })
+        </script>
+    @endif
 @endsection

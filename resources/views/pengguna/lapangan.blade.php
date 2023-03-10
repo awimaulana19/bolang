@@ -41,7 +41,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
         {{-- <div class="col-xl-3 col-lg-4 col-6">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
@@ -107,7 +107,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
         {{-- <div class="col-xl-3 col-lg-4 col-6">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
@@ -173,7 +173,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
     </div>
     <div class="row headrekom mt-5 mb-3">
@@ -212,7 +212,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
     </div>
     <div class="row headrekom mt-5 mb-3">
@@ -251,7 +251,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
     </div>
     <div class="row headrekom mt-5 mb-3">
@@ -290,7 +290,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
     </div>
     <div class="row headrekom mt-5 mb-3">
@@ -329,7 +329,7 @@
                 </div>
             @endforeach
         @else
-            <h3 class="mt-3">Akan Datang</h3>
+            <h4 class="mt-3">Akan Datang</h4>
         @endif
     </div>
 @endsection

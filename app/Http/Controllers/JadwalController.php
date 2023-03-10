@@ -75,18 +75,32 @@ class JadwalController extends Controller
         $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
 
-        $jadwal = new Jadwal();
+        $rules = Jadwal::where('user_id', $user_id)
+            ->where('olahraga_id', $olahraga_id)
+            ->where('lapangan_id', $lapangan_id)
+            ->where('tanggal', $tanggal)
+            ->where('jam', $jam)
+            ->first();
 
-        $jadwal->user_id = $user_id;
-        $jadwal->olahraga_id = $olahraga_id;
-        $jadwal->lapangan_id = $lapangan_id;
-        $jadwal->tanggal = $tanggal;
-        $jadwal->jam = $jam;
-        $jadwal->harga = $harga;
-        $jadwal->status = false;
-        $jadwal->save();
+        if (!$rules) {
+            $jadwal = new Jadwal();
 
-        return redirect('admin/jadwal');
+            $jadwal->user_id = $user_id;
+            $jadwal->olahraga_id = $olahraga_id;
+            $jadwal->lapangan_id = $lapangan_id;
+            $jadwal->tanggal = $tanggal;
+            $jadwal->jam = $jam;
+            $jadwal->harga = $harga;
+            $jadwal->status = false;
+            $jadwal->save();
+
+            return redirect('admin/jadwal');
+        }else{
+            return redirect('admin/jadwal')->with([
+                'gagal' => 'Gagal',
+                'infogagal' => 'Jadwal Sudah Ada'
+            ]);
+        }
     }
 
     public function storeSuper(Request $request)
@@ -101,18 +115,32 @@ class JadwalController extends Controller
         $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
 
-        $jadwal = new Jadwal();
+        $rules = Jadwal::where('user_id', $user_id)
+            ->where('olahraga_id', $olahraga_id)
+            ->where('lapangan_id', $lapangan_id)
+            ->where('tanggal', $tanggal)
+            ->where('jam', $jam)
+            ->first();
 
-        $jadwal->user_id = $user_id;
-        $jadwal->olahraga_id = $olahraga_id;
-        $jadwal->lapangan_id = $lapangan_id;
-        $jadwal->tanggal = $tanggal;
-        $jadwal->jam = $jam;
-        $jadwal->harga = $harga;
-        $jadwal->status = false;
-        $jadwal->save();
+        if (!$rules) {
+            $jadwal = new Jadwal();
 
-        return redirect('super/jadwal');
+            $jadwal->user_id = $user_id;
+            $jadwal->olahraga_id = $olahraga_id;
+            $jadwal->lapangan_id = $lapangan_id;
+            $jadwal->tanggal = $tanggal;
+            $jadwal->jam = $jam;
+            $jadwal->harga = $harga;
+            $jadwal->status = false;
+            $jadwal->save();
+
+            return redirect('super/jadwal');
+        }else{
+            return redirect('super/jadwal')->with([
+                'gagal' => 'Gagal',
+                'infogagal' => 'Jadwal Sudah Ada'
+            ]);
+        }
     }
 
     public function update(Request $request, $id)

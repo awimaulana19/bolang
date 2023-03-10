@@ -36,6 +36,10 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'jadwal_id' => 'required|unique:transaksis',
+        ]);
+
         $jadwal = Jadwal::where('id', $request->jadwal_id)->first();
         $jadwal->status = true;
         $jadwal->update();
