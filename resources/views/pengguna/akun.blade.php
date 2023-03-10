@@ -126,7 +126,7 @@
                             </label>
                             <label class="form-label icon">BuluTangkis</label>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 gambar">
                             <label for="pilihan5">
                                 <input type="checkbox" id="pilihan5" name="basket" @checked($akun->basket == true)>
                                 <img src="{{ asset('image/basket2.png') }}" alt="Pilihan 5">
@@ -161,7 +161,7 @@
                             </label>
                             <label class="form-label icon">Baseball</label>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 gambar">
                             <label for="pilihan10">
                                 <input type="checkbox" id="pilihan10" name="lainnya" @checked($akun->lainnya == true)>
                                 <img src="{{ asset('image/lainnya.png') }}" alt="Pilihan 10">

@@ -47,20 +47,20 @@ img {
     border: 0.2px solid #000000;
     border-radius: 5px;
     background-color: #f6f6f6;
-    width: 307px;
+    width: 100%;
 }
 .list .row .form-select {
     border: 0.2px solid #000000;
     border-radius: 5px;
     background-color: #f6f6f6;
-    width: 307px;
+    width: 100%;
 }
 .list .row .form-label {
     font-weight: 400;
     font-size: 14px;
 }
 .list .row .tahun {
-    width: 135px;
+    width: 100%;
 }
 .list h6 {
     font-weight: 400;
@@ -69,9 +69,11 @@ img {
 .garis1 {
     border: 0.5px solid rgba(0, 0, 0, 0.75);
     border-radius: 10px;
-    width: 700px;
-    margin-left: 40px;
-    padding: 20px;
+    width: 63%;
+    display: flex;
+    margin-left: auto;
+    margin-top: auto;
+    padding: 30px;
 }
 .kolom {
     width: 280px;
@@ -92,8 +94,9 @@ img {
     width: 120px;
 }
 .favorite {
-    margin-left: 40px;
-    margin-right: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 .gambar {
     margin-right: 15px;
@@ -132,4 +135,24 @@ img {
 .favorite input[type="checkbox"]:checked + img {
     border-radius: 10px;
     border: 2px solid #0fa958;
+}
+
+@media (max-width: 991px){
+    .garis{
+        width: 100%;
+    }
+    .garis1{
+        width: 100%;
+    }
+    .form-control{
+        width: 33%;
+        margin-right: 100%;
+    }
+    .form-select{
+        width: 100%;
+    }
+    .gambar{
+        margin-right: 10%;
+        margin-left: 5%;
+    }
 }

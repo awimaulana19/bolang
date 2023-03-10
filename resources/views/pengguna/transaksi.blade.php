@@ -33,7 +33,7 @@
                     </div>
                 </div> --}}
             </div>
-            <div class="col-4">
+            <div class="col-4 baris1">
                 <div class="tombol">
                     <label>Transaksi Selesai</label>
                 </div>
