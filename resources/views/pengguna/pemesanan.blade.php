@@ -40,6 +40,15 @@
         </div>
         <div class="tabel pilih">
             <h3 class="mb-4 mb-lg-5">Pilih Jenis Pembayaran</h3>
+            <select required class="form-select mb-3" name="jenis_transaksi" id="jenis_transaksi">
+                <option selected>Transaction</option>
+                @if (!$jadwal->harga == null)
+                    <option value="Booking Lapangan">Full</option>
+                @endif
+                @if (!$jadwal->dp == null)
+                    <option value="DP Lapangan">DP</option>
+                @endif
+            </select>
             <select required class="form-select mb-3" name="jenis_pembayaran" id="jenis_pembayaran">
                 <option selected>Payment</option>
                 @if (!$pembayaran->bri == null)
@@ -117,7 +126,7 @@
             <h4>{{ $jadwal->user->namatempat }}</h4>
             <h6>{{ $jadwal->tanggal }} <i class="bi bi-circle-fill ms-1 me-1"></i> {{ $jadwal->jam }}</h6>
             <div class="harga mt-4">
-                <span>Harga Lapangan:</span><span>Rp. {{ $jadwal->harga }}</span>
+                <span>Harga Lapangan:</span><span id="harga_lapangan">Rp. 0</span>
             </div>
             <hr>
             <div class="harga">
@@ -126,7 +135,7 @@
             </div>
             <hr>
             <div class="harga">
-                <span>Total Bayar:</span><span>Rp. {{ $jadwal->harga }}</span>
+                <span>Total Bayar:</span><span id="total_harga">Rp. 0</span>
             </div>
         </div>
         {{-- <input type="hidden" id="biaya_admin" name="biaya_admin" value="{{ $biaya_admin }}"> --}}
@@ -157,5 +166,19 @@
             document.getElementById("batas_pembayaran").value = batas;
             document.getElementById("order_form").submit();
         }
+
+        const dropdown = document.getElementById("jenis_transaksi");
+        const hargaLapangan = document.getElementById("harga_lapangan");
+        const harga = document.getElementById("total_harga");
+
+        dropdown.addEventListener("change", function() {
+            if (dropdown.value === "Booking Lapangan") {
+                hargaLapangan.innerHTML = "Rp. {{ $jadwal->harga }}";
+                harga.innerHTML = "Rp. {{ $jadwal->harga }}";
+            } else if (dropdown.value === "DP Lapangan") {
+                hargaLapangan.innerHTML = "Rp. {{ $jadwal->dp }}";
+                harga.innerHTML = "Rp. {{ $jadwal->dp }}";
+            }
+        });
     </script>
 @endsection

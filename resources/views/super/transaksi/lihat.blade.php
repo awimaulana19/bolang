@@ -85,7 +85,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Harga Lapangan</label>
-                                    <input type="text" class="form-control" value="{{ $transaksi->jadwal->harga }}"
+                                    <input type="text" class="form-control" value="{{ $transaksi->harga_lapangan }}"
                                         disabled>
                                 </div>
                             </div>

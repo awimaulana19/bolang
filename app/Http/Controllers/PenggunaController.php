@@ -144,31 +144,31 @@ class PenggunaController extends Controller
             $transaksi->delete();
             return redirect('/transaksi')->with([
                 'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Admin tidak terdaftar di Whatsapp'
+                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
             ]);
         } else if ($testing['kode'] == 403) {
             $transaksi->delete();
             return redirect('/transaksi')->with([
                 'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Harap SCAN QRCODE sebelum menggunakan API'
+                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
             ]);
         } else if ($testing['kode'] == 500) {
             $transaksi->delete();
             return redirect('/transaksi')->with([
                 'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Gagal Konfirmasi'
+                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
             ]);
         } else if ($testing['kode'] == 300) {
             $transaksi->delete();
             return redirect('/transaksi')->with([
                 'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Gagal Konfirmasi / Tidak ada hasil'
+                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
             ]);
         } else {
             $transaksi->delete();
             return redirect('/transaksi')->with([
                 'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Gagal Konfirmasi, Kesalahan Pada Wa Gateway'
+                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
             ]);
         }
     }

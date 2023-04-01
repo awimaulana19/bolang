@@ -18,7 +18,7 @@
                 <div id="auth-left">
                     <div class="auth-logo" style="margin-top: -50px;">
                         <a href="/"><img src="{{ asset('image/logo.png') }}" alt="logo"
-                                style="width: 150px; height: 70px; padding-top: 5px; margin-bottom: -100px;"></a>
+                                style="width: 170px; height: 70px; padding-top: 5px; margin-bottom: -100px;"></a>
                     </div>
                     <h1 class="auth-title">Log in</h1>
                     <p class="auth-subtitle mb-5">Log in with your data</p>

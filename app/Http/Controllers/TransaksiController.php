@@ -54,14 +54,18 @@ class TransaksiController extends Controller
         $email = $request->email;
         $catatan = $request->catatan;
         $jenis_pembayaran = $request->jenis_pembayaran;
-        $harga_lapangan = $jadwal->harga;
+        if ($request->jenis_transaksi == "Booking Lapangan") {
+            $harga_lapangan = $jadwal->harga;
+        }else if ($request->jenis_transaksi == "DP Lapangan") {
+            $harga_lapangan = $jadwal->dp;
+        }
         $biaya_admin = 0;
         // $biaya_admin = mt_rand(0, 199) + 1;
         // $biaya_admin = $request->biaya_admin;
         $total = $harga_lapangan + $biaya_admin;
         $order_id = 'ORD'.strtoupper(substr(str_replace(".", "", uniqid('', true)), 0, 10));
         $status = false;
-        $jenis_transaksi = "Booking Lapangan";
+        $jenis_transaksi = $request->jenis_transaksi;
         $waktu_order = $request->order_datetime;
         $batas_pembayaran = $request->batas_pembayaran;
 
@@ -91,8 +95,6 @@ class TransaksiController extends Controller
         elseif ($jenis_pembayaran === "LINKAJA") {
             $nomor_pembayaran = $konfigurasi->linkaja;
         }
-
-        // $nomor_pembayaran = "Coming Soon";
 
         $transaksi = new Transaksi();
 

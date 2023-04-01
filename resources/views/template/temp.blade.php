@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('image/logo.png') }}" alt="" width="120px">
+                <img src="{{ asset('image/logo.png') }}" alt="" width="170px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

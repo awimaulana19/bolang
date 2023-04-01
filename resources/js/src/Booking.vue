@@ -91,7 +91,16 @@
                             v-bind:class="{ jumlahbooked: item.status }"
                         >
                             <h4 v-if="item.status">Booked</h4>
-                            <h4 v-else>Rp. {{ item.harga }}</h4>
+                            <div v-else class="d-flex">
+                                <div class="d-flex flex-column">
+                                    <h3>Full</h3> 
+                                    <h3>DP</h3> 
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h4>: Rp. {{ item.harga }}</h4> 
+                                    <h4>: Rp. {{ item.dp }}</h4> 
+                                </div>
+                            </div>
                             <div v-if="item.status"></div>
                             <input
                                 v-else
@@ -255,7 +264,7 @@ export default {
             let harga = 0;
             this.dataJam.forEach((item) => {
                 if (item.id === this.selectedRadio) {
-                    harga = item.harga;
+                    harga = item.harga+" / Rp. "+item.dp;
                 }
             });
             return harga;

@@ -239,11 +239,19 @@
     color: #656565;
 }
 
+.booking .isi .jam .status .jumlah h3 {
+    margin: 0;
+    font-weight: 600;
+    margin-right: 5px;
+    font-size: 20px;
+    font-style: italic;
+}
+
 .booking .isi .jam .status .jumlah h4 {
     margin: 0;
     font-weight: 500;
     margin-right: 20px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .booking .isi .jam .status .jumlah input[type="radio"] {
@@ -412,6 +420,10 @@
     .booking .isi .jam .status .jumlahbooked {
         justify-content: end;
         margin-right: 15px;
+    }
+
+    .booking .isi .jam .status .jumlah h3 {
+        font-size: 13px;
     }
     
     .booking .isi .jam .status .jumlah h4 {

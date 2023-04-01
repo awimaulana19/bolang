@@ -24,7 +24,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
                             <a href="/"><img src="{{ asset('image/logo.png') }}" alt="logo"
-                                    style="width: 110px; height: 50px; padding-top: 5px;"></a>
+                                    style="width: 170px; height: 70px; padding-top: 5px;"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <div class="form-check form-switch fs-6">

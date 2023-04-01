@@ -20,7 +20,8 @@ return new class extends Migration
             $table->foreignUuid('lapangan_id');
             $table->string('tanggal');
             $table->string('jam');
-            $table->integer('harga');
+            $table->integer('harga')->nullable();
+            $table->integer('dp')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });
