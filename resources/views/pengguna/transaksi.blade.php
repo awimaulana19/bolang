@@ -8,7 +8,7 @@
     <div class="container tabel my-5">
         <h3 class="mb-4 mb-lg-5">Riwayat Transaksi</h3>
         <div class="row justify-content-around">
-            <div class="col-4 baris">
+            <div class="col-12 col-lg-5 baris">
                 <div class="tombol">
                     <label>Belum Di Bayar/Proses</label>
                 </div>
@@ -33,7 +33,7 @@
                     </div>
                 </div> --}}
             </div>
-            <div class="col-4 baris1">
+            <div class="col-12 col-lg-5 baris1">
                 <div class="tombol">
                     <label>Transaksi Selesai</label>
                 </div>

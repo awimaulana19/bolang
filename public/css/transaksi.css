@@ -20,34 +20,25 @@
     color: #000000;
 }
 
-.tabel .row{
-    margin-right: 50px;
-    margin-left: -50px;
-}
-
 .tabel .tombol {
     background: #DCDCDC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     display: flex;
-    width: 110%;
-    height: 10%;
-    margin-left: 10%;
-    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .tabel .tombol label{
     font-weight: 400;
     font-size: 16px;
-    margin-left: 70px;
-    margin-top: 15px;
+    padding: 10px 0px;
 }
 
 .tabel .riwayat{
-    width: 387px;
-    height: 181px;
-    margin-top: 60px;
-    margin-right: 20px;
+    width: 100%;
+    height: 180px;
+    margin-top: 50px;
     background: #FFFFFF;
     border: 0.5px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -82,7 +73,7 @@ hr {
 .tabel .riwayat .tanda .btn-success {
     background: #0FA958;
     border-radius: 35px;
-    width: 164px;
+    width: 150px;
     height: 30px;
     color: #ffffff;
     border: none;
@@ -98,30 +89,25 @@ hr {
 
 .tabel .riwayat .tanda label{
     color: #FFFFFF;
-    margin-left: 14px;
     font-weight: 400;
     font-size: 11px;
 }
 
-.tabel .baris{
-    margin-right: 40px;
-}
-
 @media (max-width: 991px) {
-    .tabel h3{
+    .tabel h3 {
         font-size: 20px;
     }
-    .tabel .tombol{
-        width: 300%;
-        margin-top: 10%;
-        margin-bottom: -10px;
-        margin-right: 100%;
-        margin-left: 50%;
+    
+    .tabel .tombol {
+        margin-bottom: 20px;
     }
-    .tabel .baris, .baris1{
-        margin-right: 48%;
+
+    .tabel .riwayat{
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
-    .tabel .tombol label{
-        font-size: 13px;
+    
+    .tabel .riwayat .tanda .btn-success {
+        width: 120px;
     }
 }

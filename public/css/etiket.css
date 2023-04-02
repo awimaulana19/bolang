@@ -48,14 +48,12 @@ hr {
 }
 
 .fasilitas .isi {
-    width: 280%;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 30px;
-    padding-left: 20px;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
-    display: flex;
 }
 
 .fasilitas .isi .bungkus {
@@ -126,21 +124,11 @@ hr {
     .deskripsi ul li {
         font-size: 16px;
     }
-    
     .fasilitas .isi {
-        width: 100%;
-        margin-top: 300%;
-        margin-left: -100%;
-        padding: 100%;
-        padding-right: 10%;
+        width: 90%;
+        margin: auto;
     }
-    .deskripsi .detail{
-        padding-bottom: -200%;
-    }
-    .fasilitas .isi p{
-        font-size: 10px;
-    }
-    .fasilitas .isi h3{
-        font-size: 20px;
+    .fasilitas .isi p {
+        font-size: 25px;
     }
 }

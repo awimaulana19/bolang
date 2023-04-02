@@ -74,6 +74,7 @@ class JadwalController extends Controller
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
         $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
+        $dp = $request->dp;
 
         $rules = Jadwal::where('user_id', $user_id)
             ->where('olahraga_id', $olahraga_id)
@@ -91,6 +92,7 @@ class JadwalController extends Controller
             $jadwal->tanggal = $tanggal;
             $jadwal->jam = $jam;
             $jadwal->harga = $harga;
+            $jadwal->dp = $dp;
             $jadwal->status = false;
             $jadwal->save();
 
@@ -114,6 +116,7 @@ class JadwalController extends Controller
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
         $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
+        $dp = $request->dp;
 
         $rules = Jadwal::where('user_id', $user_id)
             ->where('olahraga_id', $olahraga_id)
@@ -131,6 +134,7 @@ class JadwalController extends Controller
             $jadwal->tanggal = $tanggal;
             $jadwal->jam = $jam;
             $jadwal->harga = $harga;
+            $jadwal->dp = $dp;
             $jadwal->status = false;
             $jadwal->save();
 
@@ -153,6 +157,7 @@ class JadwalController extends Controller
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
         $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
+        $dp = $request->dp;
 
         $jadwal = Jadwal::where('id', $id)->first();
 
@@ -161,6 +166,7 @@ class JadwalController extends Controller
         $jadwal->tanggal = $tanggal;
         $jadwal->jam = $jam;
         $jadwal->harga = $harga;
+        $jadwal->dp = $dp;
         $jadwal->update();
 
         return redirect('admin/jadwal');
@@ -177,6 +183,7 @@ class JadwalController extends Controller
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
         $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
+        $dp = $request->dp;
 
         $jadwal = Jadwal::where('id', $id)->first();
 
@@ -186,6 +193,7 @@ class JadwalController extends Controller
         $jadwal->tanggal = $tanggal;
         $jadwal->jam = $jam;
         $jadwal->harga = $harga;
+        $jadwal->dp = $dp;
         $jadwal->update();
 
         return redirect('super/jadwal');

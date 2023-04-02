@@ -29,19 +29,19 @@
                 <form id="formProfile" action="{{ '/akun/' . $akun->id }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <label for="nama" class="form-label">Nama Lengkap:</label>
                             <input type="text" class="form-control" id="nama" name="nama"
                                 value="{{ $akun->nama }}">
                         </div>
-                        <div class="col-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <label for="username" class="form-label">Username:</label>
                             <input type="text" class="form-control" id="username" name="username"
                                 value="{{ $akun->username }}">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <label for="jk" class="form-label">Jenis Kelamin:</label>
                             <select class="form-select" id="jk" name="jenis_kelamin"
                                 aria-label="Default select example">
@@ -52,14 +52,14 @@
                                     Perempuan</option>
                             </select>
                         </div>
-                        <div class="col-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <label for="phoneNumber" class="form-label">No. Hp:</label>
                             <input type="tel" class="form-control" id="phoneNumber" aria-describedby="phoneNumberHelp"
                                 name="whatsapp" value="{{ $akun->whatsapp }}">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <label for="bulan" class="form-label">Bulan Lahir:</label>
                             <select id="bulan" name="bulan_lahir" class="form-select"
                                 aria-label="Default select example">
@@ -85,12 +85,12 @@
                                 </option>
                             </select>
                         </div>
-                        <div class="col-3 mb-4">
+                        <div class="col-lg-3 col-6 mb-4">
                             <label for="tahun" class="form-label">Tahun Lahir:</label>
                             <input type="text" class="form-control tahun" id="tahun" name="tahun_lahir"
                                 value="{{ $akun->tahun_lahir }}">
                         </div>
-                        <div class="col-3 mb-4">
+                        <div class="col-lg-3 col-6 mb-4">
                             <label for="tanggal" class="form-label">Tanggal Lahir:</label>
                             <input type="text" class="form-control tahun" id="tanggal" name="tanggal_lahir"
                                 value="{{ $akun->tanggal_lahir }}">

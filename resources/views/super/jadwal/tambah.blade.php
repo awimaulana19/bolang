@@ -138,6 +138,16 @@
                                                 placeholder="Harga" aria-label="harga" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <label>Harga DP</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">Rp. </span>
+                                            <input type="number" name="dp" class="form-control"
+                                                placeholder="Harga DP" aria-label="dp" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1 mt-1">Submit</button>
                                     </div>

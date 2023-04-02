@@ -25,17 +25,16 @@
                 </div>
                 <hr>
                 <div class="row deskripsi mt-3 mb-5">
-                    <div class="col-7">
+                    <div class="col-lg-7">
                         <h1 class="mb-2">Deskripsi Lapangan</h1>
-                        <p>{!! $item->olahraga->deskripsi !!}
-                        </p>
+                        {!! $item->olahraga->deskripsi !!}
                         <h1 class="mt-5 mb-2">Aturan Lapangan</h1>
                         {!! $item->olahraga->aturan !!}
                     </div>
-                    <div class="fasilitas mt-2 col-2">
+                    <div class="fasilitas mt-2 col-lg-5">
                         <div class="isi">
                             <p>E-ticket</p>
-                            <h3>Rp {{ $item->harga_lapangan }}</h3>
+                            <h3>Rp. {{ $item->harga_lapangan }}</h3>
                             <div class="bungkus">
                                 <div class="waktu">
                                     <label>Tanggal <br><span>{{ $item->jadwal->tanggal }}</span></label>

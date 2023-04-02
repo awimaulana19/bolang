@@ -95,8 +95,8 @@ img {
 }
 .favorite {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    flex-wrap: wrap;
+    margin-left: 10px;
 }
 .gambar {
     margin-right: 15px;
@@ -139,10 +139,12 @@ img {
 
 @media (max-width: 991px){
     .garis{
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
     .garis1{
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
     .form-control{
         width: 33%;
@@ -151,8 +153,10 @@ img {
     .form-select{
         width: 100%;
     }
-    .gambar{
-        margin-right: 10%;
-        margin-left: 5%;
+    .favorite {
+        margin-left: 0px;
+    }
+    .favorite .gambar {
+        margin-right: 40px;
     }
 }
