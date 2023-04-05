@@ -5,7 +5,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/transaksi.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.css') }}">
-    <div class="container tabel my-5">
+    <div class="container tabel my-lg-5">
         <h3 class="mb-4 mb-lg-5">Riwayat Transaksi</h3>
         <div class="row justify-content-around">
             <div class="col-12 col-lg-5 baris">

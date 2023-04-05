@@ -325,7 +325,7 @@
                     <p class="pilihan">Bantuan</p>
                     <p><a href="https://wa.me/6282397032649?text=Hi+Admin.+Saya+ingin+bertanya+mengenai+Bolang">Live
                             Chat</a></p>
-                    <p><a href="https://www.instagram.com/awimaulana19/">Sosmed</a></p>
+                    <p><a href="https://www.instagram.com/bolang.web.id/">Sosmed</a></p>
                 </div>
                 <div class="col-3">
                     <p class="pilihan">Pembayaran</p>

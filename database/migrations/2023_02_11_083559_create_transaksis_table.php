@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('nama_pelanggan');
             $table->string('nomor_hp');
             $table->string('email');
-            $table->string('catatan')->nullable();
+            $table->text('catatan')->nullable();
             $table->string('jenis_pembayaran');
             $table->integer('harga_lapangan');
             $table->integer('biaya_admin');

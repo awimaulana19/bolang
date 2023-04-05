@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('jenis');
             $table->boolean('rekomendasi')->default(false);
             $table->string('foto');
-            $table->string('deskripsi');
-            $table->string('aturan');
+            $table->text('deskripsi');
+            $table->text('aturan');
             $table->boolean('parkiran');
             $table->boolean('minuman');
             $table->boolean('ruang_ganti');
