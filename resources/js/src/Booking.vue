@@ -8,7 +8,7 @@
             />
             <div class="lokasi">
                 <div class="icon">
-                    <img src="/image/lokasi.png" alt="icon" />
+                    <img :src="'/image/lokasi.png'" alt="icon" />
                 </div>
                 <div class="info">
                     <h1>
@@ -22,7 +22,7 @@
                 <div class="bulan">
                     <div class="daftar">
                         <button type="button" @click="prevMonth()">
-                            <img src="/image/kiri.png" alt="icon" />
+                            <img :src="'/image/kiri.png'" alt="icon" />
                         </button>
                     </div>
                     <div class="daftar bulantahun">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="daftar">
                         <button type="button" @click="nextMonth()">
-                            <img src="/image/kanan.png" alt="icon" />
+                            <img :src="'/image/kanan.png'" alt="icon" />
                         </button>
                     </div>
                 </div>
