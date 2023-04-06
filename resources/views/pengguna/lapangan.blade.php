@@ -16,7 +16,7 @@
     <div class="row rekomendasi">
         @if ($futsal->isNotEmpty())
             @foreach ($futsal as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}" width="260px"
                             height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
@@ -43,7 +43,7 @@
         @else
             <h4 class="mt-3">Akan Datang</h4>
         @endif
-        {{-- <div class="col-xl-3 col-lg-4 col-6">
+        {{-- <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
                     height="380px"></a>
             <a href="{{ '/pilih/'.$item->id }}">
@@ -52,7 +52,7 @@
             <h6>Makassar - <span>1 Lapangan</span></h6>
             <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
         </div>
-        <div class="col-xl-3 col-lg-4 col-6">
+        <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
                     height="380px"></a>
             <a href="{{ '/pilih/'.$item->id }}">
@@ -61,7 +61,7 @@
             <h6>Makassar - <span>1 Lapangan</span></h6>
             <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
         </div>
-        <div class="col-xl-3 col-lg-4 col-6">
+        <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
                     height="380px"></a>
             <a href="{{ '/pilih/'.$item->id }}">
@@ -82,7 +82,7 @@
     <div class="row rekomendasi">
         @if ($minisoccer->isNotEmpty())
             @foreach ($minisoccer as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}" width="260px"
                             height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
@@ -109,7 +109,7 @@
         @else
             <h4 class="mt-3">Akan Datang</h4>
         @endif
-        {{-- <div class="col-xl-3 col-lg-4 col-6">
+        {{-- <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan2.png') }}" width="260px"
                     height="380px"></a>
             <a href="{{ '/pilih/'.$item->id }}">
@@ -118,7 +118,7 @@
             <h6>Makassar - <span>1 Lapangan</span></h6>
             <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
         </div>
-        <div class="col-xl-3 col-lg-4 col-6">
+        <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan3.png') }}" width="260px"
                     height="380px"></a>
             <a href="{{ '/pilih/'.$item->id }}">
@@ -127,7 +127,7 @@
             <h6>Makassar - <span>1 Lapangan</span></h6>
             <h6>Harga Mulai - <span class="harga">Rp 200.000</span></h6>
         </div>
-        <div class="col-xl-3 col-lg-4 col-6">
+        <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
             <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('image/lapangan4.png') }}" width="260px"
                     height="380px"></a>
             <a href="{{ '/pilih/'.$item->id }}">
@@ -148,7 +148,7 @@
     <div class="row rekomendasi">
         @if ($bulutangkis->isNotEmpty())
             @foreach ($bulutangkis as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
                             width="260px" height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
@@ -187,7 +187,7 @@
     <div class="row rekomendasi">
         @if ($basket->isNotEmpty())
             @foreach ($basket as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
                             width="260px" height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
@@ -226,7 +226,7 @@
     <div class="row rekomendasi">
         @if ($gym->isNotEmpty())
             @foreach ($gym as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
                             width="260px" height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
@@ -265,7 +265,7 @@
     <div class="row rekomendasi">
         @if ($tenis->isNotEmpty())
             @foreach ($tenis as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
                             width="260px" height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
@@ -304,7 +304,7 @@
     <div class="row rekomendasi mb-5">
         @if ($tenismeja->isNotEmpty())
             @foreach ($tenismeja as $item)
-                <div class="col-xl-3 col-lg-4 col-6">
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/'.$item->id }}"><img class="rounded-3 mb-3" src="{{ asset('storage/' . $item->foto) }}"
                             width="260px" height="380px"></a>
                     <a href="{{ '/pilih/'.$item->id }}">
