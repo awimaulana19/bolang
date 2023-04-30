@@ -18,9 +18,58 @@
                         <a href="{{ 'https://wa.me/' . $item->user->whatsapp }}" class="bulat">
                             <img src="{{ asset('image/wa.png') }}" alt="whatsapp">
                         </a>
-                        <a href="#" class="bulat">
-                            <img src="{{ asset('image/barcode.png') }}" alt="barcode">
-                        </a>
+                        <button type="button" class="bulat btn btn-primary border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img class="tiket" src="{{ asset('image/ticket.png') }}" alt="tiket">
+                        </button>
+                    </div>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">E-Ticket</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="pembayaran">
+                                    <div class="dat data">
+                                        <h4>Order ID</h4>
+                                        <h5>{{ $item->order_id }}</h5>
+                                    </div>
+                                    <div class="dat datakanan">
+                                        <h4>Status Pembayaran</h4>
+                                        <div class="status {{ $item->status === 0 ? 'pending' : '' }}">
+                                            @if ($item->status === 0)
+                                                <span>PENDING</span>
+                                            @else
+                                                <span>SUKSES</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="dat data">
+                                        <h4>Nama Rekening / Akun</h4>
+                                        <h5>{{ $item->nama_pelanggan }}</h5>
+                                    </div>
+                                    <div class="dat datakanan">
+                                        <h4>Jenis Transaksi</h4>
+                                        <h5>{{ $item->jenis_transaksi }}</h5>
+                                    </div>
+                                    <div class="dat data">
+                                        <h4>Tanggal Order</h4>
+                                        <h5>{{ $item->waktu_order }}</h5>
+                                    </div>
+                                    <div class="dat datakanan">
+                                        <h4>Metode Pembayaran</h4>
+                                        <h5>{{ $item->jenis_pembayaran }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>

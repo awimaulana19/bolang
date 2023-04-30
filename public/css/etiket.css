@@ -28,6 +28,12 @@
 .hero .bulat img {
     width: 60%;
 }
+.hero .bulat .tiket {
+    width: 100%;
+}
+.hero .bulat:active {
+    background-color: #e7e980;
+}
 hr {
     border: 1px solid #a5a5a5;
 }
@@ -94,6 +100,51 @@ hr {
     font-size: 20px;
 }
 
+.pembayaran {
+    margin-top: 10px;
+    margin-bottom: -20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pembayaran .dat {
+    margin-bottom: 30px;
+}
+
+.pembayaran .dat h4 {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.pembayaran .dat h5 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+
+.pembayaran .dat .status {
+    width: 110px;
+    background: #0fa958;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pembayaran .dat .status span {
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.pembayaran .data {
+    width: 60%;
+}
+
+.pembayaran .datakanan {
+    width: 40%;
+}
 
 @media (max-width: 991px) {
     .hero .imghero {
@@ -115,6 +166,10 @@ hr {
     
     .hero .bulat img {
         width: 60%;
+    }
+
+    .hero .bulat .tiket {
+        width: 100%;
     }
 
     .deskripsi p {

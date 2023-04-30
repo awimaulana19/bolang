@@ -33,6 +33,10 @@
     width: 60%;
 }
 
+.hero .bulat:active {
+    background-color: #e7e980;
+}
+
 hr {
     border: 1px solid #a5a5a5;
 }
