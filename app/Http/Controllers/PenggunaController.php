@@ -141,34 +141,29 @@ class PenggunaController extends Controller
                 'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses'
             ]);
         } else if ($testing['kode'] == 402) {
-            $transaksi->delete();
             return redirect('/transaksi')->with([
-                'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
+                'berhasil' => 'Konfirmasi Berhasil',
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
             ]);
         } else if ($testing['kode'] == 403) {
-            $transaksi->delete();
             return redirect('/transaksi')->with([
-                'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
+                'berhasil' => 'Konfirmasi Berhasil',
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
             ]);
         } else if ($testing['kode'] == 500) {
-            $transaksi->delete();
             return redirect('/transaksi')->with([
-                'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
+                'berhasil' => 'Konfirmasi Berhasil',
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
             ]);
         } else if ($testing['kode'] == 300) {
-            $transaksi->delete();
             return redirect('/transaksi')->with([
-                'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
+                'berhasil' => 'Konfirmasi Berhasil',
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
             ]);
         } else {
-            $transaksi->delete();
             return redirect('/transaksi')->with([
-                'gagal' => 'Transaksi Di Batalkan',
-                'infogagal' => 'Kesalahan Sistem, Coba Lagi Nanti'
+                'berhasil' => 'Konfirmasi Berhasil',
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
             ]);
         }
     }
