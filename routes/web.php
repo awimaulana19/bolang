@@ -34,7 +34,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/registrasi', [AuthController::class, 'registAction']);
     Route::get('/login', [AuthController::class, 'loginPengguna'])->name('loginPengguna');
     Route::post('/login', [AuthController::class, 'actionLogin']);
-    Route::get('/admin', [AuthController::class, 'login']);
+    Route::get('/admin', [AuthController::class, 'login'])->name('loginAdmin');
     Route::post('/admin', [AuthController::class, 'login_action']);
     Route::get('forget-password', [AuthController::class, 'showForgetPasswordForm'])->name('forget.password.get');
     Route::post('forget-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
