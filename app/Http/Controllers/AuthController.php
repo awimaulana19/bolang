@@ -27,13 +27,13 @@ class AuthController extends Controller
 
     public function login_action(Request $request)
     {
-        
+
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             if (auth()->user()->roles == 'admin') {
                 return redirect('admin/dashboard');
-            }else if (auth()->user()->roles == 'super') {
+            } else if (auth()->user()->roles == 'super') {
                 return redirect('super/dashboard');
-            }else {
+            } else {
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
@@ -51,11 +51,10 @@ class AuthController extends Controller
                     $user = auth()->user();
                     event(new Registered($user));
                     return redirect('/email/verify');
-                }else{
+                } else {
                     return redirect('/');
                 }
-            }
-            else{
+            } else {
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
@@ -224,61 +223,62 @@ class AuthController extends Controller
         return redirect('super/user');
     }
 
-      public function showForgetPasswordForm()
-      {
-         return view('pengguna.forgetPassword');
-      }
-  
-      public function submitForgetPasswordForm(Request $request)
-      {
-          $request->validate([
-              'email' => 'required|email|exists:users',
-          ]);
-  
-          $token = Str::random(64);
-  
-          DB::table('password_resets')->insert([
-              'email' => $request->email, 
-              'token' => $token, 
-              'created_at' => Carbon::now()
-            ]);
-  
-          Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
-              $message->to($request->email);
-              $message->subject('Reset Password');
-          });
-  
-          return back()->with('message', 'Email Reset Password Telah Dikirim');
-      }
+    public function showForgetPasswordForm()
+    {
+        return view('pengguna.forgetPassword');
+    }
 
-      public function showResetPasswordForm($token) { 
-         return view('pengguna.forgetPasswordLink', ['token' => $token]);
-      }
-  
-      public function submitResetPasswordForm(Request $request)
-      {
-          $request->validate([
-              'email' => 'required|email|exists:users',
-              'password' => 'required|string|min:3|confirmed',
-              'password_confirmation' => 'required'
-          ]);
-  
-          $updatePassword = DB::table('password_resets')
-                              ->where([
-                                'email' => $request->email, 
-                                'token' => $request->token
-                              ])
-                              ->first();
-  
-          if(!$updatePassword){
-              return back()->withInput()->with('error', 'Token Kadaluwarsa!');
-          }
-  
-          $user = User::where('email', $request->email)
-                      ->update(['password' => Hash::make($request->password)]);
- 
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
-  
-          return redirect('/login')->with('message', 'Password Berhasil Diubah, Silahkan Login!');
-      }
+    public function submitForgetPasswordForm(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+        ]);
+
+        $token = Str::random(64);
+
+        DB::table('password_resets')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
+
+        Mail::send('email.forgetPassword', ['token' => $token], function ($message) use ($request) {
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
+
+        return back()->with('message', 'Email Reset Password Telah Dikirim');
+    }
+
+    public function showResetPasswordForm($token)
+    {
+        return view('pengguna.forgetPasswordLink', ['token' => $token]);
+    }
+
+    public function submitResetPasswordForm(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|string|min:3|confirmed',
+            'password_confirmation' => 'required'
+        ]);
+
+        $updatePassword = DB::table('password_resets')
+            ->where([
+                'email' => $request->email,
+                'token' => $request->token
+            ])
+            ->first();
+
+        if (!$updatePassword) {
+            return back()->withInput()->with('error', 'Token Kadaluwarsa!');
+        }
+
+        $user = User::where('email', $request->email)
+            ->update(['password' => Hash::make($request->password)]);
+
+        DB::table('password_resets')->where(['email' => $request->email])->delete();
+
+        return redirect('/login')->with('message', 'Password Berhasil Diubah, Silahkan Login!');
+    }
 }

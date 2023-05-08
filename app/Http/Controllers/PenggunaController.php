@@ -11,6 +11,7 @@ use App\Models\Transaksi;
 use App\Models\Konfigurasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class PenggunaController extends Controller
@@ -95,6 +96,12 @@ class PenggunaController extends Controller
     public function konfirmasi($id)
     {
         $transaksi = Transaksi::where('id', $id)->first();
+
+        Mail::send('email.pemberitahuan', ['nama_pelanggan' => $transaksi->nama_pelanggan], function ($message) {
+            $bolang = "bolang.startup@gmail.com";
+            $message->to($bolang);
+            $message->subject('Pemberitahuan Transaksi');
+        });
 
         $wa = "082397032649";
         $nama_pelanggan = $transaksi->nama_pelanggan;
