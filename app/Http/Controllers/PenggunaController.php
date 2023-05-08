@@ -143,27 +143,27 @@ class PenggunaController extends Controller
         } else if ($testing['kode'] == 402) {
             return redirect('/transaksi')->with([
                 'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses. Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
             ]);
         } else if ($testing['kode'] == 403) {
             return redirect('/transaksi')->with([
                 'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
             ]);
         } else if ($testing['kode'] == 500) {
             return redirect('/transaksi')->with([
                 'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
             ]);
         } else if ($testing['kode'] == 300) {
             return redirect('/transaksi')->with([
                 'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
             ]);
         } else {
             return redirect('/transaksi')->with([
                 'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Mungkin Memakan Banyak Waktu'
+                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
             ]);
         }
     }
