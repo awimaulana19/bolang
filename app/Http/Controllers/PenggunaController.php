@@ -98,7 +98,7 @@ class PenggunaController extends Controller
         $transaksi = Transaksi::where('id', $id)->first();
 
         Mail::send('email.pemberitahuan', ['nama_pelanggan' => $transaksi->nama_pelanggan], function ($message) {
-            $bolang = "bolang.startup@gmail.com";
+            $bolang = "awimaulana19@gmail.com";
             $message->to($bolang);
             $message->subject('Pemberitahuan Transaksi');
         });
