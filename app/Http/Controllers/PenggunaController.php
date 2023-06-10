@@ -16,13 +16,15 @@ use Illuminate\Support\Facades\Storage;
 
 class PenggunaController extends Controller
 {
-    public function index () {
+    public function index()
+    {
         $olahraga = Olahraga::where('rekomendasi', true)->inRandomOrder()->take(4)->get();
         $lapangan = Lapangan::where('promo', true)->inRandomOrder()->take(10)->get();
         return view('pengguna.home', compact('olahraga', 'lapangan'));
     }
 
-    public function lapangan () {
+    public function lapangan()
+    {
         $futsal = Olahraga::where('jenis', 'Futsal')->inRandomOrder()->take(4)->get();
         $minisoccer = Olahraga::where('jenis', 'Mini Soccer')->inRandomOrder()->take(4)->get();
         $bulutangkis = Olahraga::where('jenis', 'Bulu Tangkis')->inRandomOrder()->take(4)->get();
@@ -34,12 +36,14 @@ class PenggunaController extends Controller
         return view('pengguna.lapangan', compact('futsal', 'minisoccer', 'bulutangkis', 'basket', 'gym', 'tenis', 'tenismeja'));
     }
 
-    public function olahraga ($jenis) {
+    public function olahraga($jenis)
+    {
         $olahraga = Olahraga::where('jenis', $jenis)->get();
         return view('pengguna.olahraga', compact('olahraga', 'jenis'));
     }
 
-    public function cari (Request $request) {
+    public function cari(Request $request)
+    {
         setlocale(LC_TIME, 'id_ID');
         Carbon::setLocale('id');
 
@@ -49,21 +53,25 @@ class PenggunaController extends Controller
         return view('pengguna.cari', compact('lapangan'));
     }
 
-    public function promo () {
+    public function promo()
+    {
         $lapangan = Lapangan::where('promo', true)->get();
         return view('pengguna.promo', compact('lapangan'));
     }
 
-    public function pilih ($id) {
+    public function pilih($id)
+    {
         $olahraga = Olahraga::where('id', $id)->first();
         return view('pengguna.pilihlapangan', compact('olahraga'));
     }
-    
-    public function booking ($id) {
+
+    public function booking($id)
+    {
         return view('pengguna.booking', compact('id'));
     }
 
-    public function dataJadwal ($id) {
+    public function dataJadwal($id)
+    {
         $lapangan = Lapangan::where('id', $id)->first();
         $user = User::where('id', $lapangan->user_id)->first();
         $olahraga = Olahraga::where('id', $lapangan->olahraga_id)->first();
@@ -78,7 +86,8 @@ class PenggunaController extends Controller
         ]);
     }
 
-    public function pesan (Request $request) {
+    public function pesan(Request $request)
+    {
         $pilihan = $request->input('jadwal');
         $jadwal = Jadwal::where('id', $pilihan)->first();
         $pembayaran = Konfigurasi::where('konfigurasi', 'rekening')->first();
@@ -88,7 +97,8 @@ class PenggunaController extends Controller
         return view('pengguna.pemesanan', compact('jadwal', 'pembayaran'));
     }
 
-    public function bayar ($id) {
+    public function bayar($id)
+    {
         $transaksi = Transaksi::where('id', $id)->first();
         return view('pengguna.pembayaran', compact('transaksi'));
     }
@@ -141,7 +151,7 @@ class PenggunaController extends Controller
         $testing = json_decode($response, true);
 
         // dd($data_post, $testing);
-        
+
         if ($testing['kode'] == 200) {
             return redirect('/transaksi')->with([
                 'berhasil' => 'Konfirmasi Berhasil',
@@ -175,26 +185,30 @@ class PenggunaController extends Controller
         }
     }
 
-    public function transaksi () {
+    public function transaksi()
+    {
         $user = Auth::user()->id;
         $transaksiproses = Transaksi::where('pengguna_id', $user)->where('status', 0)->take(4)->latest()->get();
         $transaksiselesai = Transaksi::where('pengguna_id', $user)->where('status', 1)->take(4)->orderBy('updated_at', 'desc')->get();
         return view('pengguna.transaksi', compact('transaksiproses', 'transaksiselesai'));
     }
 
-    public function etiket () {
+    public function etiket()
+    {
         $user = Auth::user()->id;
         $transaksi = Transaksi::where('pengguna_id', $user)->where('status', 1)->take(3)->orderBy('updated_at', 'desc')->get();
         return view('pengguna.etiket', compact('transaksi'));
     }
 
-    public function akun () {
+    public function akun()
+    {
         $user = Auth::user()->id;
         $akun = User::where('id', $user)->first();
         return view('pengguna.akun', compact('akun'));
     }
 
-    public function simpan (Request $request, $id) {
+    public function simpan(Request $request, $id)
+    {
         $akun = User::where('id', $id)->first();
 
         $akun->nama = $request->nama;
@@ -219,7 +233,8 @@ class PenggunaController extends Controller
         return redirect('/akun');
     }
 
-    public function simpanFoto (Request $request, $id) {
+    public function simpanFoto(Request $request, $id)
+    {
         $akun = User::where('id', $id)->first();
 
         if ($request->file('foto')) {
@@ -228,7 +243,7 @@ class PenggunaController extends Controller
             }
             $akun->foto = $request->file('foto')->store('foto-akun');
         }
-        
+
         $akun->update();
 
         return redirect('/akun');

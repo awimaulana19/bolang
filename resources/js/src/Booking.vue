@@ -93,12 +93,12 @@
                             <h4 v-if="item.status">Booked</h4>
                             <div v-else class="d-flex flex-column">
                                 <div class="d-flex">
-                                    <h3>Full</h3> 
-                                    <h4>: Rp. {{ item.harga }}</h4> 
+                                    <h3>Full</h3>
+                                    <h4>: Rp. {{ item.harga }}</h4>
                                 </div>
                                 <div class="d-flex">
-                                    <h3 class="pe-1">DP</h3> 
-                                    <h4>: Rp. {{ item.dp }}</h4>  
+                                    <h3 class="pe-1">DP</h3>
+                                    <h4>: Rp. {{ item.dp }}</h4>
                                 </div>
                             </div>
                             <div v-if="item.status"></div>
@@ -171,7 +171,7 @@ import axios from "axios";
 moment.locale("id");
 
 let dataTanggal = [];
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 65; i++) {
     let tanggal = moment().add(i, "days").format("D");
     let hari = moment().add(i, "days").format("ddd");
     let bulan = moment().add(i, "days").format("MMMM");
@@ -226,11 +226,17 @@ export default {
         nextMonth() {
             if (this.indexBulan < this.maxBulan) {
                 this.indexBulan++;
+                setTimeout(() => {
+                    window.dispatchEvent(new Event("resize"));
+                }, 1);
             }
         },
         prevMonth() {
             if (this.indexBulan > this.minBulan) {
                 this.indexBulan--;
+                setTimeout(() => {
+                    window.dispatchEvent(new Event("resize"));
+                }, 1);
             }
         },
         makeActive(item) {
@@ -264,7 +270,7 @@ export default {
             let harga = 0;
             this.dataJam.forEach((item) => {
                 if (item.id === this.selectedRadio) {
-                    harga = item.harga+" / Rp. "+item.dp;
+                    harga = item.harga + " / Rp. " + item.dp;
                 }
             });
             return harga;
