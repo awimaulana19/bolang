@@ -132,7 +132,7 @@
                 <div class="col-xl-3 col-lg-4 col-6 mt-lg-2 mb-lg-0 mb-xl-0 mb-5">
                     <a href="{{ '/pilih/' . $item->id }}"><img class="rounded-3 mb-3"
                             src="{{ asset('storage/' . $item->foto) }}" width="260px" height="380px"></a>
-                    <a href="/pilih">
+                    <a href="{{ '/pilih/' . $item->id }}">
                         <h5>{{ $item->user->namatempat }}</h5>
                     </a>
                     <h6>{{ $item->user->alamat }} - <span>{{ $item->lapangan->count() }} Lapangan</span></h6>
