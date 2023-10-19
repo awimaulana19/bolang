@@ -18,7 +18,7 @@ class SuperSeeder extends Seeder
         DB::table('users')->insert([
             'username' => 'super',
             'nama' => 'Super Admin',
-            'password' => bcrypt('bolang123'),
+            'password' => bcrypt('super'),
             'roles' => 'super',
             'whatsapp' => '082397032649',
             'email' => 'bolang.startup@gmail.com',
