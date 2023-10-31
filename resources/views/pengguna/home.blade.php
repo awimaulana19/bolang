@@ -77,7 +77,7 @@
         <div class="container">
             <div class="row baris-temp">
                 <div class="col-lg-5 col-md-12 kata">
-                    <h1>Booking Sekarang</h1>
+                    <h1>Booking <br> Sekarang</h1>
                     <p>Bolang adalah sebuah aplikasi yang membantu pengguna dalam mencari dan memesan
                         lapangan olahraga sesuai dengan
                         kebutuhan mereka. Dalam Bolang, pengguna dapat menemukan berbagai jenis lapangan olahraga, mulai
