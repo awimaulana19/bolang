@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Jadwal;
+use GuzzleHttp\Client;
 use App\Models\Lapangan;
 use App\Models\Olahraga;
 use App\Models\Transaksi;
@@ -113,76 +114,28 @@ class PenggunaController extends Controller
             $message->subject('Pemberitahuan Transaksi');
         });
 
-        $wa = "082397032649";
         $nama_pelanggan = $transaksi->nama_pelanggan;
+        $wa = "082397032649";
 
-        $isi_pesan = "Ada Transaksi Dari " . $nama_pelanggan .
-            " Dengan Jumlah Bayar, Jadwal, Di Lapangan, Tempat";
+        $message = "Ada Transaksi Dari " . $nama_pelanggan . " Dengan Rincian\n\nJumlah Bayar : " . $transaksi->total . "\nTanggal : " . $transaksi->jadwal->tanggal . "\nJam : " . $transaksi->jadwal->jam . "\nJenis Olahraga : " . $transaksi->olahraga->jenis . "\nLapangan : " . $transaksi->lapangan->nama_lapangan . "\nTempat : " . $transaksi->user->namatempat;
 
-        $api_key   = '469d065c8788ab986e8486312fe68b8f9d21155b'; // API KEY Anda
-        $id_device = '2077'; // ID DEVICE yang di SCAN (Sebagai pengirim)
-        $url   = 'https://api.watsap.id/send-message'; // URL API
-        $no_hp = $wa; // No.HP yang dikirim (No.HP Penerima)
-        $pesan = $isi_pesan; // Pesan yang dikirim
+        $client = new Client();
+        $url = "http://35.219.124.82:8080/message";
 
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HEADER, 0);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($curl, CURLOPT_MAXREDIRS, 10);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 0); // batas waktu response
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($curl, CURLOPT_POST, 1);
-
-        $data_post = [
-            'id_device' => $id_device,
-            'api-key' => $api_key,
-            'no_hp'   => $no_hp,
-            'pesan'   => $pesan
+        $body = [
+            'phoneNumber' => $wa,
+            'message' => $message,
         ];
 
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data_post));
-        curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-        $response = curl_exec($curl);
-        curl_close($curl);
+        $client->request('POST', $url, [
+            'form_params' => $body,
+            'verify'  => false,
+        ]);
 
-        $testing = json_decode($response, true);
-
-        // dd($data_post, $testing);
-
-        if ($testing['kode'] == 200) {
-            return redirect('/transaksi')->with([
-                'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses'
-            ]);
-        } else if ($testing['kode'] == 402) {
-            return redirect('/transaksi')->with([
-                'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses. Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
-            ]);
-        } else if ($testing['kode'] == 403) {
-            return redirect('/transaksi')->with([
-                'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
-            ]);
-        } else if ($testing['kode'] == 500) {
-            return redirect('/transaksi')->with([
-                'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
-            ]);
-        } else if ($testing['kode'] == 300) {
-            return redirect('/transaksi')->with([
-                'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
-            ]);
-        } else {
-            return redirect('/transaksi')->with([
-                'berhasil' => 'Konfirmasi Berhasil',
-                'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
-            ]);
-        }
+        return redirect('/transaksi')->with([
+            'berhasil' => 'Konfirmasi Berhasil',
+            'infoberhasil' => 'Harap Menunggu, Transaksi Sedang Di Proses Silahkan Lakukan Konfirmasi Ulang Jika Memakan Banyak Waktu'
+        ]);
     }
 
     public function transaksi()
