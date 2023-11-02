@@ -55,8 +55,9 @@
                                     </div>
                                     <div class="col-md-9 form-group mt-2">
                                         <fieldset class="form-group">
-                                            <select class="form-select" name="jammulai" id="basicSelect1">
+                                            <select class="form-select" name="jammulai" id="jammulai">
                                                 <option selected>Pilih Jam Mulai</option>
+                                                <option value="semua_jam">Semua Jam</option>
                                                 <option value="00:00">00:00</option>
                                                 <option value="01:00">01:00</option>
                                                 <option value="02:00">02:00</option>
@@ -89,7 +90,7 @@
                                     </div>
                                     <div class="col-md-9 form-group">
                                         <fieldset class="form-group">
-                                            <select class="form-select" name="jamhabis" id="basicSelect2">
+                                            <select class="form-select" name="jamhabis" id="jamhabis">
                                                 <option selected>Pilih Jam Habis</option>
                                                 <option value="00:00">00:00</option>
                                                 <option value="01:00">01:00</option>
@@ -173,5 +174,17 @@
                 console.error(error);
             }
         }
+
+        var jammulaiSelect = document.getElementById("jammulai");
+        var jamhabisSelect = document.getElementById("jamhabis");
+
+        jammulaiSelect.addEventListener("change", function() {
+            if (jammulaiSelect.value === "semua_jam") {
+                jamhabisSelect.disabled = true;
+            } else {
+                jamhabisSelect.disabled = false;
+                jamhabisSelect.value = "Pilih Jam Habis";
+            }
+        });
     </script>
 @endsection

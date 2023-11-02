@@ -81,6 +81,7 @@ Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
         Route::get('/jadwal/edit/{id}', [JadwalController::class, 'edit']);
         Route::post('/jadwal/edit/{id}', [JadwalController::class, 'update']);
         Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
+        Route::get('/jadwal/booked/{id}', [JadwalController::class, 'booked']);
         Route::get('/transaksi', [TransaksiController::class, 'index']);
         Route::get('/transaksi/lihat/{id}', [TransaksiController::class, 'lihat']);
     });
@@ -120,6 +121,7 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         Route::get('/jadwal/edit/{id}', [JadwalController::class, 'editSuper']);
         Route::post('/jadwal/edit/{id}', [JadwalController::class, 'updateSuper']);
         Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
+        Route::get('/jadwal/booked/{id}', [JadwalController::class, 'booked']);
         Route::get('/transaksi', [TransaksiController::class, 'index']);
         Route::get('/transaksi/konfigurasi', [TransaksiController::class, 'konfigurasi']);
         Route::post('/transaksi/konfigurasi/{id}', [TransaksiController::class, 'updateKonfigurasi']);

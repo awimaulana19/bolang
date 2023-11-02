@@ -76,7 +76,12 @@ class PenggunaController extends Controller
         $lapangan = Lapangan::where('id', $id)->first();
         $user = User::where('id', $lapangan->user_id)->first();
         $olahraga = Olahraga::where('id', $lapangan->olahraga_id)->first();
-        $jadwal = Jadwal::where('lapangan_id', $lapangan->id)->get();
+        $jadwal = Jadwal::where('lapangan_id', $lapangan->id)
+            ->orderByRaw("CASE 
+        WHEN SUBSTRING_INDEX(jam, ' - ', 1) = '00:00' THEN 1
+        ELSE 0
+        END, jam")
+            ->get();
 
         return response()->json([
             "success" => true,

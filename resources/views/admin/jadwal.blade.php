@@ -45,6 +45,15 @@
                                 <td>{{ $item->jam }}</td>
                                 <td>
                                     <div class="d-flex">
+                                        @if ($item->status === 0)
+                                            <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jadwal/booked/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jadwal/booked/' . $item->id) }} @endif"
+                                                class="btn btn-primary btn-sm icon icon-left rounded-3 me-1"><i
+                                                    class="fa fa-check me-sm-1"></i>Booking</a>
+                                        @elseif ($item->status === 1)
+                                            <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jadwal/booked/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jadwal/booked/' . $item->id) }} @endif"
+                                                class="btn btn-warning btn-sm icon icon-left rounded-3 me-1"><i
+                                                    class="fa fa-check me-sm-1"></i>Batal</a>
+                                        @endif
                                         <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jadwal/edit/' . $item->id) }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jadwal/edit/' . $item->id) }} @endif"
                                             class="btn btn-info btn-sm icon icon-left me-1 rounded-3"><i
                                                 class="far fa-edit me-sm-1"></i>Edit</a>

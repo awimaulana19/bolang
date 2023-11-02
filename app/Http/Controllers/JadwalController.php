@@ -26,7 +26,7 @@ class JadwalController extends Controller
 
     public function tambah()
     {
-        $user = Auth::user()->id; 
+        $user = Auth::user()->id;
         $olahraga = Olahraga::where('user_id', $user)->get();
         return view('admin.jadwal.tambah', compact('olahraga'));
     }
@@ -39,7 +39,7 @@ class JadwalController extends Controller
 
     public function edit($id)
     {
-        $user = Auth::user()->id; 
+        $user = Auth::user()->id;
         $olahraga = Olahraga::where('user_id', $user)->get();
         $jadwal = Jadwal::where('id', $id)->first();
         $lapangan = Lapangan::where('olahraga_id', $jadwal->olahraga_id)->get();
@@ -68,11 +68,53 @@ class JadwalController extends Controller
         setlocale(LC_TIME, 'id_ID');
         Carbon::setLocale('id');
 
+        if ($request->jammulai == "semua_jam") {
+            for ($i = 0; $i < 24; $i++) {
+                $start = sprintf("%02d:00", $i);
+                $end = sprintf("%02d:00", ($i + 1) % 24);
+
+                $schedule = [
+                    'user_id' => Auth::user()->id,
+                    'olahraga_id' => $request->olahraga_id,
+                    'lapangan_id' => $request->lapangan_id,
+                    'tanggal' => Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y'),
+                    'jam' => $start . ' - ' . $end,
+                    'harga' => $request->harga,
+                    'dp' => $request->dp,
+                    'status' => false
+                ];
+
+                $existingSchedule = Jadwal::where('user_id', $schedule['user_id'])
+                    ->where('olahraga_id', $schedule['olahraga_id'])
+                    ->where('lapangan_id', $schedule['lapangan_id'])
+                    ->where('tanggal', $schedule['tanggal'])
+                    ->where('jam', $schedule['jam'])
+                    ->first();
+
+                if (!$existingSchedule) {
+                    $jadwal = new Jadwal();
+
+                    $jadwal->user_id = $schedule['user_id'];
+                    $jadwal->olahraga_id = $schedule['olahraga_id'];
+                    $jadwal->lapangan_id = $schedule['lapangan_id'];
+                    $jadwal->tanggal = $schedule['tanggal'];
+                    $jadwal->jam = $schedule['jam'];
+                    $jadwal->harga = $schedule['harga'];
+                    $jadwal->dp = $schedule['dp'];
+                    $jadwal->status = $schedule['status'];
+                    $jadwal->save();
+                }
+            }
+
+            return redirect('admin/jadwal');
+        } else {
+            $jam = $request->jammulai . " - " . $request->jamhabis;
+        }
+
         $user_id = Auth::user()->id;
         $olahraga_id = $request->olahraga_id;
         $lapangan_id = $request->lapangan_id;
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
-        $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
         $dp = $request->dp;
 
@@ -97,7 +139,7 @@ class JadwalController extends Controller
             $jadwal->save();
 
             return redirect('admin/jadwal');
-        }else{
+        } else {
             return redirect('admin/jadwal')->with([
                 'gagal' => 'Gagal',
                 'infogagal' => 'Jadwal Sudah Ada'
@@ -110,11 +152,53 @@ class JadwalController extends Controller
         setlocale(LC_TIME, 'id_ID');
         Carbon::setLocale('id');
 
+        if ($request->jammulai == "semua_jam") {
+            for ($i = 0; $i < 24; $i++) {
+                $start = sprintf("%02d:00", $i);
+                $end = sprintf("%02d:00", ($i + 1) % 24);
+
+                $schedule = [
+                    'user_id' => $request->user_id,
+                    'olahraga_id' => $request->olahraga_id,
+                    'lapangan_id' => $request->lapangan_id,
+                    'tanggal' => Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y'),
+                    'jam' => $start . ' - ' . $end,
+                    'harga' => $request->harga,
+                    'dp' => $request->dp,
+                    'status' => false
+                ];
+
+                $existingSchedule = Jadwal::where('user_id', $schedule['user_id'])
+                    ->where('olahraga_id', $schedule['olahraga_id'])
+                    ->where('lapangan_id', $schedule['lapangan_id'])
+                    ->where('tanggal', $schedule['tanggal'])
+                    ->where('jam', $schedule['jam'])
+                    ->first();
+
+                if (!$existingSchedule) {
+                    $jadwal = new Jadwal();
+
+                    $jadwal->user_id = $schedule['user_id'];
+                    $jadwal->olahraga_id = $schedule['olahraga_id'];
+                    $jadwal->lapangan_id = $schedule['lapangan_id'];
+                    $jadwal->tanggal = $schedule['tanggal'];
+                    $jadwal->jam = $schedule['jam'];
+                    $jadwal->harga = $schedule['harga'];
+                    $jadwal->dp = $schedule['dp'];
+                    $jadwal->status = $schedule['status'];
+                    $jadwal->save();
+                }
+            }
+
+            return redirect('super/jadwal');
+        } else {
+            $jam = $request->jammulai . " - " . $request->jamhabis;
+        }
+
         $user_id = $request->user_id;
         $olahraga_id = $request->olahraga_id;
         $lapangan_id = $request->lapangan_id;
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
-        $jam = $request->jammulai. " - " .$request->jamhabis;
         $harga = $request->harga;
         $dp = $request->dp;
 
@@ -139,7 +223,7 @@ class JadwalController extends Controller
             $jadwal->save();
 
             return redirect('super/jadwal');
-        }else{
+        } else {
             return redirect('super/jadwal')->with([
                 'gagal' => 'Gagal',
                 'infogagal' => 'Jadwal Sudah Ada'
@@ -155,7 +239,7 @@ class JadwalController extends Controller
         $olahraga_id = $request->olahraga_id;
         $lapangan_id = $request->lapangan_id;
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
-        $jam = $request->jammulai. " - " .$request->jamhabis;
+        $jam = $request->jammulai . " - " . $request->jamhabis;
         $harga = $request->harga;
         $dp = $request->dp;
 
@@ -181,7 +265,7 @@ class JadwalController extends Controller
         $olahraga_id = $request->olahraga_id;
         $lapangan_id = $request->lapangan_id;
         $tanggal = Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y');
-        $jam = $request->jammulai. " - " .$request->jamhabis;
+        $jam = $request->jammulai . " - " . $request->jamhabis;
         $harga = $request->harga;
         $dp = $request->dp;
 
@@ -204,6 +288,20 @@ class JadwalController extends Controller
         $jadwal = Jadwal::where('id', $id)->first();
 
         $jadwal->delete();
+
+        if (Auth::user()->roles == 'admin') {
+            return redirect('admin/jadwal');
+        } elseif (Auth::user()->roles == 'super') {
+            return redirect('super/jadwal');
+        }
+    }
+
+    public function booked($id)
+    {
+        $jadwal = Jadwal::where('id', $id)->first();
+
+        $jadwal->status = !$jadwal->status;
+        $jadwal->update();
 
         if (Auth::user()->roles == 'admin') {
             return redirect('admin/jadwal');

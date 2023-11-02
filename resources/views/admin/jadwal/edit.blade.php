@@ -236,7 +236,7 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">Rp. </span>
                                             <input type="number" name="dp" class="form-control"
-                                                placeholder="Harga DP" aria-label="dp" aria-describedby="basic-addon1" value="{{ $jadwal->dp }}>
+                                                placeholder="Harga DP" aria-label="dp" aria-describedby="basic-addon1" value="{{ $jadwal->dp }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">
