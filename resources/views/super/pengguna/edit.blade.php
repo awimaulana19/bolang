@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb-3">
                                         <label class="mb-1">Tanggal Lahir</label>
-                                        <input type="text" class="form-control" value="{{ $user->lokasi }}" disabled>
+                                        <input type="text" class="form-control" value="{{ $user->tanggal_lahir }}-{{ $user->bulan_lahir }}-{{ $user->tahun_lahir }}" disabled>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label class="mb-1">Foto</label>
