@@ -97,6 +97,10 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         Route::get('/user/edit/{id}', [AuthController::class, 'edit']);
         Route::post('/user/edit/{id}', [AuthController::class, 'update']);
         Route::get('/user/delete/{id}', [AuthController::class, 'delete']);
+        Route::get('/pengguna', [AuthController::class, 'pengguna']);
+        Route::get('/pengguna/edit/{id}', [AuthController::class, 'pengguna_edit']);
+        Route::post('/pengguna/edit/{id}', [AuthController::class, 'pengguna_update']);
+        Route::get('/pengguna/delete/{id}', [AuthController::class, 'pengguna_delete']);
         Route::get('/jenis', [OlahragaController::class, 'index']);
         Route::get('/jenis/rekomendasi/{id}', [OlahragaController::class, 'rekomendasiSuper']);
         Route::get('/jenis/batalrekomendasi/{id}', [OlahragaController::class, 'batalRekomendasiSuper']);

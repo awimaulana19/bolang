@@ -223,6 +223,43 @@ class AuthController extends Controller
         return redirect('super/user');
     }
 
+    public function pengguna()
+    {
+        $user = User::where('roles', 'pengguna')->get();
+        return view('super.pengguna', compact('user'));
+    }
+
+    public function pengguna_edit($id)
+    {
+        $user = User::where('id', $id)->first();
+        return view('super.pengguna.edit', compact('user'));
+    }
+
+    public function pengguna_update(Request $request, $id)
+    {
+        $user = User::where('id', $id)->first();
+
+        $user->username = $request->username;
+        $user->email = $request->email;
+
+        $user->update();
+
+        return redirect('super/pengguna');
+    }
+
+    public function pengguna_delete($id)
+    {
+        $user = User::where('id', $id)->first();
+        
+        if ($user->foto) {
+            Storage::delete($user->foto);
+        }
+
+        $user->delete();
+
+        return redirect('super/pengguna');
+    }
+
     public function showForgetPasswordForm()
     {
         return view('pengguna.forgetPassword');

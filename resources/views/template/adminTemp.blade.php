@@ -56,6 +56,12 @@
                                     <span>Admin Lapangan</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item {{ request()->is('super/pengguna*') ? 'active' : '' }}">
+                                <a href="/super/pengguna" class='sidebar-link'>
+                                    <i class="fas fa-user"></i>
+                                    <span>Pengguna Bolang</span>
+                                </a>
+                            </li>
                         @endif
 
                         {{-- <li class="sidebar-item  has-sub">
