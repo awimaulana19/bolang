@@ -20,6 +20,7 @@
                             <th>Username</th>
                             <th>Email</th>
                             <th>Status Verifikasi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
