@@ -125,7 +125,7 @@ class PenggunaController extends Controller
         $message = "Ada Transaksi Dari " . $nama_pelanggan . " Dengan Rincian\n\nJumlah Bayar : " . $transaksi->total . "\nTanggal : " . $transaksi->jadwal->tanggal . "\nJam : " . $transaksi->jadwal->jam . "\nJenis Olahraga : " . $transaksi->olahraga->jenis . "\nLapangan : " . $transaksi->lapangan->nama_lapangan . "\nTempat : " . $transaksi->user->namatempat;
 
         $client = new Client();
-        $url = "http://35.219.124.82:8080/message";
+        $url = "http://8.215.24.202/message";
 
         $body = [
             'phoneNumber' => $wa,
