@@ -183,8 +183,8 @@ class JadwalController extends Controller
         Carbon::setLocale('id');
 
         if ($request->jammulai == "semua_jam") {
-            $startDate = Carbon::create('2023-10-01')->startOfMonth();
-            $endDate = Carbon::create('2024-06-01')->endOfMonth();
+            $startDate = Carbon::create('2023-11-01')->startOfMonth();
+            $endDate = Carbon::create('2024-04-01')->endOfMonth();
 
             for ($currentDate = $startDate; $currentDate->lte($endDate); $currentDate->addDay()) {
                 for ($i = 8; $i < 22; $i++) {
