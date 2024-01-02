@@ -12,14 +12,19 @@
     <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/pages/simple-datatables.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
     <section class="section mt-3">
         <div class="card">
             <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
                 <div class="card-header">Data Jadwal</div>
-                <a href="jadwal/tambah" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah
+                <a href="@if (auth()->user()->roles == 'admin') {{ url('/admin/jadwal/tambah') }} @elseif(auth()->user()->roles == 'super') {{ url('/super/jadwal/tambah') }} @endif" class="btn btn-primary mt-lg-4 me-lg-5 me-4 mt-3" style="height:40px;">Tambah
                     Data</a>
             </div>
             <div class="card-body">
+                <div class="d-flex">
+                    <input type="text" id="search" placeholder="Search"
+                        style="border: rgb(51, 51, 51) solid 0.5px; padding:7px; border-radius:5px;">
+                </div>
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
@@ -67,12 +72,40 @@
                         @endforeach
                     </tbody>
                 </table>
+                @if ($jadwal->hasPages())
+                    <div class="mb-3" style="background: white; padding: 20px;">
+                        {{ $jadwal->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#search').on('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    var searchValue = $(this).val();
+                    @if (auth()->user()->roles == 'super')
+                        var searchURL = "/super/jadwal/" + searchValue;
+                    @else
+                        var searchURL = "/admin/jadwal/" + searchValue;
+                    @endif
+                    window.location.href = searchURL;
+                }
+            });
+        });
+    </script>
+
     <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/simple-datatables.js') }}"></script>
+    <script>
+        let dataTable = new simpleDatatables.DataTable(document.getElementById("table1"), {
+            paging: false,
+            searchable: false
+        });
+    </script>
 
     <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>
     @if (session('gagal'))

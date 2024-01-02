@@ -17,10 +17,40 @@ class JadwalController extends Controller
     {
         if (Auth::user()->roles == 'admin') {
             $user = Auth::user()->id;
-            $jadwal = Jadwal::where('user_id', $user)->get();
+            $jadwal = Jadwal::where('user_id', $user)->paginate(30);
         } elseif (Auth::user()->roles == 'super') {
-            $jadwal = Jadwal::get();
+            $jadwal = Jadwal::paginate(30);
         }
+        return view('admin.jadwal', compact('jadwal'));
+    }
+
+    public function search($search)
+    {
+        $query = Jadwal::query();
+
+        if ($search) {
+            $query->where(function ($query) use ($search) {
+                $query->where('tanggal', 'like', '%' . $search . '%')
+                    ->orWhere('jam', 'like', '%' . $search . '%')
+                    ->orWhereHas('user', function ($userQuery) use ($search) {
+                        $userQuery->where('namatempat', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('olahraga', function ($olahragaQuery) use ($search) {
+                        $olahragaQuery->where('jenis', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('lapangan', function ($lapanganQuery) use ($search) {
+                        $lapanganQuery->where('nama_lapangan', 'like', '%' . $search . '%');
+                    });
+            });
+        }
+
+        if (Auth::user()->roles == 'admin') {
+            $user = Auth::user()->id;
+            $jadwal = $query->where('user_id', $user)->paginate(30);
+        } else {
+            $jadwal = $query->paginate(30);
+        }
+
         return view('admin.jadwal', compact('jadwal'));
     }
 

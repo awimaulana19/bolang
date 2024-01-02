@@ -37,7 +37,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/admin', [AuthController::class, 'login'])->name('loginAdmin');
     Route::post('/admin', [AuthController::class, 'login_action']);
     Route::get('forget-password', [AuthController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-    Route::post('forget-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::post('forget-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
     Route::get('reset-password/{token}', [AuthController::class, 'showResetPasswordForm'])->name('reset.password.get');
     Route::post('reset-password', [AuthController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 });
@@ -82,6 +82,7 @@ Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
         Route::post('/jadwal/edit/{id}', [JadwalController::class, 'update']);
         Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
         Route::get('/jadwal/booked/{id}', [JadwalController::class, 'booked']);
+        Route::get('/jadwal/{search}', [JadwalController::class, 'search']);
         Route::get('/transaksi', [TransaksiController::class, 'index']);
         Route::get('/transaksi/lihat/{id}', [TransaksiController::class, 'lihat']);
     });
@@ -126,6 +127,7 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
         Route::post('/jadwal/edit/{id}', [JadwalController::class, 'updateSuper']);
         Route::get('/jadwal/delete/{id}', [JadwalController::class, 'delete']);
         Route::get('/jadwal/booked/{id}', [JadwalController::class, 'booked']);
+        Route::get('/jadwal/{search}', [JadwalController::class, 'search']);
         Route::get('/transaksi', [TransaksiController::class, 'index']);
         Route::get('/transaksi/konfigurasi', [TransaksiController::class, 'konfigurasi']);
         Route::post('/transaksi/konfigurasi/{id}', [TransaksiController::class, 'updateKonfigurasi']);
@@ -137,17 +139,17 @@ Route::group(['middleware' => ['auth', 'OnlySuper']], function () {
 
 Route::get('/lapanganlist', function (Request $request) {
     $olahraga = $request->input('olahraga');
-  
+
     $lapangan = Lapangan::where('olahraga_id', '=', $olahraga)->get();
-  
+
     return response()->json($lapangan);
   });
 
 Route::get('/olahragalist', function (Request $request) {
     $user = $request->input('user');
-  
+
     $olahraga = Olahraga::where('user_id', '=', $user)->get();
-  
+
     return response()->json($olahraga);
   });
 
@@ -158,13 +160,13 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
- 
+
     return redirect('/');
 })->middleware(['auth', 'OnlyPengguna', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
- 
+
     return back()->with('message', 'Email Verifikasi Telah Dikirim!');
 })->middleware(['auth', 'OnlyPengguna', 'throttle:6,1'])->name('verification.send');
 
