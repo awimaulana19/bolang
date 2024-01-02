@@ -183,45 +183,40 @@ class JadwalController extends Controller
         Carbon::setLocale('id');
 
         if ($request->jammulai == "semua_jam") {
-            $startDate = Carbon::create('2023-11-01')->startOfMonth();
-            $endDate = Carbon::create('2024-04-01')->endOfMonth();
+            for ($i = 8; $i < 22; $i++) {
+                $start = sprintf("%02d:00", $i);
+                $end = sprintf("%02d:00", ($i + 1) % 24);
 
-            for ($currentDate = $startDate; $currentDate->lte($endDate); $currentDate->addDay()) {
-                for ($i = 8; $i < 22; $i++) {
-                    $start = sprintf("%02d:00", $i);
-                    $end = sprintf("%02d:00", ($i + 1) % 24);
+                $schedule = [
+                    'user_id' => $request->user_id,
+                    'olahraga_id' => $request->olahraga_id,
+                    'lapangan_id' => $request->lapangan_id,
+                    'tanggal' => Carbon::create($request->tanggal)->locale('id')->isoFormat('D MMMM Y'),
+                    'jam' => $start . ' - ' . $end,
+                    'harga' => $request->harga,
+                    'dp' => $request->dp,
+                    'status' => false
+                ];
 
-                    $schedule = [
-                        'user_id' => $request->user_id,
-                        'olahraga_id' => $request->olahraga_id,
-                        'lapangan_id' => $request->lapangan_id,
-                        'tanggal' => $currentDate->locale('id')->isoFormat('D MMMM Y'),
-                        'jam' => $start . ' - ' . $end,
-                        'harga' => $request->harga,
-                        'dp' => $request->dp,
-                        'status' => false
-                    ];
+                $existingSchedule = Jadwal::where('user_id', $schedule['user_id'])
+                    ->where('olahraga_id', $schedule['olahraga_id'])
+                    ->where('lapangan_id', $schedule['lapangan_id'])
+                    ->where('tanggal', $schedule['tanggal'])
+                    ->where('jam', $schedule['jam'])
+                    ->first();
 
-                    $existingSchedule = Jadwal::where('user_id', $schedule['user_id'])
-                        ->where('olahraga_id', $schedule['olahraga_id'])
-                        ->where('lapangan_id', $schedule['lapangan_id'])
-                        ->where('tanggal', $schedule['tanggal'])
-                        ->where('jam', $schedule['jam'])
-                        ->first();
+                if (!$existingSchedule) {
+                    $jadwal = new Jadwal();
 
-                    if (!$existingSchedule) {
-                        $jadwal = new Jadwal();
-
-                        $jadwal->user_id = $schedule['user_id'];
-                        $jadwal->olahraga_id = $schedule['olahraga_id'];
-                        $jadwal->lapangan_id = $schedule['lapangan_id'];
-                        $jadwal->tanggal = $schedule['tanggal'];
-                        $jadwal->jam = $schedule['jam'];
-                        $jadwal->harga = $schedule['harga'];
-                        $jadwal->dp = $schedule['dp'];
-                        $jadwal->status = $schedule['status'];
-                        $jadwal->save();
-                    }
+                    $jadwal->user_id = $schedule['user_id'];
+                    $jadwal->olahraga_id = $schedule['olahraga_id'];
+                    $jadwal->lapangan_id = $schedule['lapangan_id'];
+                    $jadwal->tanggal = $schedule['tanggal'];
+                    $jadwal->jam = $schedule['jam'];
+                    $jadwal->harga = $schedule['harga'];
+                    $jadwal->dp = $schedule['dp'];
+                    $jadwal->status = $schedule['status'];
+                    $jadwal->save();
                 }
             }
 
