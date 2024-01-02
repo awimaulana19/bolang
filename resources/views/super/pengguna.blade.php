@@ -19,7 +19,6 @@
                             <th>Nama Pengguna</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Status Verifikasi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,11 +28,6 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->email }}</td>
-                                @if ($item->email_verified_at)
-                                    <td>Terverifikasi</td>
-                                @else
-                                    <td>Belum Verifikasi</td>
-                                @endif
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{ '/super/pengguna/edit/' . $item->id }}"

@@ -9,6 +9,7 @@ use App\Models\Jadwal;
 use App\Models\Lapangan;
 use App\Models\Olahraga;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class JadwalController extends Controller
@@ -17,9 +18,9 @@ class JadwalController extends Controller
     {
         if (Auth::user()->roles == 'admin') {
             $user = Auth::user()->id;
-            $jadwal = Jadwal::where('user_id', $user)->paginate(30);
+            $jadwal = Jadwal::where('user_id', $user)->orderBy(DB::raw("STR_TO_DATE(tanggal, '%d %M %Y')"), 'desc')->paginate(30);
         } elseif (Auth::user()->roles == 'super') {
-            $jadwal = Jadwal::paginate(30);
+            $jadwal = Jadwal::orderBy(DB::raw("STR_TO_DATE(tanggal, '%d %M %Y')"), 'desc')->paginate(30);
         }
         return view('admin.jadwal', compact('jadwal'));
     }
@@ -46,9 +47,9 @@ class JadwalController extends Controller
 
         if (Auth::user()->roles == 'admin') {
             $user = Auth::user()->id;
-            $jadwal = $query->where('user_id', $user)->paginate(30);
+            $jadwal = $query->where('user_id', $user)->orderBy(DB::raw("STR_TO_DATE(tanggal, '%d %M %Y')"), 'desc')->paginate(30);
         } else {
-            $jadwal = $query->paginate(30);
+            $jadwal = $query->orderBy(DB::raw("STR_TO_DATE(tanggal, '%d %M %Y')"), 'desc')->paginate(30);
         }
 
         return view('admin.jadwal', compact('jadwal'));
