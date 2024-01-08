@@ -77,7 +77,7 @@ class PenggunaController extends Controller
         $user = User::where('id', $lapangan->user_id)->first();
         $olahraga = Olahraga::where('id', $lapangan->olahraga_id)->first();
         $jadwal = Jadwal::where('lapangan_id', $lapangan->id)
-            ->orderByRaw("CASE 
+            ->orderByRaw("CASE
         WHEN SUBSTRING_INDEX(jam, ' - ', 1) = '00:00' THEN 1
         ELSE 0
         END, jam")
@@ -125,7 +125,7 @@ class PenggunaController extends Controller
         $message = "Ada Transaksi Dari " . $nama_pelanggan . " Dengan Rincian\n\nJumlah Bayar : " . $transaksi->total . "\nTanggal : " . $transaksi->jadwal->tanggal . "\nJam : " . $transaksi->jadwal->jam . "\nJenis Olahraga : " . $transaksi->olahraga->jenis . "\nLapangan : " . $transaksi->lapangan->nama_lapangan . "\nTempat : " . $transaksi->user->namatempat;
 
         $client = new Client();
-        $url = "http://8.215.24.202/message";
+        $url = "http://8.215.24.202:8080/message";
 
         $body = [
             'phoneNumber' => $wa,
